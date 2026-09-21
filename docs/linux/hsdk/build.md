@@ -36,7 +36,7 @@ cd buildroot
 Configure Buildroot to use a default configuration for ARC HSDK and start building:
 
 ```shell
-make arc_archs38_hsdk_defconfig
+make gf_archs38_hsdk_defconfig
 make -j 1
 ```
 
@@ -70,7 +70,7 @@ the default configuration first. Configure Buildroot to use a default configurat
 go to the configuration menu:
 
 ```shell
-make arc_archs38_hsdk_defconfig
+make gf_archs38_hsdk_defconfig
 make menuconfig
 ```
 

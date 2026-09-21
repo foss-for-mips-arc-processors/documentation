@@ -3,7 +3,7 @@
 ## Overview
 
 Experimental support of [Picolibc](https://github.com/picolibc/picolibc) for
-ARC Classic targets is introduced in `arc-2026.03` release of GNU
+ARC Classic targets is introduced in `arc-2026.09` release of GNU
 toolchains for ARC processors.
 
 Below you can find a series of examples of using it for building and

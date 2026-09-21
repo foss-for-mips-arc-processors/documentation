@@ -36,7 +36,7 @@ $ sudo apt install \
 Download OpenOCD sources and checkout the latest release:
 
 ```shell
-$ git clone -b arc-2026.03 https://github.com/foss-for-mips-arc-processors/openocd
+$ git clone -b arc-2026.09 https://github.com/foss-for-mips-arc-processors/openocd
 $ cd openocd
 ```
 
