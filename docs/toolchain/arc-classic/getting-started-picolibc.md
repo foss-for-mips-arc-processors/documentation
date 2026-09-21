@@ -29,7 +29,7 @@ int main()
 Build the application with GNU nSIM interface for input/output and run it:
 
 ```
-$ arc-snps-elf-gcc \
+$ arc-gf-elf-gcc \
     -mcpu=archs \
     -specs=picolibc.specs \
     --crt0=semihost \
@@ -43,7 +43,7 @@ Hello, World!
 Build the application with Hostlink nSIM interface for input/output and run it:
 
 ```
-$ arc-snps-elf-gcc \
+$ arc-gf-elf-gcc \
     -mcpu=archs \
     -specs=picolibc.specs \
     --crt0=hl \
@@ -57,7 +57,7 @@ Hello, World!
 Build with a size-optimized version of Picolibc:
 
 ```
-$ arc-snps-elf-gcc \
+$ arc-gf-elf-gcc \
     -mcpu=archs \
     -specs=picolibc.specs \
     --crt0=semihost \
@@ -69,7 +69,7 @@ $ arc-snps-elf-gcc \
 Build with custom memory layout, heap size and stack size:
 
 ```
-$ arc-snps-elf-gcc \
+$ arc-gf-elf-gcc \
     -mcpu=archs \
     -specs=picolibc.specs \
     --crt0=semihost \
@@ -100,7 +100,7 @@ int main()
 For compiling C++ applications use `-specs=picolibcpp.specs`:
 
 ```
-$ arc-snps-elf-g++ \
+$ arc-gf-elf-g++ \
     -mcpu=archs \
     -specs=picolibcpp.specs \
     --crt0=semihost \
@@ -118,7 +118,7 @@ Hello, World!
 Build for [ARC HS Development Kit](../../platforms/board-hsdk.md):
 
 ```
-$ arc-snps-elf-gcc \
+$ arc-gf-elf-gcc \
     -mcpu=hs38_linux \
     -specs=picolibc.specs \
     -specs=hsdk.specs \
@@ -130,7 +130,7 @@ $ arc-snps-elf-gcc \
 Build for [ARC EM Software Development Platform 1.0 and 1.1](../../platforms/board-emsdp.md):
 
 ```
-$ arc-snps-elf-gcc \
+$ arc-gf-elf-gcc \
     -mcpu=em4_fpuda \
     -mmpy-option=6 \
     -mfpu=fpuda_all \
@@ -144,7 +144,7 @@ $ arc-snps-elf-gcc \
 Build for [ARC EM Software Development Platform 1.2](../../platforms/board-emsdp.md):
 
 ```
-$ arc-snps-elf-gcc \
+$ arc-gf-elf-gcc \
     -mcpu=em4_fpuda \
     -mmpy-option=6 \
     -mfpu=fpuda_all \

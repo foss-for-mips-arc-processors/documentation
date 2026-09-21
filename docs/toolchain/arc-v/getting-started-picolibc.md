@@ -30,7 +30,7 @@ If I want to build it for the base RMX-100 target and link with
 a semihosting library, I would use this set of options:
 
 ```
-$ riscv64-snps-elf-gcc \
+$ riscv64-gf-elf-gcc \
         -march=rv32ic_zcb_zba_zbb_zbs \
         -mabi=ilp32 \
         -mtune=arc-v-rmx-100-series \
@@ -57,7 +57,7 @@ placement and size of code and data sections:
 Here is a full example with custom code and data sections:
 
 ```
-$ riscv64-snps-elf-gcc \
+$ riscv64-gf-elf-gcc \
         -march=rv32ic_zcb_zba_zbb_zbs \
         -mabi=ilp32 \
         -mtune=arc-v-rmx-100-series \
@@ -98,7 +98,7 @@ int main()
 For compiling C++ applications use `-specs=picolibcpp.specs`:
 
 ```
-$ riscv64-snps-elf-g++ \
+$ riscv64-gf-elf-g++ \
         -march=rv32ic_zcb_zba_zbb_zbs \
         -mabi=ilp32 \
         -mtune=arc-v-rmx-100-series \
@@ -119,7 +119,7 @@ Pass `-specs=nano.specs` option to link an application with a
 size optimized Picolibc variant:
 
 ```
-$ riscv64-snps-elf-gcc \
+$ riscv64-gf-elf-gcc \
         -march=rv32ic_zcb_zba_zbb_zbs \
         -mabi=ilp32 \
         -mtune=arc-v-rmx-100-series \
@@ -206,7 +206,7 @@ Suppose that the environment is configured for nSIM and `NSIM_HOME` variable is 
 Here is an example of using the TCF wrapper with `rmx100_dmips.tcf` configuration file:
 
 ```
-$ riscv64-snps-elf-tcf-gcc \
+$ riscv64-gf-elf-tcf-gcc \
         -tcf=$NSIM_HOME/etc/tcf/templates/rmx100_dmips.tcf \
         -tcf-with-memory-defines \
         -specs=picolibc.specs \

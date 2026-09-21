@@ -5,7 +5,7 @@
 Clone the Buildroot repository:
 
 ```shell
-git clone -b arc-2026.03 https://github.com/foss-for-mips-arc-processors/buildroot
+git clone -b arc-2026.09 https://github.com/foss-for-mips-arc-processors/buildroot
 cd buildroot
 ```
 
@@ -13,7 +13,7 @@ cd buildroot
 
 !!! info
 
-    By default, `snps_archs38_haps_defconfig` uses `haps_hs_smp`
+    By default, `gf_archs38_haps_defconfig` uses `haps_hs_smp`
     kernel configuration file. If you are going to run an image on nSIM with
     a single core then change it to `haps_hs` through `make menuconfig`
     (`Kernel` -> `Defconfig name` -> `haps_hs`).
@@ -24,23 +24,23 @@ configurations which may be found in `config` directory. Use `make list-defconfi
 to list all available configurations:
 
 ```text
-$ make list-defconfigs | grep snps
-  snps_arc32_defconfig                - Build for snps_arc32
-  snps_arc64_defconfig                - Build for snps_arc64
-  snps_arc700_axs101_defconfig        - Build for snps_arc700_axs101
-  snps_archs38_axs103_defconfig       - Build for snps_archs38_axs103
-  snps_archs38_haps_defconfig         - Build for snps_archs38_haps
-  snps_archs38_hsdk_defconfig         - Build for snps_archs38_hsdk
+$ make list-defconfigs | grep arc
+  gf_arc32_defconfig
+  gf_arc64_defconfig
+  gf_arc700_axs101_defconfig
+  gf_archs38_axs103_defconfig
+  gf_archs38_haps_defconfig
+  gf_archs38_hsdk_defconfig
 ```
 
 Here is a short description of each configuration:
 
-* `snps_arc32_defconfig` - A configuration for ARC HS5x on HAPS, nSIM or QEMU.
-* `snps_arc64_defconfig` - A configuration for ARC HS6x on HAPS, nSIM or QEMU.
-* `snps_arc700_axs101_defconfig` - A configuration for ARC 700 on AXS101 development board.
-* `snps_archs38_axs103_defconfig` - A configuration for ARC HS38 on AXS103 development board.
-* `snps_archs38_haps_defconfig` - A configuration for ARC HS3x/4x in ZeBU, HAPS, nSIM or QEMU.
-* `snps_archs38_hsdk_defconfig` - A configuration for ARC HS3x/4x on HSDK and HSDK 4xD development boards.
+* `gf_arc32_defconfig` - A configuration for ARC HS5x on HAPS, nSIM or QEMU.
+* `gf_arc64_defconfig` - A configuration for ARC HS6x on HAPS, nSIM or QEMU.
+* `gf_arc700_axs101_defconfig` - A configuration for ARC 700 on AXS101 development board.
+* `gf_archs38_axs103_defconfig` - A configuration for ARC HS38 on AXS103 development board.
+* `gf_archs38_haps_defconfig` - A configuration for ARC HS3x/4x in ZeBU, HAPS, nSIM or QEMU.
+* `gf_archs38_hsdk_defconfig` - A configuration for ARC HS3x/4x on HSDK and HSDK 4xD development boards.
 This configuration builds images for running Linux using U-Boot.
 
 ## Configuring Root Filesystem
@@ -48,7 +48,7 @@ This configuration builds images for running Linux using U-Boot.
 You can select a predefined configuration this way:
 
 ```shell
-make snps_archs38_haps_defconfig
+make gf_archs38_haps_defconfig
 ```
 
 You can manually tune filesystem's configuration this way:
@@ -78,7 +78,7 @@ in a filesystem image (`rootfs`).
 3. Download sources for a Linux kernel and build it using the toolchain.
 4. Link the Linux kernel against `rootfs` (`vmlinux`) or save it separately from `rootfs` (`bzImage` or `uImage`).
 Whether `rootfs` is linked against  Linux kernel or not depends on a particular configuration. For example,
-`snps_archs38_hsdk_defconfig` configuration doesn't link `rootfs` against Linux kernel.
+`gf_archs38_hsdk_defconfig` configuration doesn't link `rootfs` against Linux kernel.
 
 You can build images using `make`:
 
@@ -87,7 +87,7 @@ make
 ```
 
 By default, Buildroot builds everything in `output` directory. Images are placed in
-`output/images` directory. For `snps_archs38_haps_defconfig` configuration you will find
+`output/images` directory. For `gf_archs38_haps_defconfig` configuration you will find
 a couple of filesystem images (`rootfs.cpio` and `rootfs.tar`) and `vmlinux` - a kernel
 with the filesystem included:
 
@@ -96,7 +96,7 @@ $ ls output/images
 rootfs.cpio  rootfs.tar  vmlinux
 ```
 
-For example, for `snps_archs38_hsdk_defconfig` configuration you will find much more
+For example, for `gf_archs38_hsdk_defconfig` configuration you will find much more
 images (consider reading a guide about building Linux for HSDK for more details):
 
 ```text
@@ -120,11 +120,11 @@ for ARC HS38 target.
 Suppose, that a glibc-based toolchain for ARC HS38 is preinstalled in
 `/tools/toolchains/arc-linux-gnu`.
 
-Use `snps_archs38_haps_defconfig` configuration file for this example and enter
+Use `gf_archs38_haps_defconfig` configuration file for this example and enter
 a configuration menu of Buildroot:
 
 ```shell
-make snps_archs38_haps_defconfig
+make gf_archs38_haps_defconfig
 make menuconfig
 ```
 

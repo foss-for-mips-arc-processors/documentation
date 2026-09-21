@@ -138,7 +138,7 @@ Though it is as simple as:
 ```shell
 git clone https://github.com/foss-for-mips-arc-processors/crosstool-ng.git
 cd crosstool-ng
-git checkout arc-2026.03
+git checkout arc-2026.09
 ./bootstrap
 ./configure --enable-local
 make
@@ -169,33 +169,33 @@ via <https://github.com/foss-for-mips-arc-processors/toolchain/releases>).
 
 The following pre-defined configurations are available at the moment:
 
-1. `snps-arc-arc700-linux-uclibc` - Linux uClibc cross-toolchain for ARC700 processors for 64-bit Linux hosts
-1. `snps-arceb-arc700-linux-uclibc` - Linux uClibc cross-toolchain for ARC700 processors (big endian) for 64-bit Linux hosts
-1. `snps-arc-archs-linux-gnu` - Linux glibc cross-toolchain for ARC HS3x & HS4x processors for 64-bit Linux hosts
-1. `snps-arceb-archs-linux-gnu` - Linux glibc cross-toolchain for ARC HS3x & HS4x processors (big endian) for 64-bit Linux hosts
-1. `snps-arc-archs-linux-uclibc` - Linux uClibc cross-toolchain for ARC HS3x & HS4x processors for 64-bit Linux hosts
-1. `snps-arceb-archs-linux-uclibc` - Linux uClibc cross-toolchain for ARC HS3x & HS4x processors (big endian) for 64-bit Linux hosts
-1. `snps-arc-archs-native-gnu` - Linux glibc "native" toolchain from ARC HS3x & ARC HS4x processors
-1. `snps-arc-elf32-win` - Bare-metal cross-toolchain for wide range of ARCompact & ARCv2 processors (ARC600, ARC700, AEC EM & HS) for 64
+1. `gf-arc-arc700-linux-uclibc` - Linux uClibc cross-toolchain for ARC700 processors for 64-bit Linux hosts
+1. `gf-arceb-arc700-linux-uclibc` - Linux uClibc cross-toolchain for ARC700 processors (big endian) for 64-bit Linux hosts
+1. `gf-arc-archs-linux-gnu` - Linux glibc cross-toolchain for ARC HS3x & HS4x processors for 64-bit Linux hosts
+1. `gf-arceb-archs-linux-gnu` - Linux glibc cross-toolchain for ARC HS3x & HS4x processors (big endian) for 64-bit Linux hosts
+1. `gf-arc-archs-linux-uclibc` - Linux uClibc cross-toolchain for ARC HS3x & HS4x processors for 64-bit Linux hosts
+1. `gf-arceb-archs-linux-uclibc` - Linux uClibc cross-toolchain for ARC HS3x & HS4x processors (big endian) for 64-bit Linux hosts
+1. `gf-arc-archs-native-gnu` - Linux glibc "native" toolchain from ARC HS3x & ARC HS4x processors
+1. `gf-arc-elf32-win` - Bare-metal cross-toolchain for wide range of ARCompact & ARCv2 processors (ARC600, ARC700, AEC EM & HS) for 64
 -bit Windows hosts
-1. `snps-arceb-elf32-win` - Bare-metal cross-toolchain for wide range of ARCompact & ARCv2 processors (ARC600, ARC700, AEC EM & HS - big endian) for 64
+1. `gf-arceb-elf32-win` - Bare-metal cross-toolchain for wide range of ARCompact & ARCv2 processors (ARC600, ARC700, AEC EM & HS - big endian) for 64
 -bit Windows hosts
-1. `snps-arc-multilib-elf32` - Bare-metal cross-toolchain for wide range of ARCompact & ARCv2 processors (ARC600, ARC700, AEC EM & HS) for 64-bit Linux hosts
-1. `snps-arceb-multilib-elf32` - Bare-metal cross-toolchain for wide range of ARCompact & ARCv2 processors (ARC600, ARC700, AEC EM & HS - big endian) for 64-bit Linux hosts
-1. `snps-arc32-linux-uclibc` - Linux uClibc cross-toolchain for ARC HS5x processors for 64-bit Linux hosts
-1. `snps-arc32-native-uclibc` - Linux uClibc "native" toolchain from ARC HS5x processors
-1. `snps-arc64-snps-linux-gnu` - Linux glibc cross-toolchain for for ARC HS6x processors for 64-bit Linux hosts
-1. `snps-arc64-snps-native-gnu` -  Linux glibc "native" toolchain from ARC HS6x processors
-1. `snps-arc64-unknown-elf` - Bare-metal cross-toolchain for ARC HS6x processors for 64-bit Linux hosts
-1. `snps-riscv64-unknown-elf` - Bare-metal cross-toolchain for ARC-V processors with Newlib standard library for 64-bit Linux hosts
-1. `snps-riscv64-elf-win` - Bare-metal cross-toolchain for ARC-V processors with Newlib standard library for 64-bit Windows hosts
-1. `snps-riscv64-snps-elf-picolibc` - Bare-metal cross-toolchain for ARC-V processors with Picolibc standard library for 64-bit Linux hosts
-1. `snps-riscv64-elf-win-picolibc` - Bare-metal cross-toolchain for ARC-V processors with Picolibc standard library for 64-bit Windows hosts
+1. `gf-arc-multilib-elf32` - Bare-metal cross-toolchain for wide range of ARCompact & ARCv2 processors (ARC600, ARC700, AEC EM & HS) for 64-bit Linux hosts
+1. `gf-arceb-multilib-elf32` - Bare-metal cross-toolchain for wide range of ARCompact & ARCv2 processors (ARC600, ARC700, AEC EM & HS - big endian) for 64-bit Linux hosts
+1. `gf-arc32-linux-uclibc` - Linux uClibc cross-toolchain for ARC HS5x processors for 64-bit Linux hosts
+1. `gf-arc32-native-uclibc` - Linux uClibc "native" toolchain from ARC HS5x processors
+1. `gf-arc64-gf-linux-gnu` - Linux glibc cross-toolchain for for ARC HS6x processors for 64-bit Linux hosts
+1. `gf-arc64-gf-native-gnu` -  Linux glibc "native" toolchain from ARC HS6x processors
+1. `gf-arc64-unknown-elf` - Bare-metal cross-toolchain for ARC HS6x processors for 64-bit Linux hosts
+1. `gf-riscv64-unknown-elf` - Bare-metal cross-toolchain for ARC-V processors with Newlib standard library for 64-bit Linux hosts
+1. `gf-riscv64-elf-win` - Bare-metal cross-toolchain for ARC-V processors with Newlib standard library for 64-bit Windows hosts
+1. `gf-riscv64-gf-elf-picolibc` - Bare-metal cross-toolchain for ARC-V processors with Picolibc standard library for 64-bit Linux hosts
+1. `gf-riscv64-elf-win-picolibc` - Bare-metal cross-toolchain for ARC-V processors with Picolibc standard library for 64-bit Windows hosts
 
-For example, configure and build `snps-arc-multilib-elf32` sample:
+For example, configure and build `gf-arc-multilib-elf32` sample:
 
 ```shell
-./ct-ng snps-arc-multilib-elf32
+./ct-ng gf-arc-multilib-elf32
 ./ct-ng build
 ```
 
@@ -227,7 +227,7 @@ of available configurations this way (they are described in
 [Understanding ARC-V configurations](./arc-v/multilib.md) section):
 
 ```
-$ riscv64-snps-elf-gcc -print-multi-lib
+$ riscv64-gf-elf-gcc -print-multi-lib
 .;
 rv32e/ilp32e;@march=rv32e@mabi=ilp32e
 rv32em/ilp32e;@march=rv32em@mabi=ilp32e
@@ -250,13 +250,13 @@ To achieve this it's necessary to build GNU toolchain from scratch.
 Select ARC-V configuration file for Newlib-based toolchain:
 
 ```
-$ ./ct-ng snps-riscv64-unknown-elf
+$ ./ct-ng gf-riscv64-unknown-elf
 ```
 
 Or select ARC-V configuration file for Picolibc-based toolchain:
 
 ```
-$ ./ct-ng snps-riscv64-snps-elf-picolibc
+$ ./ct-ng gf-riscv64-gf-elf-picolibc
 ```
 
 Enter a configuration menu:
@@ -284,8 +284,8 @@ Then build the toolchain as usual:
 $ ./ct-ng build
 ```
 
-The toolchain may be found in `snps-riscv64-unknown-elf` or 
-`snps-riscv64-snps-elf-picolibc` directory. It uses
+The toolchain may be found in `gf-riscv64-unknown-elf` or
+`gf-riscv64-gf-elf-picolibc` directory. It uses
 `-march=rv32imafc_zicond_zicsr_zifencei -mabi=ilp32f -mtune=arc-v-rmx-100-series`
 options by default.
 
@@ -296,8 +296,8 @@ There is set of samples which correspond to
 native toolchains. Such toolchains are used inside of ARC targets.
 If you want to build a native toolchain then a corresponding
 cross-toolchain must be presented in `PATH`. E.g., if you want to
-build `snps-arc64-snps-native-gnu` sample for a native toolchain
-then you need to build `snps-arc64-snps-linux-gnu` sample for
+build `gf-arc64-gf-native-gnu` sample for a native toolchain
+then you need to build `gf-arc64-gf-linux-gnu` sample for
 a cross-compiler first and add `bin` directory of this cross-compiler
 to `PATH`.
 
@@ -345,11 +345,11 @@ i.e. in Crosstool-NG's `menuconfig` deselect it.
 
 Once the MinGW is available on the build host just make sure its binaries
 are available via a standard system path, or otherwise add path to them in
-local `PATH` environment variable and use `snps-arc-elf32-win` sample for
+local `PATH` environment variable and use `gf-arc-elf32-win` sample for
 Crosstool-NG configuration.
 
 Alternatively it's possible to start from one of the other existing samples
-(for example `snps-arc64-unknown-elf`) and build it in a canadian cross manner with
+(for example `gf-arc64-unknown-elf`) and build it in a canadian cross manner with
 the following simple changes.
 
 Run `./ct-ng menuconfig` and select `CT_CANADIAN=y` as well as set

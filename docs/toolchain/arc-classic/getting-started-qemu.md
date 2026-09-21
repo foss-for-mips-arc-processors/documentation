@@ -30,7 +30,7 @@ sudo apt install \
 Then prepare sources and a build directory:
 
 ```bash
-git clone -b arc-2026.03 https://github.com/foss-for-mips-arc-processors/qemu
+git clone -b arc-2026.09 https://github.com/foss-for-mips-arc-processors/qemu
 mkdir -p qemu/build
 cd qemu/build
 ```

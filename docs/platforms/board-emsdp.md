@@ -171,10 +171,10 @@ Here is a list of all available `specs` files:
     EM SDP 1.0 and 1.1. That is why there are different specs files.
 
 Follow [Using OpenOCD](./use-openocd.md) guide and start OpenOCD
-with `snps_em_sk_v2.3.cfg` configuration file. Here is a possible output:
+with `arc_em_sk_v2.3.cfg` configuration file. Here is a possible output:
 
 ```text
-$ openocd  -f board/snps_em_sk_v2.3.cfg
+$ openocd  -f board/arc_em_sk_v2.3.cfg
 Open On-Chip Debugger 0.12.0+dev-gffa52f0e0 (2023-08-02-10:41)
 Licensed under GNU GPL v2
 For bug reports, read

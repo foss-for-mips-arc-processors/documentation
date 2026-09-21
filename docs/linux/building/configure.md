@@ -11,7 +11,7 @@ Configuration menu allows to manually tune options for a particular build.
 Initialize Buildroot with a predefined configuration file and enter the menu:
 
 ```text
-make snps_archs38_haps_defconfig
+make gf_archs38_haps_defconfig
 make menuconfig
 ```
 
@@ -72,10 +72,10 @@ $ make defconfig DEFCONFIG=my_defconfig
 It's a good practice to build Linux images out of the main source tree:
 
 ```shell
-git clone -b arc-2026.03 https://github.com/foss-for-mips-arc-processors/buildroot
+git clone -b arc-2026.09 https://github.com/foss-for-mips-arc-processors/buildroot
 mkdir buildroot/build
 cd buildroot/build
-make -C .. O=$(pwd) snps_archs38_haps_defconfig
+make -C .. O=$(pwd) gf_archs38_haps_defconfig
 ```
 
 Option `-C ..` points to Buildroot source tree and `O=$(pwd)` passes an output directory's path to `make`.

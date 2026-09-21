@@ -39,5 +39,5 @@ For example, if the full path of OpenOCD binary is `/home/user/tools/openocd/bin
 then here is command line arguments field value for EM Starter Kit 2.3:
 
 ```text
--c "gdb_port 49105" -s /home/user/tools/share/openocd/scripts -f board/snps_em_sk_v2.3.cfg
+-c "gdb_port 49105" -s /home/user/tools/share/openocd/scripts -f board/arc_em_sk_v2.3.cfg
 ```

@@ -16,7 +16,7 @@ int main()
 Then build it (we use `-specs=nosys.specs` if input/output operations are not needed) for ARC HS3x using `-mcpu=hs38`:
 
 ```
-$ arc-snps-elf-gcc -mcpu=hs38 -specs=nosys.specs -g main.c -o main.elf
+$ arc-gf-elf-gcc -mcpu=hs38 -specs=nosys.specs -g main.c -o main.elf
 ```
 
 Start nSIM with a GDB server with 12345 port:
@@ -28,7 +28,7 @@ $ nsimdrv -tcf $NSIM_HOME/etc/tcf/templates/hs38_full.tcf -gdb -port 12345
 Run GDB in another terminal and debug the application:
 
 ```
-$ arc-snps-elf-gdb -quiet main.elf
+$ arc-gf-elf-gdb -quiet main.elf
 Reading symbols from main.elf...
 (gdb) target remote :12345
 Remote debugging using :12345
@@ -72,7 +72,7 @@ You need to use `-specs=nsim.specs` to use input/output features and to pass `-o
 to use ARC GNU input/output protocol:
 
 ```
-$ arc-snps-elf-gcc -mcpu=archs -specs=nsim.specs main.c -o main.elf
+$ arc-gf-elf-gcc -mcpu=archs -specs=nsim.specs main.c -o main.elf
 $ nsimdrv -tcf $NSIM_HOME/etc/tcf/templates/hs38_full.tcf -on nsim_emt main.elf
 Hello, World!
 ```
@@ -81,7 +81,7 @@ You can use MetaWare's own hostlink protocol for input/output operations by pass
 In this case you don't have to pass any additional options to nSIM:
 
 ```
-$ arc-snps-elf-gcc -mcpu=archs -specs=hl.specs main.c -o main.elf
+$ arc-gf-elf-gcc -mcpu=archs -specs=hl.specs main.c -o main.elf
 $ nsimdrv -tcf $NSIM_HOME/etc/tcf/templates/hs38_full.tcf main.elf
 Hello, World!
 ```
@@ -99,23 +99,23 @@ below.
 
 | Compiler             | `-mcpu`      | TCF             | Additional nSIM options                                                                                        |
 |----------------------|--------------|-----------------|----------------------------------------------------------------------------------------------------------------|
-| `arc-snps-elf-gcc`   | `hs`         | `hs36_base.tcf` |                                                                                                                |
-| `arc-snps-elf-gcc`   | `hs34`       | `hs36.tcf`      |                                                                                                                |
-| `arc-snps-elf-gcc`   | `hs38`       | `hs38_full.tcf` |                                                                                                                |
-| `arc-snps-elf-gcc`   | `hs38_linux` | `hs38_full.tcf` | `-on nsim_isa_fpud_option -on nsim_isa_fpud_div_option -on nsim_isa_fpu_mac_option -on nsim_isa_fpu_hp_option` |
-| `arc-snps-elf-gcc`   | `archs`      | `hs38_full.tcf` | `-p nsim_isa_mpy_option=2`                                                                                     |
-| `arc-snps-elf-gcc`   | `em`         | `em6_mini.tcf`  | `-p nsim_isa_shift_option=3 -p nsim_isa_rgf_num_regs=32`                                                       |
-| `arc-snps-elf-gcc`   | `em4`        | `em6_mini.tcf`  | `-p nsim_isa_shift_option=3 -p nsim_isa_rgf_num_regs=32`                                                       |
-| `arc-snps-elf-gcc`   | `em4_dmips`  | `em6_dmips.tcf` |                                                                                                                |
-| `arc-snps-elf-gcc`   | `em4_fpus`   | `em6_dmips.tcf` | `-on nsim_isa_fpus_option`                                                                                     |
-| `arc-snps-elf-gcc`   | `em4_fpuda`  | `em6_dmips.tcf` | `-on nsim_isa_fpus_option -on nsim_isa_fpuda_option`                                                           |
-| `arc-snps-elf-gcc`   | `arcem`      | `em6_dmips.tcf` | `-off nsim_isa_bitscan_option -off nsim_isa_div_rem_option`                                                    |
-| `arc-snps-elf-gcc`   | `arc700`     | `arc770d.tcf`   |                                                                                                                |
-| `arc-snps-elf-gcc`   | `arc600`     | `arc625d.tcf`   |                                                                                                                |
-| `arc64-snps-elf-gcc` | `hs5x`       | `hs58_full.tcf` | `-on nsim_isa_ll64_option`                                                                                     |
-| `arc64-snps-elf-gcc` | `hs58`       | `hs58_full.tcf` | `-on nsim_isa_ll64_option`                                                                                     |
-| `arc64-snps-elf-gcc` | `hs6x`       | `hs68_full.tcf` |                                                                                                                |
-| `arc64-snps-elf-gcc` | `hs68`       | `hs68_full.tcf` |                                                                                                                |
+| `arc-gf-elf-gcc`   | `hs`         | `hs36_base.tcf` |                                                                                                                |
+| `arc-gf-elf-gcc`   | `hs34`       | `hs36.tcf`      |                                                                                                                |
+| `arc-gf-elf-gcc`   | `hs38`       | `hs38_full.tcf` |                                                                                                                |
+| `arc-gf-elf-gcc`   | `hs38_linux` | `hs38_full.tcf` | `-on nsim_isa_fpud_option -on nsim_isa_fpud_div_option -on nsim_isa_fpu_mac_option -on nsim_isa_fpu_hp_option` |
+| `arc-gf-elf-gcc`   | `archs`      | `hs38_full.tcf` | `-p nsim_isa_mpy_option=2`                                                                                     |
+| `arc-gf-elf-gcc`   | `em`         | `em6_mini.tcf`  | `-p nsim_isa_shift_option=3 -p nsim_isa_rgf_num_regs=32`                                                       |
+| `arc-gf-elf-gcc`   | `em4`        | `em6_mini.tcf`  | `-p nsim_isa_shift_option=3 -p nsim_isa_rgf_num_regs=32`                                                       |
+| `arc-gf-elf-gcc`   | `em4_dmips`  | `em6_dmips.tcf` |                                                                                                                |
+| `arc-gf-elf-gcc`   | `em4_fpus`   | `em6_dmips.tcf` | `-on nsim_isa_fpus_option`                                                                                     |
+| `arc-gf-elf-gcc`   | `em4_fpuda`  | `em6_dmips.tcf` | `-on nsim_isa_fpus_option -on nsim_isa_fpuda_option`                                                           |
+| `arc-gf-elf-gcc`   | `arcem`      | `em6_dmips.tcf` | `-off nsim_isa_bitscan_option -off nsim_isa_div_rem_option`                                                    |
+| `arc-gf-elf-gcc`   | `arc700`     | `arc770d.tcf`   |                                                                                                                |
+| `arc-gf-elf-gcc`   | `arc600`     | `arc625d.tcf`   |                                                                                                                |
+| `arc64-gf-elf-gcc` | `hs5x`       | `hs58_full.tcf` | `-on nsim_isa_ll64_option`                                                                                     |
+| `arc64-gf-elf-gcc` | `hs58`       | `hs58_full.tcf` | `-on nsim_isa_ll64_option`                                                                                     |
+| `arc64-gf-elf-gcc` | `hs6x`       | `hs68_full.tcf` |                                                                                                                |
+| `arc64-gf-elf-gcc` | `hs68`       | `hs68_full.tcf` |                                                                                                                |
 
 ## Linking with Size-Optimized Libraries
 
@@ -123,7 +123,7 @@ You can link your application with size-optimized versions of libraries
 using `-specs=nano.specs`:
 
 ```
-$ arc-snps-elf-gcc -mcpu=archs -specs=hl.specs -specs=nano.specs main.c -o main.elf
+$ arc-gf-elf-gcc -mcpu=archs -specs=hl.specs -specs=nano.specs main.c -o main.elf
 $ size main.elf
    text    data     bss     dec     hex filename
    5336    1564     472    7372    1ccc main.elf
@@ -132,7 +132,7 @@ $ size main.elf
 Compare code size:
 
 ```
-$ arc-snps-elf-gcc -mcpu=archs -specs=hl.specs main.c -o main.elf
+$ arc-gf-elf-gcc -mcpu=archs -specs=hl.specs main.c -o main.elf
 $ size main.elf
    text    data     bss     dec     hex filename
   12396    2848     788   16032    3ea0 main.elf
@@ -145,7 +145,7 @@ toolchains (except ARCv3 toolchain which does not support big endian).
 Also, you need to pass `-on nsim_isa_big_endian` to nSIM for big endian targets:
 
 ```
-$ arceb-snps-elf-gcc -mcpu=archs -specs=nsim.specs main.c -o main.elf
+$ arceb-gf-elf-gcc -mcpu=archs -specs=nsim.specs main.c -o main.elf
 $ nsimdrv -tcf $NSIM_HOME/etc/tcf/templates/hs38_full.tcf -on nsim_emt -on nsim_isa_big_endian main.elf
 Hello, World!
 ```

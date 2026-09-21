@@ -24,7 +24,7 @@ Windows hosts.
 
     ```
     $ sudo dnf install python3.8
-    $ python3.8 riscv64-snps-elf-buildlib ...
+    $ python3.8 riscv64-gf-elf-buildlib ...
     ```
 
 2. Meson 0.61 is or higher required. The default RedHat 8.x setup does not
@@ -55,12 +55,12 @@ This table depicts which GCC driver should be used depending on ISA:
 
 | ISA       | Driver/Triplet    | Driver/Triplet (alias) | Families           | Endianness |
 |-----------|-------------------|------------------------|--------------------|------------|
-| ARC-V     | `riscv64-snps-elf`| -                      | RMX, RHX, RPX      | Little     |
-| ARCv3     | `arc64-elf-gcc`   | `arc64-snps-elf-gcc`   | ARC HS6x, ARC HS5x | Little[^1] |
-| ARCv2     | `arc-elf32-gcc`   | `arc-snps-elf-gcc`     | ARC HS, ARC EM     | Little     |
-| ARCv2     | `arceb-elf32-gcc` | `arceb-snps-elf-gcc`   | ARC HS, ARC EM     | Big        |
-| ARCompact | `arc-elf32-gcc`   | `arc-snps-elf-gcc`     | ARC 700, ARC 600   | Little     |
-| ARCompact | `arceb-elf32-gcc` | `arceb-snps-elf-gcc`   | ARC 700, ARC 600   | Big        |
+| ARC-V     | `riscv64-gf-elf`  | -                      | RMX, RHX, RPX      | Little     |
+| ARCv3     | `arc64-elf-gcc`   | `arc64-gf-elf-gcc`     | ARC HS6x, ARC HS5x | Little[^1] |
+| ARCv2     | `arc-elf32-gcc`   | `arc-gf-elf-gcc`       | ARC HS, ARC EM     | Little     |
+| ARCv2     | `arceb-elf32-gcc` | `arceb-gf-elf-gcc`     | ARC HS, ARC EM     | Big        |
+| ARCompact | `arc-elf32-gcc`   | `arc-gf-elf-gcc`       | ARC 700, ARC 600   | Little     |
+| ARCompact | `arceb-elf32-gcc` | `arceb-gf-elf-gcc`     | ARC 700, ARC 600   | Big        |
 
 [^1]: Big endian targets are not supported by GNU toolchain for ARCv3.
 

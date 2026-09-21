@@ -28,7 +28,7 @@ $ tree
 │   └── com.arc.cdt.feature_2019.9.0.202306091135.jar
 └── plugins
     ├── com.arc.embeddedcdt_2019.9.0.202306091135.jar
-    └── com.synopsys.arc.gnu.elf_2019.9.0.202306091135.jar
+    └── com.arc.gnu.elf_2019.9.0.202306091135.jar
 
 3 directories, 5 files
 ```

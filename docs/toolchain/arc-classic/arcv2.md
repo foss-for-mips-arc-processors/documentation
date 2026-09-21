@@ -36,7 +36,7 @@ information about availability for ARC HS and ARC EM targets:
 You can find a short description for all target options using `--target-help` option:
 
 ```
-$ arc-snps-elf-gcc --target-help
+$ arc-gf-elf-gcc --target-help
 The following options are target specific:
 ...
   -mbitops                    Enable use of NPS400 bit operations.
@@ -53,7 +53,7 @@ The following options are target specific:
 You can find out what target options are enabled or disabled with a particular set of options using `-Q` flag:
 
 ```
-$ arc-snps-elf-gcc -mcpu=hs38 --target-help -Q
+$ arc-gf-elf-gcc -mcpu=hs38 --target-help -Q
 The following options are target specific:
 ...
   -mbitops                              [disabled]
@@ -297,13 +297,13 @@ FPU options for ARC EM (`-mcpu=*em*`):
 
 ## Compatibility for Predefined Targets for ARC HS
 
-Here is a list of compatible command lines for `arc-snps-elf-gcc`, `ccac` and `nsimdrv` for
+Here is a list of compatible command lines for `arc-gf-elf-gcc`, `ccac` and `nsimdrv` for
 all `-mcpu=` values:
 
 * Command lines for `-mcpu=hs`:
 
     ```
-    $ arc-snps-elf-gcc -mcpu=hs -specs=hl.specs sample.c -o sample.elf
+    $ arc-gf-elf-gcc -mcpu=hs -specs=hl.specs sample.c -o sample.elf
     $ ccac -av2hs \
            -core4 \
            -Xsa \
@@ -328,7 +328,7 @@ all `-mcpu=` values:
 * Command lines for `-mcpu=hs34`:
 
     ```
-    $ arc-snps-elf-gcc -mcpu=hs34 -specs=hl.specs sample.c -o sample.elf
+    $ arc-gf-elf-gcc -mcpu=hs34 -specs=hl.specs sample.c -o sample.elf
     $ ccac -av2hs \
            -core4 \
            -Xsa \
@@ -355,7 +355,7 @@ all `-mcpu=` values:
 * Command lines for `-mcpu=archs`:
 
     ```
-    $ arc-snps-elf-gcc -mcpu=archs -specs=hl.specs sample.c -o sample.elf
+    $ arc-gf-elf-gcc -mcpu=archs -specs=hl.specs sample.c -o sample.elf
     $ ccac -av2hs \
            -core4 \
            -Xsa \
@@ -386,7 +386,7 @@ all `-mcpu=` values:
 * Command lines for `-mcpu=hs38` (the same is applicable for `hs4x` and `hs4xd`):
 
     ```
-    $ arc-snps-elf-gcc -mcpu=hs38 -specs=hl.specs sample.c -o sample.elf
+    $ arc-gf-elf-gcc -mcpu=hs38 -specs=hl.specs sample.c -o sample.elf
     $ ccac -av2hs \
            -core4 \
            -Xsa \
@@ -417,7 +417,7 @@ all `-mcpu=` values:
 * Command lines for `-mcpu=hs38_linux`:
 
     ```
-    $ arc-snps-elf-gcc -mcpu=hs38_linux -specs=hl.specs sample.c -o sample.elf
+    $ arc-gf-elf-gcc -mcpu=hs38_linux -specs=hl.specs sample.c -o sample.elf
     $ ccac -av2hs \
            -core4 \
            -Xsa \
@@ -453,13 +453,13 @@ all `-mcpu=` values:
 
 ## Compatibility for Predefined Targets for ARC EM
 
-Here is a list of compatible command lines for `arc-snps-elf-gcc`, `ccac` and `nsimdrv` for
+Here is a list of compatible command lines for `arc-gf-elf-gcc`, `ccac` and `nsimdrv` for
 all `-mcpu=` values:
 
 * Command lines for `-mcpu=em`:
 
     ```
-    $ arc-snps-elf-gcc -mcpu=em -specs=hl.specs sample.c -o sample.elf
+    $ arc-gf-elf-gcc -mcpu=em -specs=hl.specs sample.c -o sample.elf
     $ ccac -av2em \
            -core6 \
            sample.c -o sample.elf
@@ -471,7 +471,7 @@ all `-mcpu=` values:
 * Command lines for `-mcpu=em_mini`:
 
     ```
-    $ arc-snps-elf-gcc -mcpu=em_mini -specs=hl.specs sample.c -o sample.elf
+    $ arc-gf-elf-gcc -mcpu=em_mini -specs=hl.specs sample.c -o sample.elf
     $ ccac -av2em \
            -core6 \
            -rf16 \
@@ -485,7 +485,7 @@ all `-mcpu=` values:
 * Command lines for `-mcpu=em4`:
 
     ```
-    $ arc-snps-elf-gcc -mcpu=em4 -specs=hl.specs sample.c -o sample.elf
+    $ arc-gf-elf-gcc -mcpu=em4 -specs=hl.specs sample.c -o sample.elf
     $ ccac -av2em \
            -core6 \
            -Xcode_density \
@@ -499,7 +499,7 @@ all `-mcpu=` values:
 * Command lines for `-mcpu=arcem`:
 
     ```
-    $ arc-snps-elf-gcc -mcpu=arcem -specs=hl.specs sample.c -o sample.elf
+    $ arc-gf-elf-gcc -mcpu=arcem -specs=hl.specs sample.c -o sample.elf
     $ ccac -av2em \
            -core6 \
            -Xcode_density \
@@ -518,7 +518,7 @@ all `-mcpu=` values:
 * Command lines for `-mcpu=em4_dmips`:
 
     ```
-    $ arc-snps-elf-gcc -mcpu=em4_dmips -specs=hl.specs sample.c -o sample.elf
+    $ arc-gf-elf-gcc -mcpu=em4_dmips -specs=hl.specs sample.c -o sample.elf
     $ ccac -av2em \
            -core6 \
            -Xcode_density \
@@ -543,7 +543,7 @@ all `-mcpu=` values:
 * Command lines for `-mcpu=em4_fpus`:
 
     ```
-    $ arc-snps-elf-gcc -mcpu=em4_fpus -specs=hl.specs sample.c -o sample.elf
+    $ arc-gf-elf-gcc -mcpu=em4_fpus -specs=hl.specs sample.c -o sample.elf
     $ ccac -av2em \
            -core6 \
            -Xcode_density \
@@ -570,7 +570,7 @@ all `-mcpu=` values:
 * Command lines for `-mcpu=em4_fpuda`:
 
     ```
-    $ arc-snps-elf-gcc -mcpu=em4_fpuda -specs=hl.specs sample.c -o sample.elf
+    $ arc-gf-elf-gcc -mcpu=em4_fpuda -specs=hl.specs sample.c -o sample.elf
     $ ccac -av2em \
            -core6 \
            -Xcode_density \

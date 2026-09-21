@@ -28,7 +28,7 @@ Bus 002 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
 If you built and installed OpenOCD manually, then you can run it this way:
 
 ```text
-$ openocd -f board/snps_em_sk_v2.2.cfg
+$ openocd -f board/arc_em_sk_v2.2.cfg
 Open On-Chip Debugger 0.9.0-dev (2023-08-08-15:19)
 Licensed under GNU GPL v2
 For bug reports, read
@@ -45,29 +45,29 @@ a path to OpenOCD scripts. You can do it this way (replace `<ide>` by a path to
 the directory of IDE bundle):
 
 ```shell
-$ <ide>/bin/openocd -s <ide>/share/openocd/scripts -f board/snps_em_sk_v2.2.cfg
+$ <ide>/bin/openocd -s <ide>/share/openocd/scripts -f board/arc_em_sk_v2.2.cfg
 ```
 
 You can find all available configuration files in `<openocd>/scripts/board`
 directory (where `<openocd>` stands for OpenOCD installation directory):
 
 ```text
-$ ls /tools/openocd/share/openocd/scripts/board/snps_* -1
-/tools/openocd/share/openocd/scripts/board/snps_axs101.cfg
-/tools/openocd/share/openocd/scripts/board/snps_axs102.cfg
-/tools/openocd/share/openocd/scripts/board/snps_axs103_hs36.cfg
-/tools/openocd/share/openocd/scripts/board/snps_axs103_hs38.cfg
-/tools/openocd/share/openocd/scripts/board/snps_axs103_hs47D.cfg
-/tools/openocd/share/openocd/scripts/board/snps_axs103_hs48.cfg
-/tools/openocd/share/openocd/scripts/board/snps_em_sk.cfg
-/tools/openocd/share/openocd/scripts/board/snps_em_sk_v1.cfg
-/tools/openocd/share/openocd/scripts/board/snps_em_sk_v2.1.cfg
-/tools/openocd/share/openocd/scripts/board/snps_em_sk_v2.2.cfg
-/tools/openocd/share/openocd/scripts/board/snps_em_sk_v2.2_cjtag.cfg
-/tools/openocd/share/openocd/scripts/board/snps_em_sk_v2.3.cfg
-/tools/openocd/share/openocd/scripts/board/snps_em_sk_v2.3_cjtag.cfg
-/tools/openocd/share/openocd/scripts/board/snps_hsdk.cfg
-/tools/openocd/share/openocd/scripts/board/snps_iotdk.cfg
+$ ls /tools/openocd/share/openocd/scripts/board/arc_* -1
+/tools/openocd/share/openocd/scripts/board/arc_axs101.cfg
+/tools/openocd/share/openocd/scripts/board/arc_axs102.cfg
+/tools/openocd/share/openocd/scripts/board/arc_axs103_hs36.cfg
+/tools/openocd/share/openocd/scripts/board/arc_axs103_hs38.cfg
+/tools/openocd/share/openocd/scripts/board/arc_axs103_hs47D.cfg
+/tools/openocd/share/openocd/scripts/board/arc_axs103_hs48.cfg
+/tools/openocd/share/openocd/scripts/board/arc_em_sk.cfg
+/tools/openocd/share/openocd/scripts/board/arc_em_sk_v1.cfg
+/tools/openocd/share/openocd/scripts/board/arc_em_sk_v2.1.cfg
+/tools/openocd/share/openocd/scripts/board/arc_em_sk_v2.2.cfg
+/tools/openocd/share/openocd/scripts/board/arc_em_sk_v2.2_cjtag.cfg
+/tools/openocd/share/openocd/scripts/board/arc_em_sk_v2.3.cfg
+/tools/openocd/share/openocd/scripts/board/arc_em_sk_v2.3_cjtag.cfg
+/tools/openocd/share/openocd/scripts/board/arc_hsdk.cfg
+/tools/openocd/share/openocd/scripts/board/arc_iotdk.cfg
 ```
 
 Refer to [the corresponding section](#configurations-files) for details.
@@ -127,7 +127,7 @@ If you downloaded and installed IDE bundle for Windows, then you can run
 OpenOCD this way:
 
 ```text
-$ C:\arc_gnu\bin\openocd -s C:\arc_gnu\share\openocd\scripts -f board\snps_em_sk_v2.2.cfg
+$ C:\arc_gnu\bin\openocd -s C:\arc_gnu\share\openocd\scripts -f board\arc_em_sk_v2.2.cfg
 ```
 
 ## Running on macOS
@@ -151,7 +151,7 @@ OpenOCD may be used on macOS the same way it's used on Linux. However,
 consider using `sudo` to get access to USB devices:
 
 ```shell
-$ sudo openocd -f board/snps_em_sk_v2.2.cfg
+$ sudo openocd -f board/arc_em_sk_v2.2.cfg
 ```
 
 Note that exact output could differ from host to host.
@@ -176,7 +176,7 @@ OpenOCD starts a distinct GDB server for each core of multi-core target. Here is
 an example for HS Development Kit 4xD:
 
 ```text
-$ openocd -f board/snps_hsdk_4xd.cfg
+$ openocd -f board/arc_hsdk_4xd.cfg
 Open On-Chip Debugger 0.12.0+dev-gffa52f0e0 (2023-08-02-10:41)
 Licensed under GNU GPL v2
 For bug reports, read
@@ -273,32 +273,32 @@ a serial number explicitly.
 Here is an example for HSDK (a serial number is set through `ftdi_serial` variable):
 
 ```
-$ cat snps_hsdk.cfg 
-source [find interface/ftdi/snps_sdp.cfg]
+$ cat arc_hsdk.cfg
+source [find interface/ftdi/arc_sdp.cfg]
 ftdi_serial "251642000213"
 adapter_khz 10000
 transport select jtag
-source [find target/snps_hsdk.cfg]
+source [find target/arc_hsdk.cfg]
 init
 reset halt
 
-$ openocd -f ./snps_hsdk.cfg
+$ openocd -f ./arc_hsdk.cfg
 ...
 ```
 
 Here is an example for EM SDP:
 
 ```
-$ cat snps_em_sk_v2.3.cfg 
+$ cat arc_em_sk_v2.3.cfg
 source [find interface/ftdi/digilent-hs1.cfg]
 ftdi_serial "210203826102"
 adapter_khz 5000
 transport select jtag
-source [find target/snps_em_sk_fpga.cfg]
+source [find target/arc_em_sk_fpga.cfg]
 init
 reset halt
 
-$ openocd -f ./snps_em_sk_v2.3.cfg
+$ openocd -f ./arc_em_sk_v2.3.cfg
 ...
 ```
 
@@ -308,18 +308,18 @@ Here is a table of configuration files for OpenOCD 0.9:
 
 | Board                                            | OpenOCD configuration   |
 |--------------------------------------------------|-------------------------|
-| HS Development Kit 4x/4xD                        | `snps_hsdk_4xd.cfg`     |
-| HS Development Kit                               | `snps_hsdk.cfg`         |
-| IoT Development Kit                              | `snps_iotdk.cfg`        |
-| EM Software Development Platform                 | `snps_em_sk_v2.3.cfg`   |
-| EM Starter Kit 2.3                               | `snps_em_sk_v2.3.cfg`   |
-| EM Starter Kit 2.2                               | `snps_em_sk_v2.2.cfg`   |
-| EM Starter Kit 2.1                               | `snps_em_sk_v2.1.cfg`   |
-| EM Starter Kit 2.0                               | `snps_em_sk_v2.1.cfg`   |
-| EM Starter Kit 1                                 | `snps_em_sk_v1.cfg`     |
-| AXS Software Development Platform 101            | `snps_axs101.cfg`       |
-| AXS Software Development Platform 102            | `snps_axs102.cfg`       |
-| AXS Software Development Platform 103 with HS36  | `snps_axs103_hs36.cfg`  |
-| AXS Software Development Platform 103 with HS38  | `snps_axs103_hs38.cfg`  |
-| AXS Software Development Platform 103 with HS47D | `snps_axs103_hs47D.cfg` |
-| AXS Software Development Platform 103 with HS48  | `snps_axs103_hs48.cfg`  |
+| HS Development Kit 4x/4xD                        | `arc_hsdk_4xd.cfg`      |
+| HS Development Kit                               | `arc_hsdk.cfg`          |
+| IoT Development Kit                              | `arc_iotdk.cfg`         |
+| EM Software Development Platform                 | `arc_em_sk_v2.3.cfg`    |
+| EM Starter Kit 2.3                               | `arc_em_sk_v2.3.cfg`    |
+| EM Starter Kit 2.2                               | `arc_em_sk_v2.2.cfg`    |
+| EM Starter Kit 2.1                               | `arc_em_sk_v2.1.cfg`    |
+| EM Starter Kit 2.0                               | `arc_em_sk_v2.1.cfg`    |
+| EM Starter Kit 1                                 | `arc_em_sk_v1.cfg`      |
+| AXS Software Development Platform 101            | `arc_axs101.cfg`        |
+| AXS Software Development Platform 102            | `arc_axs102.cfg`        |
+| AXS Software Development Platform 103 with HS36  | `arc_axs103_hs36.cfg`   |
+| AXS Software Development Platform 103 with HS38  | `arc_axs103_hs38.cfg`   |
+| AXS Software Development Platform 103 with HS47D | `arc_axs103_hs47D.cfg`  |
+| AXS Software Development Platform 103 with HS48  | `arc_axs103_hs48.cfg`   |

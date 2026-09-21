@@ -33,7 +33,7 @@ void test (void) {
 Here is a generated assembly listing targeting the `Zcmp` extension:
 
 ```
-$ riscv64-snps-elf-gcc -march=rv32im_zcmp -mabi=ilp32 t01.c -S -Os -o -
+$ riscv64-gf-elf-gcc -march=rv32im_zcmp -mabi=ilp32 t01.c -S -Os -o -
 
         .file   "t01.c"
         .option nopic
@@ -71,8 +71,8 @@ int test (int a, int b) {
 Now compile and disassemble it:
 
 ```
-$ riscv64-snps-elf-gcc -march=rv32im_zca_zcb -mabi=ilp32 t03.c -c -O1
-$ riscv64-snps-elf-objdump -d t03.o
+$ riscv64-gf-elf-gcc -march=rv32im_zca_zcb -mabi=ilp32 t03.c -c -O1
+$ riscv64-gf-elf-objdump -d t03.o
 
 t03.o:     file format elf32-littleriscv
 
@@ -88,8 +88,8 @@ Note the short 16-bit encoding of the add instruction. Without use of `Zc` exten
 generates a full 32-bit encoding as in the example below.
 
 ```
-$ riscv64-snps-elf-gcc -march=rv32im -mabi=ilp32 t03.c -c -O1
-$ riscv64-snps-elf-objdump -d t03.o
+$ riscv64-gf-elf-gcc -march=rv32im -mabi=ilp32 t03.c -c -O1
+$ riscv64-gf-elf-objdump -d t03.o
 
 t03.o:     file format elf32-littleriscv
 
@@ -113,7 +113,7 @@ it using nSIM:
 
 ```
 $ cp -f ${METAWARE_HOME}/examples/arcv_micro_dsp/micro_fft/test.c ./test.c
-$ riscv64-snps-elf-gcc \
+$ riscv64-gf-elf-gcc \
     -march=rv32e_zicsr_zifencei_zihintpause_zca_zcb_zcmp_zcmt_zba_zbb_zbs_zicond_zicbom_zicbop_xarcvudsp \
     -mno-strict-align -mabi=ilp32e -mtune=arc-v-rmx-100-series --param arcv-mpy-option=1c \
     -specs=picolibc.specs --crt0=arcv-semihost --oslib=semihost -DTYPE=short -DTYPE_W=int \
@@ -131,7 +131,7 @@ It's expected that the sample prints `PASS`. Also, verify that the
 binary contains micro-DSP instructions:
 
 ```
-$ riscv64-snps-elf-objdump -d test.elf | grep "arcv\."
+$ riscv64-gf-elf-objdump -d test.elf | grep "arcv\."
      212:       84e7a757                arcv.xvsadd.vv  a4,a5,a4,e16,m1
      224:       a6e6a757                arcv.xvsra.vx   a4,a3,a4,e16,m1
      23c:       8cf72757                arcv.xvssub.vv  a4,a4,a5,e16,m1

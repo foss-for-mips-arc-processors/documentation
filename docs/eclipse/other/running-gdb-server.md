@@ -40,5 +40,5 @@ then here is command line arguments field value for EM Starter Kit 2.3:
 /home/user/tools/openocd/bin/openocd \
     -c "gdb_port 49105" \
     -s /home/user/tools/share/openocd/scripts \
-    -f board/snps_em_sk_v2.3.cfg
+    -f board/arc_em_sk_v2.3.cfg
 ```

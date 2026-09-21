@@ -16,7 +16,7 @@ that match this set of options. If you are not sure what prebuilt libraries are 
 with an application, you can use `-print-multi-os-directory` option to check this:
 
 ```
-$ riscv64-snps-elf-gcc -march=rv32imafd_zca_zcmp -mabi=ilp32d -mtune=arc-v-rhx-100-series -print-multi-os-directory
+$ riscv64-gf-elf-gcc -march=rv32imafd_zca_zcmp -mabi=ilp32d -mtune=arc-v-rhx-100-series -print-multi-os-directory
 rv32imafd_zca/ilp32d/rhx100
 ```
 
@@ -27,7 +27,7 @@ compatible variant is chosen.
 Consider another example:
 
 ```
-$ riscv64-snps-elf-gcc -march=rv32imafd -mabi=ilp32d -mtune=arc-v-rhx-100-series -print-multi-os-directory
+$ riscv64-gf-elf-gcc -march=rv32imafd -mabi=ilp32d -mtune=arc-v-rhx-100-series -print-multi-os-directory
 .
 ```
 
@@ -39,7 +39,7 @@ You can find a full list of all multilib configurations this way:
 
 
 ```
-$ riscv64-snps-elf-gcc -print-multi-lib
+$ riscv64-gf-elf-gcc -print-multi-lib
 .;
 rv32e/ilp32e;@march=rv32e@mabi=ilp32e
 rv32em/ilp32e;@march=rv32em@mabi=ilp32e
@@ -172,7 +172,7 @@ target options, using them for building an application and
 running this application on nSIM:
 
 ```
-$ riscv64-snps-elf-buildlib \
+$ riscv64-gf-elf-buildlib \
     --output buildlib \
     --march rv32imac_zbb \
     --mabi ilp32 \
@@ -182,7 +182,7 @@ $ riscv64-snps-elf-buildlib \
 
 ...
 
-$ riscv64-snps-elf-tcf-gcc \
+$ riscv64-gf-elf-tcf-gcc \
     -march=rv32imac_zbb \
     -mabi=ilp32 \
     -mtune=arc-v-rmx-100-series \

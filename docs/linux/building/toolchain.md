@@ -51,7 +51,7 @@ Here is a table of kernel versions for different toolchain releases:
 
 | Toolchain release | Linux headers version |
 |-------------------|-----------------------|
-| 2026.03 — 2022.09 | 5.16                  |
+| 2026.09 — 2022.09 | 5.16                  |
 | 2021.09 — 2021.03 | 5.1                   |
 | 2020.09           | 5.7                   |
 | 2020.03 — 2018.03 | 4.15                  |
@@ -62,7 +62,7 @@ Here is a table of kernel versions for different toolchain releases:
 | 2015.12 — 2015.06 | 3.18                  |
 | earlier           | 3.13                  |
 
-## Options for 2026.03 Toolchain Release
+## Options for 2026.09 Toolchain Release
 
 !!! note
 

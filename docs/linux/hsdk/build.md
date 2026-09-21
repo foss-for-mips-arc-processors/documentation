@@ -36,7 +36,7 @@ cd buildroot
 Configure Buildroot to use a default configuration for ARC HSDK and start building:
 
 ```shell
-make snps_archs38_hsdk_defconfig
+make arc_archs38_hsdk_defconfig
 make -j 1
 ```
 
@@ -70,7 +70,7 @@ the default configuration first. Configure Buildroot to use a default configurat
 go to the configuration menu:
 
 ```shell
-make snps_archs38_hsdk_defconfig
+make arc_archs38_hsdk_defconfig
 make menuconfig
 ```
 
@@ -131,7 +131,7 @@ mdb -multifiles=core0,core1,core2,core3 -OK
 It's possible to use OpenOCD and Digilent HS1/HS2 probe for loading and debugging
 the Linux kernel on HSDK. You can find detailed instructions in
 [Using OpenOCD](../../platforms/use-openocd.md) guide. You need to start OpenOCD
-with `snps_hsdk.cfg` (for HSDK) of `snps_hsdk_4xd.cfg` (for HSDK 4xD) configuration
+with `arc_hsdk.cfg` (for HSDK) of `arc_hsdk_4xd.cfg` (for HSDK 4xD) configuration
 file.
 
 Then GDB servers for all 4 cores are started: 3333 — for the 4th core, 3336 — for

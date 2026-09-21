@@ -30,7 +30,7 @@ If I want to build it for the base RMX-100 target,
 I would use this set of options:
 
 ```
-$ riscv64-snps-elf-gcc \
+$ riscv64-gf-elf-gcc \
         -march=rv32ic_zcb_zba_zbb_zbs \
         -mabi=ilp32 \
         -mtune=arc-v-rmx-100-series \
@@ -62,7 +62,7 @@ and a custom linker script. They are intended to be used in pair by passing
 `-specs=arcv.specs -T arcv.ld` to GCC. Here is an example:
 
 ```
-$ riscv64-snps-elf-gcc \
+$ riscv64-gf-elf-gcc \
         -march=rv32ic_zcb_zba_zbb_zbs \
         -mabi=ilp32 \
         -mtune=arc-v-rmx-100-series \
@@ -91,7 +91,7 @@ may be set through `-Wl,-defsym=` option:
 Full command line with custom placement of code and data section:
 
 ```
-$ riscv64-snps-elf-gcc \
+$ riscv64-gf-elf-gcc \
         -march=rv32ic_zcb_zba_zbb_zbs \
         -mabi=ilp32 \
         -mtune=arc-v-rmx-100-series \
@@ -127,7 +127,7 @@ int main()
 Compile and run:
 
 ```
-$ riscv64-snps-elf-g++ \
+$ riscv64-gf-elf-g++ \
         -march=rv32ic_zcb_zba_zbb_zbs \
         -mabi=ilp32 \
         -mtune=arc-v-rmx-100-series \
@@ -148,7 +148,7 @@ Pass `-specs=nano.specs` option to link an application with a
 size optimized Newlib variant:
 
 ```
-$ riscv64-snps-elf-gcc \
+$ riscv64-gf-elf-gcc \
         -march=rv32ic_zcb_zba_zbb_zbs \
         -mabi=ilp32 \
         -mtune=arc-v-rmx-100-series \
@@ -165,7 +165,7 @@ You can pass `--crt0=no-csr` option to choose a startup code without
 CSRs when `-specs=arcv.specs` is passed:
 
 ```
-$ riscv64-snps-elf-gcc \
+$ riscv64-gf-elf-gcc \
         -march=rv32ic_zcb_zba_zbb_zbs \
         -mabi=ilp32 \
         -mtune=arc-v-rmx-100-series \
@@ -210,7 +210,7 @@ Suppose that the environment is configured for nSIM and `NSIM_HOME` variable is 
 Here is an example of using the TCF wrapper with `rmx100_dmips.tcf` configuration file:
 
 ```
-$ riscv64-snps-elf-tcf-gcc \
+$ riscv64-gf-elf-tcf-gcc \
         -tcf=$NSIM_HOME/etc/tcf/templates/rmx100_dmips.tcf \
         -tcf-with-memory-defines \
         -specs=semihost.specs \

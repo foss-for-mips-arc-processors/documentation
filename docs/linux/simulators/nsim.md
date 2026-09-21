@@ -18,7 +18,7 @@
 Clone the Buildroot repository:
 
 ```shell
-git clone -b arc-2026.03 https://github.com/foss-for-mips-arc-processors/buildroot
+git clone -b arc-2026.09 https://github.com/foss-for-mips-arc-processors/buildroot
 cd buildroot
 ```
 
@@ -26,7 +26,7 @@ cd buildroot
 
 !!! info
 
-    By default, `snps_archs38_haps_defconfig` uses `haps_hs_smp`
+    By default, `gf_archs38_haps_defconfig` uses `haps_hs_smp`
     kernel configuration file. If you are going to run an image on nSIM with
     a single core then change it to `haps_hs` through `make menuconfig`
     (`Kernel` -> `Defconfig name` -> `haps_hs`).
@@ -34,10 +34,10 @@ cd buildroot
 You can configure Buildroot using these commands:
 
 ```shell
-make snps_arc700_nsim_defconfig  # ARCompact ARC700, nSIM
-make snps_archs38_haps_defconfig # ARCv2 HS4x, nSIM and QEMU
-make snps_arc32_defconfig # ARCv3 HS5x, nSIM and QEMU
-make snps_arc64_defconfig # ARCv3 HS6x, nSIM and QEMU
+make gf_arc700_nsim_defconfig  # ARCompact ARC700, nSIM
+make gf_archs38_haps_defconfig # ARCv2 HS4x, nSIM and QEMU
+make gf_arc32_defconfig # ARCv3 HS5x, nSIM and QEMU
+make gf_arc64_defconfig # ARCv3 HS6x, nSIM and QEMU
 ```
 
 Then run `make` to build images.
@@ -118,7 +118,7 @@ You will see an kernel's initialization output:
 
 ```text
 Console now belongs to UART, hit CRTL-] to return to simulator.
-Linux version 5.16.0 (ykolerov@SNPS-HRlPxd6IgG) (arc-linux-gcc (ARC HS GNU/Linux glibc toolchain - build 1360) 12.2.1 20230306, GNU ld (ARC HS GNU/Linux glibc toolchain - build 1360) 2.40.50.20230314) #2 PREEMPT Tue Jul 25 18:27:27 +04 2023
+Linux version 5.16.0 ...
 Memory @ 80000000 [1024M]
 Memory @ 100000000 [1024M] Not used
 OF: fdt: Machine model: snps,zebu_hs
@@ -324,19 +324,19 @@ toolchain's installation path in this guide is a path that contains `bin` direct
 
 | ARC processors family | Standard library | Toolchain's installation path           | Version                            |
 |-----------------------|------------------|-----------------------------------------|------------------------------------|
-| ARC HS 6x             | glibc            | `/tools/toolchains/arc64-linux-gnu`     | [2026.03][arc64_glibc_toolchain]   |
-| ARC HS 5x             | glibc            | `/tools/toolchains/arc32-linux-gnu`     | [2026.03][arc32_glibc_toolchain]   |
-| ARC HS 5x             | uClibc-ng        | `/tools/toolchains/arc32-linux-uclibc`  | [2026.03][arc32_uclibc_toolchain]  |
-| ARC HS 3x/4x          | glibc            | `/tools/toolchains/arc-linux-gnu`       | [2026.03][archs_glibc_toolchain]   |
-| ARC HS 3x/4x          | uClibc-ng        | `/tools/toolchains/arc-linux-uclibc`    | [2026.03][archs_uclibc_toolchain]  |
-| ARC 700               | uClibc-ng        | `/tools/toolchains/arc700-linux-uclibc` | [2026.03][arc700_uclibc_toolchain] |
+| ARC HS 6x             | glibc            | `/tools/toolchains/arc64-linux-gnu`     | [2026.09][arc64_glibc_toolchain]   |
+| ARC HS 5x             | glibc            | `/tools/toolchains/arc32-linux-gnu`     | [2026.09][arc32_glibc_toolchain]   |
+| ARC HS 5x             | uClibc-ng        | `/tools/toolchains/arc32-linux-uclibc`  | [2026.09][arc32_uclibc_toolchain]  |
+| ARC HS 3x/4x          | glibc            | `/tools/toolchains/arc-linux-gnu`       | [2026.09][archs_glibc_toolchain]   |
+| ARC HS 3x/4x          | uClibc-ng        | `/tools/toolchains/arc-linux-uclibc`    | [2026.09][archs_uclibc_toolchain]  |
+| ARC 700               | uClibc-ng        | `/tools/toolchains/arc700-linux-uclibc` | [2026.09][arc700_uclibc_toolchain] |
 
-[arc64_glibc_toolchain]: https://github.com/foss-for-mips-arc-processors/toolchain/releases/download/arc-2026.03-release/arc_gnu_2026.03_prebuilt_arc64_glibc_linux_install.tar.xz
-[arc32_glibc_toolchain]: https://github.com/foss-for-mips-arc-processors/toolchain/releases/download/arc-2026.03-release/arc_gnu_2026.03_prebuilt_arc32_glibc_linux_install.tar.xz
-[arc32_uclibc_toolchain]: https://github.com/foss-for-mips-arc-processors/toolchain/releases/download/arc-2026.03-release/arc_gnu_2026.03_prebuilt_arc32_uclibc_linux_install.tar.xz
-[archs_glibc_toolchain]: https://github.com/foss-for-mips-arc-processors/toolchain/releases/download/arc-2026.03-release/arc_gnu_2026.03_prebuilt_glibc_le_archs_linux_install.tar.xz
-[archs_uclibc_toolchain]: https://github.com/foss-for-mips-arc-processors/toolchain/releases/download/arc-2026.03-release/arc_gnu_2026.03_prebuilt_uclibc_le_archs_linux_install.tar.xz
-[arc700_uclibc_toolchain]: https://github.com/foss-for-mips-arc-processors/toolchain/releases/download/arc-2026.03-release/arc_gnu_2026.03_prebuilt_uclibc_le_arc700_linux_install.tar.xz
+[arc64_glibc_toolchain]: https://github.com/foss-for-mips-arc-processors/toolchain/releases/download/arc-2026.09-release/arc_gnu_2026.09_prebuilt_arc64_glibc_linux_install.tar.xz
+[arc32_glibc_toolchain]: https://github.com/foss-for-mips-arc-processors/toolchain/releases/download/arc-2026.09-release/arc_gnu_2026.09_prebuilt_arc32_glibc_linux_install.tar.xz
+[arc32_uclibc_toolchain]: https://github.com/foss-for-mips-arc-processors/toolchain/releases/download/arc-2026.09-release/arc_gnu_2026.09_prebuilt_arc32_uclibc_linux_install.tar.xz
+[archs_glibc_toolchain]: https://github.com/foss-for-mips-arc-processors/toolchain/releases/download/arc-2026.09-release/arc_gnu_2026.09_prebuilt_glibc_le_archs_linux_install.tar.xz
+[archs_uclibc_toolchain]: https://github.com/foss-for-mips-arc-processors/toolchain/releases/download/arc-2026.09-release/arc_gnu_2026.09_prebuilt_uclibc_le_archs_linux_install.tar.xz
+[arc700_uclibc_toolchain]: https://github.com/foss-for-mips-arc-processors/toolchain/releases/download/arc-2026.09-release/arc_gnu_2026.09_prebuilt_uclibc_le_arc700_linux_install.tar.xz
 
 ### ARC HS 3x/4x with glibc
 
@@ -463,7 +463,7 @@ BR2_TOOLCHAIN_EXTERNAL_WCHAR=y
 BR2_TOOLCHAIN_EXTERNAL_HAS_SSP=y
 BR2_TOOLCHAIN_EXTERNAL_CXX=y
 # BR2_STRIP_strip is not set
-BR2_ROOTFS_POST_IMAGE_SCRIPT="board/synopsys/arc64/post-image.sh"
+BR2_ROOTFS_POST_IMAGE_SCRIPT="board/gf/arc64/post-image.sh"
 BR2_ROOTFS_POST_SCRIPT_ARGS="$(LINUX_DIR)"
 BR2_LINUX_KERNEL=y
 BR2_LINUX_KERNEL_CUSTOM_GIT=y
@@ -501,7 +501,7 @@ BR2_TOOLCHAIN_EXTERNAL_WCHAR=y
 BR2_TOOLCHAIN_EXTERNAL_HAS_SSP=y
 BR2_TOOLCHAIN_EXTERNAL_CXX=y
 # BR2_STRIP_strip is not set
-BR2_ROOTFS_POST_IMAGE_SCRIPT="board/synopsys/arc64/post-image.sh"
+BR2_ROOTFS_POST_IMAGE_SCRIPT="board/gf/arc64/post-image.sh"
 BR2_ROOTFS_POST_SCRIPT_ARGS="$(LINUX_DIR)"
 BR2_LINUX_KERNEL=y
 BR2_LINUX_KERNEL_CUSTOM_GIT=y
@@ -540,7 +540,7 @@ BR2_TOOLCHAIN_EXTERNAL_HAS_SSP=y
 BR2_TOOLCHAIN_EXTERNAL_CXX=y
 BR2_TOOLCHAIN_EXTERNAL_FORTRAN=y
 # BR2_STRIP_strip is not set
-BR2_ROOTFS_POST_IMAGE_SCRIPT="board/synopsys/arc64/post-image.sh"
+BR2_ROOTFS_POST_IMAGE_SCRIPT="board/gf/arc64/post-image.sh"
 BR2_ROOTFS_POST_SCRIPT_ARGS="$(LINUX_DIR)"
 BR2_LINUX_KERNEL=y
 BR2_LINUX_KERNEL_CUSTOM_GIT=y

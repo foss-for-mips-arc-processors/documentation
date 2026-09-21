@@ -52,7 +52,7 @@ Here is a list of default values selected for target options:
 You can find a short description for all target options using `--target-help` option:
 
 ```
-$ arc64-snps-elf-gcc --target-help
+$ arc64-gf-elf-gcc --target-help
 The following options are target specific:
   -m128                       Enable wide data transfer support.
   -matomic=                   Enable atomic instructions: {0, 1, 2, 3}.
@@ -65,7 +65,7 @@ The following options are target specific:
 You can find out what target options are enabled or disabled with a particular set of options using `-Q` flag:
 
 ```
-$ arc64-snps-elf-gcc -mcpu=hs68 --target-help -Q
+$ arc64-gf-elf-gcc -mcpu=hs68 --target-help -Q
 The following options are target specific:
   -m128                                 [enabled]
   -matomic=                             1
@@ -133,13 +133,13 @@ Other FPU options:
 
 ## Compatibility for Predefined Targets
 
-Here is a list of compatible command lines for `arc64-snps-elf-gcc`, `ccac` and `nsimdrv` for
+Here is a list of compatible command lines for `arc64-gf-elf-gcc`, `ccac` and `nsimdrv` for
 all `-mcpu=` values:
 
 * Command lines for `-mcpu=hs68`:
 
     ```
-    $ arc64-snps-elf-gcc -mcpu=hs68 -specs=hl.specs sample.c -o sample.elf
+    $ arc64-gf-elf-gcc -mcpu=hs68 -specs=hl.specs sample.c -o sample.elf
     $ ccac -arc64 -core0 -Xm128 -Xatomic=1 -Xunaligned sample.c -o sample.elf
     $ nsimdrv -p nsim_isa_family=arc64 \
               -p nsim_isa_core=0 \
@@ -152,7 +152,7 @@ all `-mcpu=` values:
 * Command lines for `-mcpu=hs6x`:
 
     ```
-    $ arc64-snps-elf-gcc -mcpu=hs6x -specs=hl.specs sample.c -o sample.elf
+    $ arc64-gf-elf-gcc -mcpu=hs6x -specs=hl.specs sample.c -o sample.elf
     $ ccac -arc64 -core0 -Xatomic=1 -Xunaligned sample.c -o sample.elf
     $ nsimdrv -p nsim_isa_family=arc64 \
               -p nsim_isa_core=0 \
@@ -164,7 +164,7 @@ all `-mcpu=` values:
 * Command lines for `-mcpu=hs58`:
 
     ```
-    $ arc64-snps-elf-gcc -mcpu=hs58 -specs=hl.specs sample.c -o sample.elf
+    $ arc64-gf-elf-gcc -mcpu=hs58 -specs=hl.specs sample.c -o sample.elf
     $ ccac -av3hs -core0 -Xll64 -Xatomic=1 -Xunaligned \
            -Xmpy_option=qmpyh -Xdiv_rem=radix4 sample.c -o sample.elf
     $ nsimdrv -p nsim_isa_family=av3hs \
@@ -180,7 +180,7 @@ all `-mcpu=` values:
 * Command lines for `-mcpu=hs5x`:
 
     ```
-    $ arc64-snps-elf-gcc -mcpu=hs5x -specs=hl.specs sample.c -o sample.elf
+    $ arc64-gf-elf-gcc -mcpu=hs5x -specs=hl.specs sample.c -o sample.elf
     $ ccac -av3hs -core0 -Xatomic=1 -Xunaligned -Xmpy_option=qmpyh \
            -Xdiv_rem=radix4 sample.c -o sample.elf
     $ nsimdrv -p nsim_isa_family=av3hs \

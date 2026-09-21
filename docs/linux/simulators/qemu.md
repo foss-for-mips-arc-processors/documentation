@@ -297,6 +297,6 @@ Mount the shared folder:
 ```text
 # mount -t nfs 10.0.2.2:/nfs /nfs -o nolock
 # ls /nfs
-arc-snps-linux-gnu-native          debug-root
-arc-snps-linux-gnu-with-cross-gdb  main.elf
+arc-gf-linux-gnu-native          debug-root
+arc-gf-linux-gnu-with-cross-gdb  main.elf
 ```

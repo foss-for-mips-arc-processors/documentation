@@ -31,10 +31,10 @@ This release of GNU toolchain is supported by CGEN IPlib (TCF generator) version
 
 For this release binary distributions of ARC GNU tools for all supported processor families (both ARC Classic and ARC-V) are produced from the same sources of corresponding tools.
 
-Here is a list of GitHub issues addressed in this release: [GitHub issues for 2026.03](https://github.com/foss-for-mips-arc-processors/toolchain/issues?q=is%3Aissue%20milestone%3A2026.03%20is%3Aclosed). Note, though, this list only contains issues filed against ARC GNU toolchain. Bugs and enhancements made in upstream open-source projects of each toolchain component could be found in the corresponding bug-tracking system.
+Here is a list of GitHub issues addressed in this release: [GitHub issues for 2026.09](https://github.com/foss-for-mips-arc-processors/toolchain/issues?q=is%3Aissue%20milestone%3A2026.09%20is%3Aclosed). Note, though, this list only contains issues filed against ARC GNU toolchain. Bugs and enhancements made in upstream open-source projects of each toolchain component could be found in the corresponding bug-tracking system.
 
 * GCC 15.2 with ARC patches
-  * Sources used for the release: <https://github.com/foss-for-mips-arc-processors/gcc/releases/tag/arc-2026.03-release>
+  * Sources used for the release: <https://github.com/foss-for-mips-arc-processors/gcc/releases/tag/arc-2026.09-release>
   * Uses upstream 15.2 release, see release announcement ([15.1](https://lists.gnu.org/archive/html/info-gnu/2025-04/msg00015.html) and [15.2](https://lists.gnu.org/archive/html/info-gnu/2025-08/msg00002.html)) and [complete list of changes](https://gcc.gnu.org/gcc-15/changes.html).
   * Performance tuning for ARC-V targets with `-mtune=arc-v-rmx-500-series` and `-mtune=arc-v-rpx-100-series`
   * Implemented experimental loop optimization improvements
@@ -42,23 +42,23 @@ Here is a list of GitHub issues addressed in this release: [GitHub issues for 20
   * Added support of RVA23 profile
   * Updated support of XARCV to v1.8.1 specification
 * Binutils 2.45.1 with ARC patches
-  * Sources used for the release: <https://github.com/foss-for-mips-arc-processors/binutils-gdb/releases/tag/arc-2026.03-release>
+  * Sources used for the release: <https://github.com/foss-for-mips-arc-processors/binutils-gdb/releases/tag/arc-2026.09-release>
   * Uses upstream 2.45.1 release, see [release notes](https://sourceware.org/pipermail/binutils/2025-July/142967.html).
 * GDB 17.1 with ARC patches
-  * Sources used for the release: <https://github.com/foss-for-mips-arc-processors/binutils-gdb/releases/tag/arc-2026.03-release-gdb>
+  * Sources used for the release: <https://github.com/foss-for-mips-arc-processors/binutils-gdb/releases/tag/arc-2026.09-release-gdb>
   * Uses upstream 17.1 release, see [release announcement](https://sourceware.org/pipermail/gdb-announce/2024/000141.html) and [complete list of changes](https://lists.gnu.org/archive/html/info-gnu/2025-12/msg00007.html) for major changes.
 * Newlib 4.5.0 with ARC patches
-  * Sources used for the release: <https://github.com/foss-for-mips-arc-processors/newlib/releases/tag/arc-2026.03-release>
+  * Sources used for the release: <https://github.com/foss-for-mips-arc-processors/newlib/releases/tag/arc-2026.09-release>
   * Uses upstream 4.5.0 release.
 * Picolibc 1.8.11 with ARC patches
-  * Sources used for the release: <https://github.com/foss-for-mips-arc-processors/picolibc/releases/tag/arc-2026.03-release>
+  * Sources used for the release: <https://github.com/foss-for-mips-arc-processors/picolibc/releases/tag/arc-2026.09-release>
   * Uses upstream 1.8.11 release, see [release announcement](https://github.com/picolibc/picolibc/releases/tag/1.8.11).
   * Added experimental support of Picolibc for ARC Classic targets 
 * uClibc-ng 1.0.55 with ARC patches
-  * Sources used for the release: <https://github.com/foss-for-mips-arc-processors/uClibc/releases/tag/arc-2026.03-release>
+  * Sources used for the release: <https://github.com/foss-for-mips-arc-processors/uClibc/releases/tag/arc-2026.09-release>
   * Uses upstream 1.0.55 release, see [release announcement](https://cgit.uclibc-ng.org/cgi/cgit/uclibc-ng.git/tag/?h=v1.0.55).
 * glibc 2.42 with ARC patches
-  * Sources used for the release: <https://github.com/foss-for-mips-arc-processors/glibc/releases/tag/arc-2026.03-release>
+  * Sources used for the release: <https://github.com/foss-for-mips-arc-processors/glibc/releases/tag/arc-2026.09-release>
   * Uses upstream 2.42 release, see [release announcement](https://lists.gnu.org/archive/html/info-gnu/2025-07/msg00011.html) and [complete list of changes](https://sourceware.org/glibc/wiki/Release/2.42).
 
 ## Known issues

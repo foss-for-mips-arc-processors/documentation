@@ -130,11 +130,11 @@ application with additional startup code and UART library for input/output
 operations.
 
 Follow [Using OpenOCD](./use-openocd.md) guide and start OpenOCD
-with `snps_hsdk.cfg` (for HSDK) or `snps_hsdk_4xd.cfg` (for HSDK 4xD)
+with `arc_hsdk.cfg` (for HSDK) or `arc_hsdk_4xd.cfg` (for HSDK 4xD)
 configuration file. Here is a possible output for HSDK 4xD:
 
 ```text
-$ openocd -f board/snps_hsdk_4xd.cfg
+$ openocd -f board/arc_hsdk_4xd.cfg
 Open On-Chip Debugger 0.12.0+dev-gffa52f0e0 (2023-08-02-10:41)
 Licensed under GNU GPL v2
 For bug reports, read

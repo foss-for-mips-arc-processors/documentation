@@ -34,7 +34,7 @@ information about availability for ARC 700 and ARC 600 targets:
 You can find a short description for all target options using `--target-help` option:
 
 ```
-$ arc-snps-elf-gcc --target-help
+$ arc-gf-elf-gcc --target-help
 The following options are target specific:
 ...
   -mbitops                    Enable use of NPS400 bit operations.
@@ -51,7 +51,7 @@ The following options are target specific:
 You can find out what target options are enabled or disabled with a particular set of options using `-Q` flag:
 
 ```
-$ arc-snps-elf-gcc -mcpu=arc700 --target-help -Q
+$ arc-gf-elf-gcc -mcpu=arc700 --target-help -Q
 The following options are target specific:
 ...
   -mbitops                              [disabled]

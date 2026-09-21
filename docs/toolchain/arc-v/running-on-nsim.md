@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
 Build with Picolibc-based toolchain:
 
 ```
-$ riscv64-snps-elf-gcc \
+$ riscv64-gf-elf-gcc \
         -march=rv32imac_zcb_zba_zbb_zbs \
         -mabi=ilp32 \
         -mtune=arc-v-rmx-100-series \
@@ -32,7 +32,7 @@ $ riscv64-snps-elf-gcc \
 Build with Newlib-based toolchain:
 
 ```
-$ riscv64-snps-elf-gcc \
+$ riscv64-gf-elf-gcc \
         -march=rv32imac_zcb_zba_zbb_zbs \
         -mabi=ilp32 \
         -mtune=arc-v-rmx-100-series \
@@ -61,7 +61,7 @@ $ nsimdrv -p nsim_isa_family=rv32 \
 Build with Picolibc-based toolchain:
 
 ```
-$ riscv64-snps-elf-gcc \
+$ riscv64-gf-elf-gcc \
         -march=rv32imac_zcb_zba_zbb_zbs \
         -mabi=ilp32 \
         -mtune=arc-v-rmx-500-series \
@@ -74,7 +74,7 @@ $ riscv64-snps-elf-gcc \
 Build with Newlib-based toolchain:
 
 ```
-$ riscv64-snps-elf-gcc \
+$ riscv64-gf-elf-gcc \
         -march=rv32imac_zcb_zba_zbb_zbs \
         -mabi=ilp32 \
         -mtune=arc-v-rmx-500-series \
@@ -103,7 +103,7 @@ $ nsimdrv -p nsim_isa_family=rv32 \
 Build with Picolibc-based toolchain:
 
 ```
-$ riscv64-snps-elf-gcc \
+$ riscv64-gf-elf-gcc \
         -march=rv32imafc_zcb_zba_zbb_zbs \
         -mabi=ilp32f \
         -mtune=arc-v-rhx-100-series \
@@ -116,7 +116,7 @@ $ riscv64-snps-elf-gcc \
 Build with Newlib-based toolchain:
 
 ```
-$ riscv64-snps-elf-gcc \
+$ riscv64-gf-elf-gcc \
         -march=rv32imafc_zcb_zba_zbb_zbs \
         -mabi=ilp32f \
         -mtune=arc-v-rhx-100-series \
@@ -145,7 +145,7 @@ $ nsimdrv -p nsim_isa_family=rv32 \
 Build with Picolibc-based toolchain:
 
 ```
-$ riscv64-snps-elf-gcc \
+$ riscv64-gf-elf-gcc \
         -march=rv64imafdc_zcb_zba_zbb_zbs \
         -mabi=lp64d \
         -mtune=arc-v-rpx-100-series \
@@ -159,7 +159,7 @@ $ riscv64-snps-elf-gcc \
 Build with Newlib-based toolchain:
 
 ```
-$ riscv64-snps-elf-gcc \
+$ riscv64-gf-elf-gcc \
         -march=rv64imafdc_zcb_zba_zbb_zbs \
         -mabi=lp64d \
         -mtune=arc-v-rpx-100-series \
@@ -183,9 +183,3 @@ $ nsimdrv -p nsim_isa_family=rv64 \
 2: two
 3: three
 ```
-
-## Debugging Using LLDB
-
-For detailed information on how to debug an application with the MIPS
-LLDB Debugger and Visual Studio Code IDE, see the following page:
-[The MetaWare Development Toolkit](https://foss-for-mips-arc-processors.github.io/arc-v-getting-started/synopsys-tools/mwdt.html).

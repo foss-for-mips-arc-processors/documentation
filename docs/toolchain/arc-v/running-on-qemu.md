@@ -70,7 +70,7 @@ int main(int argc, char *argv[]) {
 Build with Picolibc-based toolchain:
 
 ```
-$ riscv64-snps-elf-gcc \
+$ riscv64-gf-elf-gcc \
         -march=rv32imac_zcb_zba_zbb_zbs \
         -mabi=ilp32 \
         -mtune=arc-v-rmx-100-series \
@@ -87,7 +87,7 @@ $ riscv64-snps-elf-gcc \
 Build with Newlib-based toolchain:
 
 ```
-$ riscv64-snps-elf-gcc \
+$ riscv64-gf-elf-gcc \
         -march=rv32imac_zcb_zba_zbb_zbs \
         -mabi=ilp32 \
         -mtune=arc-v-rmx-100-series \
@@ -124,7 +124,7 @@ $ qemu-system-riscv32 \
 Build with Picolibc-based toolchain:
 
 ```
-$ riscv64-snps-elf-gcc \
+$ riscv64-gf-elf-gcc \
         -march=rv32imac_zcb_zba_zbb_zbs \
         -mabi=ilp32 \
         -mtune=arc-v-rmx-500-series \
@@ -141,7 +141,7 @@ $ riscv64-snps-elf-gcc \
 Build with Newlib-based toolchain:
 
 ```
-$ riscv64-snps-elf-gcc \
+$ riscv64-gf-elf-gcc \
         -march=rv32imac_zcb_zba_zbb_zbs \
         -mabi=ilp32 \
         -mtune=arc-v-rmx-500-series \
@@ -178,7 +178,7 @@ $ qemu-system-riscv32 \
 Build with Picolibc-based toolchain:
 
 ```
-$ riscv64-snps-elf-gcc \
+$ riscv64-gf-elf-gcc \
         -march=rv32imafc_zcb_zba_zbb_zbs \
         -mabi=ilp32f \
         -mtune=arc-v-rhx-100-series \
@@ -195,7 +195,7 @@ $ riscv64-snps-elf-gcc \
 Build with Newlib-based toolchain:
 
 ```
-$ riscv64-snps-elf-gcc \
+$ riscv64-gf-elf-gcc \
         -march=rv32imafc_zcb_zba_zbb_zbs \
         -mabi=ilp32f \
         -mtune=arc-v-rhx-100-series \
@@ -232,7 +232,7 @@ $ qemu-system-riscv32 \
 Build with Picolibc-based toolchain:
 
 ```
-$ riscv64-snps-elf-gcc \
+$ riscv64-gf-elf-gcc \
         -march=rv64imafdc_zcb_zba_zbb_zbs \
         -mabi=lp64d \
         -mtune=arc-v-rpx-100-series \
@@ -250,7 +250,7 @@ $ riscv64-snps-elf-gcc \
 Build with Newlib-based toolchain:
 
 ```
-$ riscv64-snps-elf-gcc \
+$ riscv64-gf-elf-gcc \
         -march=rv64imafdc_zcb_zba_zbb_zbs \
         -mabi=lp64d \
         -mtune=arc-v-rpx-100-series \
@@ -293,7 +293,7 @@ need to pass `-s -S` commands to `qemu-system-riscv32` or `qemu-system-riscv64`.
 Build with Picolibc-based toolchain:
 
 ```
-$ riscv64-snps-elf-gcc \
+$ riscv64-gf-elf-gcc \
         -march=rv32imac_zcb_zba_zbb_zbs \
         -mabi=ilp32 \
         -mtune=arc-v-rmx-100-series \
@@ -311,7 +311,7 @@ $ riscv64-snps-elf-gcc \
 Build with Newlib-based toolchain:
 
 ```
-$ riscv64-snps-elf-gcc \
+$ riscv64-gf-elf-gcc \
         -march=rv32imac_zcb_zba_zbb_zbs \
         -mabi=ilp32 \
         -mtune=arc-v-rmx-100-series \
@@ -345,7 +345,7 @@ $ qemu-system-riscv32 \
 Start GDB session:
 
 ```
-$ riscv64-snps-elf-gdb -q args.elf
+$ riscv64-gf-elf-gdb -q args.elf
 Reading symbols from args.elf...
 (gdb) target remote :12345
 Remote debugging using :12345
