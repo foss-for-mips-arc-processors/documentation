@@ -2722,21 +2722,21 @@ presented in the toolchain.</p>
 <p>On linkage stage, when a set of target options is passed, GCC tries to select standard libraries
 that match this set of options. If you are not sure what prebuilt libraries are selected for linking
 with an application, you can use <code>-print-multi-os-directory</code> option to check this:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ riscv64-snps-elf-gcc -march=rv32imafd_zca_zcmp -mabi=ilp32d -mtune=arc-v-rhx-100-series -print-multi-os-directory
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ riscv64-gf-elf-gcc -march=rv32imafd_zca_zcmp -mabi=ilp32d -mtune=arc-v-rhx-100-series -print-multi-os-directory
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>rv32imafd_zca/ilp32d/rhx100
 </span></code></pre></div>
 <p>Output tells that the library compiled with <code>-march=rv32imafd_zca -mabi=ilp32d -mtune=arc-v-rhx-100-series</code>
 is chosen for linking. <code>-march=rv32imafd_zca_zcmp</code> is a superset of <code>-march=rv32imafd_zca</code> and the most
 compatible variant is chosen.</p>
 <p>Consider another example:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ riscv64-snps-elf-gcc -march=rv32imafd -mabi=ilp32d -mtune=arc-v-rhx-100-series -print-multi-os-directory
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ riscv64-gf-elf-gcc -march=rv32imafd -mabi=ilp32d -mtune=arc-v-rhx-100-series -print-multi-os-directory
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>.
 </span></code></pre></div>
 <p>There is no prebuilt libraries for this set of options since the nearest compatible <code>-march</code>
 value for this combination is <code>rv32imafd_zca</code>. Thus, output is just "." . That means, that
 the default library is chosen.</p>
 <p>You can find a full list of all multilib configurations this way:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ riscv64-snps-elf-gcc -print-multi-lib
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ riscv64-gf-elf-gcc -print-multi-lib
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>.;
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>rv32e/ilp32e;@march=rv32e@mabi=ilp32e
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>rv32em/ilp32e;@march=rv32em@mabi=ilp32e
@@ -3277,7 +3277,7 @@ prebuilt libraries. Buildlib builds <code>libgcc</code>, Picolibc, and <code>lib
 <p>Here is an example of building of libraries for a custom set of
 target options, using them for building an application and
 running this application on nSIM:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ riscv64-snps-elf-buildlib \
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ riscv64-gf-elf-buildlib \
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    --output buildlib \
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    --march rv32imac_zbb \
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    --mabi ilp32 \
@@ -3287,7 +3287,7 @@ running this application on nSIM:</p>
 </span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
 </span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>...
 </span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>$ riscv64-snps-elf-tcf-gcc \
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>$ riscv64-gf-elf-tcf-gcc \
 </span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    -march=rv32imac_zbb \
 </span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    -mabi=ilp32 \
 </span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    -mtune=arc-v-rmx-100-series \

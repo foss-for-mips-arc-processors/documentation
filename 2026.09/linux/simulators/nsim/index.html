@@ -2848,22 +2848,22 @@ instead of <code>-prop=nsim_mem-dev=&lt;...&gt;</code> property presented in the
 </div>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <p>Clone the Buildroot repository:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>arc-2026.03<span class="w"> </span>https://github.com/foss-for-mips-arc-processors/buildroot
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>arc-2026.09<span class="w"> </span>https://github.com/foss-for-mips-arc-processors/buildroot
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>buildroot
 </span></code></pre></div>
 <h2 id="building-images-without-a-preinstalled-toolchain">Building Images Without a Preinstalled Toolchain<a class="headerlink" href="#building-images-without-a-preinstalled-toolchain" title="Permanent link">&para;</a></h2>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>By default, <code>snps_archs38_haps_defconfig</code> uses <code>haps_hs_smp</code>
+<p>By default, <code>gf_archs38_haps_defconfig</code> uses <code>haps_hs_smp</code>
 kernel configuration file. If you are going to run an image on nSIM with
 a single core then change it to <code>haps_hs</code> through <code>make menuconfig</code>
 (<code>Kernel</code> -&gt; <code>Defconfig name</code> -&gt; <code>haps_hs</code>).</p>
 </div>
 <p>You can configure Buildroot using these commands:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>make<span class="w"> </span>snps_arc700_nsim_defconfig<span class="w">  </span><span class="c1"># ARCompact ARC700, nSIM</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>make<span class="w"> </span>snps_archs38_haps_defconfig<span class="w"> </span><span class="c1"># ARCv2 HS4x, nSIM and QEMU</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>make<span class="w"> </span>snps_arc32_defconfig<span class="w"> </span><span class="c1"># ARCv3 HS5x, nSIM and QEMU</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>make<span class="w"> </span>snps_arc64_defconfig<span class="w"> </span><span class="c1"># ARCv3 HS6x, nSIM and QEMU</span>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>make<span class="w"> </span>gf_arc700_nsim_defconfig<span class="w">  </span><span class="c1"># ARCompact ARC700, nSIM</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>make<span class="w"> </span>gf_archs38_haps_defconfig<span class="w"> </span><span class="c1"># ARCv2 HS4x, nSIM and QEMU</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>make<span class="w"> </span>gf_arc32_defconfig<span class="w"> </span><span class="c1"># ARCv3 HS5x, nSIM and QEMU</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>make<span class="w"> </span>gf_arc64_defconfig<span class="w"> </span><span class="c1"># ARCv3 HS6x, nSIM and QEMU</span>
 </span></code></pre></div>
 <p>Then run <code>make</code> to build images.</p>
 <h2 id="running-images-using-nsim">Running Images Using nSIM<a class="headerlink" href="#running-images-using-nsim" title="Permanent link">&para;</a></h2>
@@ -2926,7 +2926,7 @@ a single core then change it to <code>haps_hs</code> through <code>make menuconf
 </span></code></pre></div>
 <p>You will see an kernel's initialization output:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Console now belongs to UART, hit CRTL-] to return to simulator.
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Linux version 5.16.0 (ykolerov@SNPS-HRlPxd6IgG) (arc-linux-gcc (ARC HS GNU/Linux glibc toolchain - build 1360) 12.2.1 20230306, GNU ld (ARC HS GNU/Linux glibc toolchain - build 1360) 2.40.50.20230314) #2 PREEMPT Tue Jul 25 18:27:27 +04 2023
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Linux version 5.16.0 ...
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Memory @ 80000000 [1024M]
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Memory @ 100000000 [1024M] Not used
 </span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>OF: fdt: Machine model: snps,zebu_hs
@@ -3106,37 +3106,37 @@ toolchain's installation path in this guide is a path that contains <code>bin</c
 <td>ARC HS 6x</td>
 <td>glibc</td>
 <td><code>/tools/toolchains/arc64-linux-gnu</code></td>
-<td><a href="https://github.com/foss-for-mips-arc-processors/toolchain/releases/download/arc-2026.03-release/arc_gnu_2026.03_prebuilt_arc64_glibc_linux_install.tar.xz">2026.03</a></td>
+<td><a href="https://github.com/foss-for-mips-arc-processors/toolchain/releases/download/arc-2026.09-release/arc_gnu_2026.09_prebuilt_arc64_glibc_linux_install.tar.xz">2026.09</a></td>
 </tr>
 <tr>
 <td>ARC HS 5x</td>
 <td>glibc</td>
 <td><code>/tools/toolchains/arc32-linux-gnu</code></td>
-<td><a href="https://github.com/foss-for-mips-arc-processors/toolchain/releases/download/arc-2026.03-release/arc_gnu_2026.03_prebuilt_arc32_glibc_linux_install.tar.xz">2026.03</a></td>
+<td><a href="https://github.com/foss-for-mips-arc-processors/toolchain/releases/download/arc-2026.09-release/arc_gnu_2026.09_prebuilt_arc32_glibc_linux_install.tar.xz">2026.09</a></td>
 </tr>
 <tr>
 <td>ARC HS 5x</td>
 <td>uClibc-ng</td>
 <td><code>/tools/toolchains/arc32-linux-uclibc</code></td>
-<td><a href="https://github.com/foss-for-mips-arc-processors/toolchain/releases/download/arc-2026.03-release/arc_gnu_2026.03_prebuilt_arc32_uclibc_linux_install.tar.xz">2026.03</a></td>
+<td><a href="https://github.com/foss-for-mips-arc-processors/toolchain/releases/download/arc-2026.09-release/arc_gnu_2026.09_prebuilt_arc32_uclibc_linux_install.tar.xz">2026.09</a></td>
 </tr>
 <tr>
 <td>ARC HS 3x/4x</td>
 <td>glibc</td>
 <td><code>/tools/toolchains/arc-linux-gnu</code></td>
-<td><a href="https://github.com/foss-for-mips-arc-processors/toolchain/releases/download/arc-2026.03-release/arc_gnu_2026.03_prebuilt_glibc_le_archs_linux_install.tar.xz">2026.03</a></td>
+<td><a href="https://github.com/foss-for-mips-arc-processors/toolchain/releases/download/arc-2026.09-release/arc_gnu_2026.09_prebuilt_glibc_le_archs_linux_install.tar.xz">2026.09</a></td>
 </tr>
 <tr>
 <td>ARC HS 3x/4x</td>
 <td>uClibc-ng</td>
 <td><code>/tools/toolchains/arc-linux-uclibc</code></td>
-<td><a href="https://github.com/foss-for-mips-arc-processors/toolchain/releases/download/arc-2026.03-release/arc_gnu_2026.03_prebuilt_uclibc_le_archs_linux_install.tar.xz">2026.03</a></td>
+<td><a href="https://github.com/foss-for-mips-arc-processors/toolchain/releases/download/arc-2026.09-release/arc_gnu_2026.09_prebuilt_uclibc_le_archs_linux_install.tar.xz">2026.09</a></td>
 </tr>
 <tr>
 <td>ARC 700</td>
 <td>uClibc-ng</td>
 <td><code>/tools/toolchains/arc700-linux-uclibc</code></td>
-<td><a href="https://github.com/foss-for-mips-arc-processors/toolchain/releases/download/arc-2026.03-release/arc_gnu_2026.03_prebuilt_uclibc_le_arc700_linux_install.tar.xz">2026.03</a></td>
+<td><a href="https://github.com/foss-for-mips-arc-processors/toolchain/releases/download/arc-2026.09-release/arc_gnu_2026.09_prebuilt_uclibc_le_arc700_linux_install.tar.xz">2026.09</a></td>
 </tr>
 </tbody>
 </table>
@@ -3243,7 +3243,7 @@ a single core (UP) configuration. Here is a corresponding configuration file for
 </span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="nv">BR2_TOOLCHAIN_EXTERNAL_HAS_SSP</span><span class="o">=</span>y
 </span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="nv">BR2_TOOLCHAIN_EXTERNAL_CXX</span><span class="o">=</span>y
 </span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="c1"># BR2_STRIP_strip is not set</span>
-</span><span id="__span-22-14"><a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="nv">BR2_ROOTFS_POST_IMAGE_SCRIPT</span><span class="o">=</span><span class="s2">&quot;board/synopsys/arc64/post-image.sh&quot;</span>
+</span><span id="__span-22-14"><a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="nv">BR2_ROOTFS_POST_IMAGE_SCRIPT</span><span class="o">=</span><span class="s2">&quot;board/gf/arc64/post-image.sh&quot;</span>
 </span><span id="__span-22-15"><a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="nv">BR2_ROOTFS_POST_SCRIPT_ARGS</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>LINUX_DIR<span class="k">)</span><span class="s2">&quot;</span>
 </span><span id="__span-22-16"><a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a><span class="nv">BR2_LINUX_KERNEL</span><span class="o">=</span>y
 </span><span id="__span-22-17"><a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a><span class="nv">BR2_LINUX_KERNEL_CUSTOM_GIT</span><span class="o">=</span>y
@@ -3274,7 +3274,7 @@ a single core (UP) configuration. Here is a corresponding configuration file for
 </span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a><span class="nv">BR2_TOOLCHAIN_EXTERNAL_HAS_SSP</span><span class="o">=</span>y
 </span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a><span class="nv">BR2_TOOLCHAIN_EXTERNAL_CXX</span><span class="o">=</span>y
 </span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a><span class="c1"># BR2_STRIP_strip is not set</span>
-</span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a><span class="nv">BR2_ROOTFS_POST_IMAGE_SCRIPT</span><span class="o">=</span><span class="s2">&quot;board/synopsys/arc64/post-image.sh&quot;</span>
+</span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a><span class="nv">BR2_ROOTFS_POST_IMAGE_SCRIPT</span><span class="o">=</span><span class="s2">&quot;board/gf/arc64/post-image.sh&quot;</span>
 </span><span id="__span-24-15"><a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a><span class="nv">BR2_ROOTFS_POST_SCRIPT_ARGS</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>LINUX_DIR<span class="k">)</span><span class="s2">&quot;</span>
 </span><span id="__span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a><span class="nv">BR2_LINUX_KERNEL</span><span class="o">=</span>y
 </span><span id="__span-24-17"><a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a><span class="nv">BR2_LINUX_KERNEL_CUSTOM_GIT</span><span class="o">=</span>y
@@ -3306,7 +3306,7 @@ a single core (UP) configuration. Here is a corresponding configuration file for
 </span><span id="__span-26-12"><a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a><span class="nv">BR2_TOOLCHAIN_EXTERNAL_CXX</span><span class="o">=</span>y
 </span><span id="__span-26-13"><a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a><span class="nv">BR2_TOOLCHAIN_EXTERNAL_FORTRAN</span><span class="o">=</span>y
 </span><span id="__span-26-14"><a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a><span class="c1"># BR2_STRIP_strip is not set</span>
-</span><span id="__span-26-15"><a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a><span class="nv">BR2_ROOTFS_POST_IMAGE_SCRIPT</span><span class="o">=</span><span class="s2">&quot;board/synopsys/arc64/post-image.sh&quot;</span>
+</span><span id="__span-26-15"><a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a><span class="nv">BR2_ROOTFS_POST_IMAGE_SCRIPT</span><span class="o">=</span><span class="s2">&quot;board/gf/arc64/post-image.sh&quot;</span>
 </span><span id="__span-26-16"><a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a><span class="nv">BR2_ROOTFS_POST_SCRIPT_ARGS</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>LINUX_DIR<span class="k">)</span><span class="s2">&quot;</span>
 </span><span id="__span-26-17"><a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a><span class="nv">BR2_LINUX_KERNEL</span><span class="o">=</span>y
 </span><span id="__span-26-18"><a id="__codelineno-26-18" name="__codelineno-26-18" href="#__codelineno-26-18"></a><span class="nv">BR2_LINUX_KERNEL_CUSTOM_GIT</span><span class="o">=</span>y

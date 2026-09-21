@@ -2679,7 +2679,7 @@ https://github.com/riscv/riscv-code-size-reduction.</p>
 </span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>}
 </span></code></pre></div>
 <p>Here is a generated assembly listing targeting the <code>Zcmp</code> extension:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ riscv64-snps-elf-gcc -march=rv32im_zcmp -mabi=ilp32 t01.c -S -Os -o -
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ riscv64-gf-elf-gcc -march=rv32im_zcmp -mabi=ilp32 t01.c -S -Os -o -
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        .file   &quot;t01.c&quot;
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        .option nopic
@@ -2709,8 +2709,8 @@ code-size-reduction group: <code>Zcb</code>. Consider the following C function:<
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>}
 </span></code></pre></div>
 <p>Now compile and disassemble it:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ riscv64-snps-elf-gcc -march=rv32im_zca_zcb -mabi=ilp32 t03.c -c -O1
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>$ riscv64-snps-elf-objdump -d t03.o
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ riscv64-gf-elf-gcc -march=rv32im_zca_zcb -mabi=ilp32 t03.c -c -O1
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>$ riscv64-gf-elf-objdump -d t03.o
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>t03.o:     file format elf32-littleriscv
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
@@ -2723,8 +2723,8 @@ code-size-reduction group: <code>Zcb</code>. Consider the following C function:<
 </span></code></pre></div>
 <p>Note the short 16-bit encoding of the add instruction. Without use of <code>Zc</code> extensions, compiler
 generates a full 32-bit encoding as in the example below.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ riscv64-snps-elf-gcc -march=rv32im -mabi=ilp32 t03.c -c -O1
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>$ riscv64-snps-elf-objdump -d t03.o
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ riscv64-gf-elf-gcc -march=rv32im -mabi=ilp32 t03.c -c -O1
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>$ riscv64-gf-elf-objdump -d t03.o
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>t03.o:     file format elf32-littleriscv
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
@@ -2743,7 +2743,7 @@ is set.</p>
 <p>Copy the FFT example, build it using Picolibc-based toolchain and run
 it using nSIM:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$ cp -f ${METAWARE_HOME}/examples/arcv_micro_dsp/micro_fft/test.c ./test.c
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>$ riscv64-snps-elf-gcc \
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>$ riscv64-gf-elf-gcc \
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    -march=rv32e_zicsr_zifencei_zihintpause_zca_zcb_zcmp_zcmt_zba_zbb_zbs_zicond_zicbom_zicbop_xarcvudsp \
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    -mno-strict-align -mabi=ilp32e -mtune=arc-v-rmx-100-series --param arcv-mpy-option=1c \
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    -specs=picolibc.specs --crt0=arcv-semihost --oslib=semihost -DTYPE=short -DTYPE_W=int \
@@ -2758,7 +2758,7 @@ it using nSIM:</p>
 </span></code></pre></div>
 <p>It's expected that the sample prints <code>PASS</code>. Also, verify that the
 binary contains micro-DSP instructions:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$ riscv64-snps-elf-objdump -d test.elf | grep &quot;arcv\.&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$ riscv64-gf-elf-objdump -d test.elf | grep &quot;arcv\.&quot;
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>     212:       84e7a757                arcv.xvsadd.vv  a4,a5,a4,e16,m1
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>     224:       a6e6a757                arcv.xvsra.vx   a4,a3,a4,e16,m1
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>     23c:       8cf72757                arcv.xvssub.vv  a4,a4,a5,e16,m1

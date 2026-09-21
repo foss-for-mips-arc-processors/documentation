@@ -2802,7 +2802,7 @@
 <a href="../multilib/">Understanding ARC-V configurations</a> for details.</p>
 <p>If I want to build it for the base RMX-100 target and link with 
 a semihosting library, I would use this set of options:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ riscv64-snps-elf-gcc \
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ riscv64-gf-elf-gcc \
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>        -march=rv32ic_zcb_zba_zbb_zbs \
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        -mabi=ilp32 \
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        -mtune=arc-v-rmx-100-series \
@@ -2826,7 +2826,7 @@ placement and size of code and data sections:</p>
 <li>Set size of data sections through <code>-Wl,--defsym=__ram_size=</code> option.</li>
 </ol>
 <p>Here is a full example with custom code and data sections:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ riscv64-snps-elf-gcc \
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ riscv64-gf-elf-gcc \
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>        -march=rv32ic_zcb_zba_zbb_zbs \
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>        -mabi=ilp32 \
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        -mtune=arc-v-rmx-100-series \
@@ -2856,7 +2856,7 @@ to run ARC-V examples on nSIM or QEMU simulator.</p>
 </span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>For compiling C++ applications use <code>-specs=picolibcpp.specs</code>:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$ riscv64-snps-elf-g++ \
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$ riscv64-gf-elf-g++ \
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>        -march=rv32ic_zcb_zba_zbb_zbs \
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>        -mabi=ilp32 \
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>        -mtune=arc-v-rmx-100-series \
@@ -2873,7 +2873,7 @@ to run ARC-V examples on nSIM or QEMU simulator.</p>
 <h2 id="using-size-optimized-picolibc-variant">Using Size Optimized Picolibc Variant<a class="headerlink" href="#using-size-optimized-picolibc-variant" title="Permanent link">&para;</a></h2>
 <p>Pass <code>-specs=nano.specs</code> option to link an application with a
 size optimized Picolibc variant:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$ riscv64-snps-elf-gcc \
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$ riscv64-gf-elf-gcc \
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>        -march=rv32ic_zcb_zba_zbb_zbs \
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>        -mabi=ilp32 \
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>        -mtune=arc-v-rmx-100-series \
@@ -3101,7 +3101,7 @@ targets using <code>-mtune=</code> option:</p>
 using TCF configuration files for building binaries using the GNU toolchain.</p>
 <p>Suppose that the environment is configured for nSIM and <code>NSIM_HOME</code> variable is set.
 Here is an example of using the TCF wrapper with <code>rmx100_dmips.tcf</code> configuration file:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$ riscv64-snps-elf-tcf-gcc \
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$ riscv64-gf-elf-tcf-gcc \
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>        -tcf=$NSIM_HOME/etc/tcf/templates/rmx100_dmips.tcf \
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>        -tcf-with-memory-defines \
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>        -specs=picolibc.specs \

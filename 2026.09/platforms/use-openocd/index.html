@@ -2757,7 +2757,7 @@ example for EM Starter Kit 2.2:</p>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Bus 002 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
 </span></code></pre></div>
 <p>If you built and installed OpenOCD manually, then you can run it this way:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ openocd -f board/snps_em_sk_v2.2.cfg
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ openocd -f board/arc_em_sk_v2.2.cfg
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Open On-Chip Debugger 0.9.0-dev (2023-08-08-15:19)
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Licensed under GNU GPL v2
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>For bug reports, read
@@ -2771,26 +2771,26 @@ example for EM Starter Kit 2.2:</p>
 <p>If you downloaded IDE bundle with OpenOCD for Linux, then you have to set
 a path to OpenOCD scripts. You can do it this way (replace <code>&lt;ide&gt;</code> by a path to
 the directory of IDE bundle):</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>&lt;ide&gt;/bin/openocd<span class="w"> </span>-s<span class="w"> </span>&lt;ide&gt;/share/openocd/scripts<span class="w"> </span>-f<span class="w"> </span>board/snps_em_sk_v2.2.cfg
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>&lt;ide&gt;/bin/openocd<span class="w"> </span>-s<span class="w"> </span>&lt;ide&gt;/share/openocd/scripts<span class="w"> </span>-f<span class="w"> </span>board/arc_em_sk_v2.2.cfg
 </span></code></pre></div>
 <p>You can find all available configuration files in <code>&lt;openocd&gt;/scripts/board</code>
 directory (where <code>&lt;openocd&gt;</code> stands for OpenOCD installation directory):</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ ls /tools/openocd/share/openocd/scripts/board/snps_* -1
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>/tools/openocd/share/openocd/scripts/board/snps_axs101.cfg
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>/tools/openocd/share/openocd/scripts/board/snps_axs102.cfg
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>/tools/openocd/share/openocd/scripts/board/snps_axs103_hs36.cfg
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>/tools/openocd/share/openocd/scripts/board/snps_axs103_hs38.cfg
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>/tools/openocd/share/openocd/scripts/board/snps_axs103_hs47D.cfg
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>/tools/openocd/share/openocd/scripts/board/snps_axs103_hs48.cfg
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>/tools/openocd/share/openocd/scripts/board/snps_em_sk.cfg
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>/tools/openocd/share/openocd/scripts/board/snps_em_sk_v1.cfg
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>/tools/openocd/share/openocd/scripts/board/snps_em_sk_v2.1.cfg
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>/tools/openocd/share/openocd/scripts/board/snps_em_sk_v2.2.cfg
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>/tools/openocd/share/openocd/scripts/board/snps_em_sk_v2.2_cjtag.cfg
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>/tools/openocd/share/openocd/scripts/board/snps_em_sk_v2.3.cfg
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>/tools/openocd/share/openocd/scripts/board/snps_em_sk_v2.3_cjtag.cfg
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>/tools/openocd/share/openocd/scripts/board/snps_hsdk.cfg
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>/tools/openocd/share/openocd/scripts/board/snps_iotdk.cfg
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ ls /tools/openocd/share/openocd/scripts/board/arc_* -1
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>/tools/openocd/share/openocd/scripts/board/arc_axs101.cfg
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>/tools/openocd/share/openocd/scripts/board/arc_axs102.cfg
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>/tools/openocd/share/openocd/scripts/board/arc_axs103_hs36.cfg
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>/tools/openocd/share/openocd/scripts/board/arc_axs103_hs38.cfg
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>/tools/openocd/share/openocd/scripts/board/arc_axs103_hs47D.cfg
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>/tools/openocd/share/openocd/scripts/board/arc_axs103_hs48.cfg
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>/tools/openocd/share/openocd/scripts/board/arc_em_sk.cfg
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>/tools/openocd/share/openocd/scripts/board/arc_em_sk_v1.cfg
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>/tools/openocd/share/openocd/scripts/board/arc_em_sk_v2.1.cfg
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>/tools/openocd/share/openocd/scripts/board/arc_em_sk_v2.2.cfg
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>/tools/openocd/share/openocd/scripts/board/arc_em_sk_v2.2_cjtag.cfg
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>/tools/openocd/share/openocd/scripts/board/arc_em_sk_v2.3.cfg
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>/tools/openocd/share/openocd/scripts/board/arc_em_sk_v2.3_cjtag.cfg
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>/tools/openocd/share/openocd/scripts/board/arc_hsdk.cfg
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>/tools/openocd/share/openocd/scripts/board/arc_iotdk.cfg
 </span></code></pre></div>
 <p>Refer to <a href="#configurations-files">the corresponding section</a> for details.</p>
 <p>Start a debugger on debug host:</p>
@@ -2824,7 +2824,7 @@ directory (where <code>&lt;openocd&gt;</code> stands for OpenOCD installation di
 <p>OpenOCD may be used on Windows the same way it's used on Linux.
 If you downloaded and installed IDE bundle for Windows, then you can run
 OpenOCD this way:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$ C:\arc_gnu\bin\openocd -s C:\arc_gnu\share\openocd\scripts -f board\snps_em_sk_v2.2.cfg
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$ C:\arc_gnu\bin\openocd -s C:\arc_gnu\share\openocd\scripts -f board\arc_em_sk_v2.2.cfg
 </span></code></pre></div>
 <h2 id="running-on-macos">Running on macOS<a class="headerlink" href="#running-on-macos" title="Permanent link">&para;</a></h2>
 <p>Run <code>ioreg</code> application to ensure that FTDI device is there:</p>
@@ -2838,7 +2838,7 @@ OpenOCD this way:</p>
 </span></code></pre></div>
 <p>OpenOCD may be used on macOS the same way it's used on Linux. However,
 consider using <code>sudo</code> to get access to USB devices:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>openocd<span class="w"> </span>-f<span class="w"> </span>board/snps_em_sk_v2.2.cfg
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>openocd<span class="w"> </span>-f<span class="w"> </span>board/arc_em_sk_v2.2.cfg
 </span></code></pre></div>
 <p>Note that exact output could differ from host to host.</p>
 <p>If you're using a USB adapter and have a driver kext matched to it,
@@ -2852,7 +2852,7 @@ driver (OS X 10.9 or later) for FTDI run:</p>
 <h2 id="debugging-multi-core-targets">Debugging Multi-Core Targets<a class="headerlink" href="#debugging-multi-core-targets" title="Permanent link">&para;</a></h2>
 <p>OpenOCD starts a distinct GDB server for each core of multi-core target. Here is
 an example for HS Development Kit 4xD:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>$ openocd -f board/snps_hsdk_4xd.cfg
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>$ openocd -f board/arc_hsdk_4xd.cfg
 </span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>Open On-Chip Debugger 0.12.0+dev-gffa52f0e0 (2023-08-02-10:41)
 </span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>Licensed under GNU GPL v2
 </span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>For bug reports, read
@@ -2929,29 +2929,29 @@ the first detected one. To choose a board with a particular serial number
 it's necessary to create a custom board configuration file and specify
 a serial number explicitly.</p>
 <p>Here is an example for HSDK (a serial number is set through <code>ftdi_serial</code> variable):</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>$ cat snps_hsdk.cfg 
-</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>source [find interface/ftdi/snps_sdp.cfg]
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>$ cat arc_hsdk.cfg
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>source [find interface/ftdi/arc_sdp.cfg]
 </span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>ftdi_serial &quot;251642000213&quot;
 </span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>adapter_khz 10000
 </span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>transport select jtag
-</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>source [find target/snps_hsdk.cfg]
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>source [find target/arc_hsdk.cfg]
 </span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>init
 </span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>reset halt
 </span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>
-</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>$ openocd -f ./snps_hsdk.cfg
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>$ openocd -f ./arc_hsdk.cfg
 </span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>...
 </span></code></pre></div>
 <p>Here is an example for EM SDP:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>$ cat snps_em_sk_v2.3.cfg 
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>$ cat arc_em_sk_v2.3.cfg
 </span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>source [find interface/ftdi/digilent-hs1.cfg]
 </span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>ftdi_serial &quot;210203826102&quot;
 </span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>adapter_khz 5000
 </span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>transport select jtag
-</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>source [find target/snps_em_sk_fpga.cfg]
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>source [find target/arc_em_sk_fpga.cfg]
 </span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>init
 </span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>reset halt
 </span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>
-</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>$ openocd -f ./snps_em_sk_v2.3.cfg
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>$ openocd -f ./arc_em_sk_v2.3.cfg
 </span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>...
 </span></code></pre></div>
 <h2 id="configurations-files">Configurations Files<a class="headerlink" href="#configurations-files" title="Permanent link">&para;</a></h2>
@@ -2966,63 +2966,63 @@ a serial number explicitly.</p>
 <tbody>
 <tr>
 <td>HS Development Kit 4x/4xD</td>
-<td><code>snps_hsdk_4xd.cfg</code></td>
+<td><code>arc_hsdk_4xd.cfg</code></td>
 </tr>
 <tr>
 <td>HS Development Kit</td>
-<td><code>snps_hsdk.cfg</code></td>
+<td><code>arc_hsdk.cfg</code></td>
 </tr>
 <tr>
 <td>IoT Development Kit</td>
-<td><code>snps_iotdk.cfg</code></td>
+<td><code>arc_iotdk.cfg</code></td>
 </tr>
 <tr>
 <td>EM Software Development Platform</td>
-<td><code>snps_em_sk_v2.3.cfg</code></td>
+<td><code>arc_em_sk_v2.3.cfg</code></td>
 </tr>
 <tr>
 <td>EM Starter Kit 2.3</td>
-<td><code>snps_em_sk_v2.3.cfg</code></td>
+<td><code>arc_em_sk_v2.3.cfg</code></td>
 </tr>
 <tr>
 <td>EM Starter Kit 2.2</td>
-<td><code>snps_em_sk_v2.2.cfg</code></td>
+<td><code>arc_em_sk_v2.2.cfg</code></td>
 </tr>
 <tr>
 <td>EM Starter Kit 2.1</td>
-<td><code>snps_em_sk_v2.1.cfg</code></td>
+<td><code>arc_em_sk_v2.1.cfg</code></td>
 </tr>
 <tr>
 <td>EM Starter Kit 2.0</td>
-<td><code>snps_em_sk_v2.1.cfg</code></td>
+<td><code>arc_em_sk_v2.1.cfg</code></td>
 </tr>
 <tr>
 <td>EM Starter Kit 1</td>
-<td><code>snps_em_sk_v1.cfg</code></td>
+<td><code>arc_em_sk_v1.cfg</code></td>
 </tr>
 <tr>
 <td>AXS Software Development Platform 101</td>
-<td><code>snps_axs101.cfg</code></td>
+<td><code>arc_axs101.cfg</code></td>
 </tr>
 <tr>
 <td>AXS Software Development Platform 102</td>
-<td><code>snps_axs102.cfg</code></td>
+<td><code>arc_axs102.cfg</code></td>
 </tr>
 <tr>
 <td>AXS Software Development Platform 103 with HS36</td>
-<td><code>snps_axs103_hs36.cfg</code></td>
+<td><code>arc_axs103_hs36.cfg</code></td>
 </tr>
 <tr>
 <td>AXS Software Development Platform 103 with HS38</td>
-<td><code>snps_axs103_hs38.cfg</code></td>
+<td><code>arc_axs103_hs38.cfg</code></td>
 </tr>
 <tr>
 <td>AXS Software Development Platform 103 with HS47D</td>
-<td><code>snps_axs103_hs47D.cfg</code></td>
+<td><code>arc_axs103_hs47D.cfg</code></td>
 </tr>
 <tr>
 <td>AXS Software Development Platform 103 with HS48</td>
-<td><code>snps_axs103_hs48.cfg</code></td>
+<td><code>arc_axs103_hs48.cfg</code></td>
 </tr>
 </tbody>
 </table>

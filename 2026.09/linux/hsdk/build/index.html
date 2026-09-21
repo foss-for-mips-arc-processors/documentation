@@ -2803,7 +2803,7 @@ for ARC HS Development Kit.</p>
 </span></code></pre></div>
 <h2 id="building-the-linux-kernel-and-booting-using-u-boot">Building the Linux Kernel and Booting Using U-Boot<a class="headerlink" href="#building-the-linux-kernel-and-booting-using-u-boot" title="Permanent link">&para;</a></h2>
 <p>Configure Buildroot to use a default configuration for ARC HSDK and start building:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>make<span class="w"> </span>snps_archs38_hsdk_defconfig
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>make<span class="w"> </span>arc_archs38_hsdk_defconfig
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>make<span class="w"> </span>-j<span class="w"> </span><span class="m">1</span>
 </span></code></pre></div>
 <p>A multithreaded building is turned on by default and it may lead to U-Boot
@@ -2831,7 +2831,7 @@ Note that build will produce following files in <code>output/images</code> folde
 <p>If you want to use a debugger for loading and running your Linux kernel then you need to modify
 the default configuration first. Configure Buildroot to use a default configuration for ARC HSDK and
 go to the configuration menu:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>make<span class="w"> </span>snps_archs38_hsdk_defconfig
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>make<span class="w"> </span>arc_archs38_hsdk_defconfig
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>make<span class="w"> </span>menuconfig
 </span></code></pre></div>
 <p>Choose this option (corresponds to <code>BR2_LINUX_KERNEL_UIMAGE=n</code> and <code>BR2_LINUX_KERNEL_VMLINUX=y</code>):</p>
@@ -2867,7 +2867,7 @@ go to the configuration menu:</p>
 <p>It's possible to use OpenOCD and Digilent HS1/HS2 probe for loading and debugging
 the Linux kernel on HSDK. You can find detailed instructions in
 <a href="../../../platforms/use-openocd/">Using OpenOCD</a> guide. You need to start OpenOCD
-with <code>snps_hsdk.cfg</code> (for HSDK) of <code>snps_hsdk_4xd.cfg</code> (for HSDK 4xD) configuration
+with <code>arc_hsdk.cfg</code> (for HSDK) of <code>arc_hsdk_4xd.cfg</code> (for HSDK 4xD) configuration
 file.</p>
 <p>Then GDB servers for all 4 cores are started: 3333 — for the 4th core, 3336 — for
 the 1st core. You can debug Linux in a single core mode by connecting to

@@ -2731,7 +2731,7 @@ for MIPS ARC processors. Consider reading <a href="https://buildroot.org/downloa
 <h2 id="configuration-files">Configuration Files<a class="headerlink" href="#configuration-files" title="Permanent link">&para;</a></h2>
 <p>Configuration menu allows to manually tune options for a particular build.
 Initialize Buildroot with a predefined configuration file and enter the menu:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>make snps_archs38_haps_defconfig
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>make gf_archs38_haps_defconfig
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>make menuconfig
 </span></code></pre></div>
 <p>After you finishes your configuration session a configuration file is saved
@@ -2775,10 +2775,10 @@ path to the configuration file:</p>
 </span></code></pre></div>
 <h2 id="building-in-a-separate-directory">Building in a Separate Directory<a class="headerlink" href="#building-in-a-separate-directory" title="Permanent link">&para;</a></h2>
 <p>It's a good practice to build Linux images out of the main source tree:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>arc-2026.03<span class="w"> </span>https://github.com/foss-for-mips-arc-processors/buildroot
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>arc-2026.09<span class="w"> </span>https://github.com/foss-for-mips-arc-processors/buildroot
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>mkdir<span class="w"> </span>buildroot/build
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nb">cd</span><span class="w"> </span>buildroot/build
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>make<span class="w"> </span>-C<span class="w"> </span>..<span class="w"> </span><span class="nv">O</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="w"> </span>snps_archs38_haps_defconfig
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>make<span class="w"> </span>-C<span class="w"> </span>..<span class="w"> </span><span class="nv">O</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="w"> </span>gf_archs38_haps_defconfig
 </span></code></pre></div>
 <p>Option <code>-C ..</code> points to Buildroot source tree and <code>O=$(pwd)</code> passes an output directory's path to <code>make</code>.
 Note that if you use relative paths in Buildroot configuration options, then they are relative to Buildroot's

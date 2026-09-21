@@ -2862,7 +2862,7 @@ a corresponding prebuilt library and a set of options:</p>
 </tbody>
 </table>
 <p>You can find a short description for all target options using <code>--target-help</code> option:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ arc64-snps-elf-gcc --target-help
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ arc64-gf-elf-gcc --target-help
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>The following options are target specific:
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  -m128                       Enable wide data transfer support.
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  -matomic=                   Enable atomic instructions: {0, 1, 2, 3}.
@@ -2872,7 +2872,7 @@ a corresponding prebuilt library and a set of options:</p>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>...
 </span></code></pre></div>
 <p>You can find out what target options are enabled or disabled with a particular set of options using <code>-Q</code> flag:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ arc64-snps-elf-gcc -mcpu=hs68 --target-help -Q
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ arc64-gf-elf-gcc -mcpu=hs68 --target-help -Q
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>The following options are target specific:
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  -m128                                 [enabled]
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  -matomic=                             1
@@ -3114,12 +3114,12 @@ a corresponding prebuilt library and a set of options:</p>
 </tbody>
 </table>
 <h2 id="compatibility-for-predefined-targets">Compatibility for Predefined Targets<a class="headerlink" href="#compatibility-for-predefined-targets" title="Permanent link">&para;</a></h2>
-<p>Here is a list of compatible command lines for <code>arc64-snps-elf-gcc</code>, <code>ccac</code> and <code>nsimdrv</code> for
+<p>Here is a list of compatible command lines for <code>arc64-gf-elf-gcc</code>, <code>ccac</code> and <code>nsimdrv</code> for
 all <code>-mcpu=</code> values:</p>
 <ul>
 <li>
 <p>Command lines for <code>-mcpu=hs68</code>:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ arc64-snps-elf-gcc -mcpu=hs68 -specs=hl.specs sample.c -o sample.elf
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ arc64-gf-elf-gcc -mcpu=hs68 -specs=hl.specs sample.c -o sample.elf
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>$ ccac -arc64 -core0 -Xm128 -Xatomic=1 -Xunaligned sample.c -o sample.elf
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>$ nsimdrv -p nsim_isa_family=arc64 \
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>          -p nsim_isa_core=0 \
@@ -3131,7 +3131,7 @@ all <code>-mcpu=</code> values:</p>
 </li>
 <li>
 <p>Command lines for <code>-mcpu=hs6x</code>:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ arc64-snps-elf-gcc -mcpu=hs6x -specs=hl.specs sample.c -o sample.elf
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ arc64-gf-elf-gcc -mcpu=hs6x -specs=hl.specs sample.c -o sample.elf
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>$ ccac -arc64 -core0 -Xatomic=1 -Xunaligned sample.c -o sample.elf
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>$ nsimdrv -p nsim_isa_family=arc64 \
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>          -p nsim_isa_core=0 \
@@ -3142,7 +3142,7 @@ all <code>-mcpu=</code> values:</p>
 </li>
 <li>
 <p>Command lines for <code>-mcpu=hs58</code>:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ arc64-snps-elf-gcc -mcpu=hs58 -specs=hl.specs sample.c -o sample.elf
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ arc64-gf-elf-gcc -mcpu=hs58 -specs=hl.specs sample.c -o sample.elf
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>$ ccac -av3hs -core0 -Xll64 -Xatomic=1 -Xunaligned \
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>       -Xmpy_option=qmpyh -Xdiv_rem=radix4 sample.c -o sample.elf
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>$ nsimdrv -p nsim_isa_family=av3hs \
@@ -3157,7 +3157,7 @@ all <code>-mcpu=</code> values:</p>
 </li>
 <li>
 <p>Command lines for <code>-mcpu=hs5x</code>:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$ arc64-snps-elf-gcc -mcpu=hs5x -specs=hl.specs sample.c -o sample.elf
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$ arc64-gf-elf-gcc -mcpu=hs5x -specs=hl.specs sample.c -o sample.elf
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>$ ccac -av3hs -core0 -Xatomic=1 -Xunaligned -Xmpy_option=qmpyh \
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>       -Xdiv_rem=radix4 sample.c -o sample.elf
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>$ nsimdrv -p nsim_isa_family=av3hs \

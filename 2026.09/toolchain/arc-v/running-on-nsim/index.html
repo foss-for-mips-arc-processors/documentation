@@ -589,13 +589,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#debugging-using-lldb" class="md-nav__link">
-    Debugging Using LLDB
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2657,13 +2650,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#debugging-using-lldb" class="md-nav__link">
-    Debugging Using LLDB
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2696,7 +2682,7 @@ line arguments:</p>
 </span></code></pre></div>
 <h2 id="build-and-run-for-base-rmx-100">Build and Run for Base RMX-100<a class="headerlink" href="#build-and-run-for-base-rmx-100" title="Permanent link">&para;</a></h2>
 <p>Build with Picolibc-based toolchain:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ riscv64-snps-elf-gcc \
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ riscv64-gf-elf-gcc \
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>        -march=rv32imac_zcb_zba_zbb_zbs \
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        -mabi=ilp32 \
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        -mtune=arc-v-rmx-100-series \
@@ -2706,7 +2692,7 @@ line arguments:</p>
 </span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        args.c -o args.elf
 </span></code></pre></div>
 <p>Build with Newlib-based toolchain:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ riscv64-snps-elf-gcc \
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ riscv64-gf-elf-gcc \
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>        -march=rv32imac_zcb_zba_zbb_zbs \
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>        -mabi=ilp32 \
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        -mtune=arc-v-rmx-100-series \
@@ -2728,7 +2714,7 @@ line arguments:</p>
 </span></code></pre></div>
 <h2 id="build-and-run-for-base-rmx-500">Build and Run for Base RMX-500<a class="headerlink" href="#build-and-run-for-base-rmx-500" title="Permanent link">&para;</a></h2>
 <p>Build with Picolibc-based toolchain:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ riscv64-snps-elf-gcc \
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ riscv64-gf-elf-gcc \
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>        -march=rv32imac_zcb_zba_zbb_zbs \
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>        -mabi=ilp32 \
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        -mtune=arc-v-rmx-500-series \
@@ -2738,7 +2724,7 @@ line arguments:</p>
 </span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>        args.c -o args.elf
 </span></code></pre></div>
 <p>Build with Newlib-based toolchain:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$ riscv64-snps-elf-gcc \
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$ riscv64-gf-elf-gcc \
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>        -march=rv32imac_zcb_zba_zbb_zbs \
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>        -mabi=ilp32 \
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>        -mtune=arc-v-rmx-500-series \
@@ -2760,7 +2746,7 @@ line arguments:</p>
 </span></code></pre></div>
 <h2 id="build-and-run-for-base-rhx-100">Build and Run for Base RHX-100<a class="headerlink" href="#build-and-run-for-base-rhx-100" title="Permanent link">&para;</a></h2>
 <p>Build with Picolibc-based toolchain:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$ riscv64-snps-elf-gcc \
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$ riscv64-gf-elf-gcc \
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>        -march=rv32imafc_zcb_zba_zbb_zbs \
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>        -mabi=ilp32f \
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>        -mtune=arc-v-rhx-100-series \
@@ -2770,7 +2756,7 @@ line arguments:</p>
 </span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>        args.c -o args.elf
 </span></code></pre></div>
 <p>Build with Newlib-based toolchain:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$ riscv64-snps-elf-gcc \
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$ riscv64-gf-elf-gcc \
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>        -march=rv32imafc_zcb_zba_zbb_zbs \
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>        -mabi=ilp32f \
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>        -mtune=arc-v-rhx-100-series \
@@ -2792,7 +2778,7 @@ line arguments:</p>
 </span></code></pre></div>
 <h2 id="build-and-run-for-base-rpx-100">Build and Run for Base RPX-100<a class="headerlink" href="#build-and-run-for-base-rpx-100" title="Permanent link">&para;</a></h2>
 <p>Build with Picolibc-based toolchain:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>$ riscv64-snps-elf-gcc \
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>$ riscv64-gf-elf-gcc \
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>        -march=rv64imafdc_zcb_zba_zbb_zbs \
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>        -mabi=lp64d \
 </span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>        -mtune=arc-v-rpx-100-series \
@@ -2803,7 +2789,7 @@ line arguments:</p>
 </span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>        args.c -o args.elf
 </span></code></pre></div>
 <p>Build with Newlib-based toolchain:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$ riscv64-snps-elf-gcc \
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$ riscv64-gf-elf-gcc \
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>        -march=rv64imafdc_zcb_zba_zbb_zbs \
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>        -mabi=lp64d \
 </span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>        -mtune=arc-v-rpx-100-series \
@@ -2824,10 +2810,6 @@ line arguments:</p>
 </span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>2: two
 </span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>3: three
 </span></code></pre></div>
-<h2 id="debugging-using-lldb">Debugging Using LLDB<a class="headerlink" href="#debugging-using-lldb" title="Permanent link">&para;</a></h2>
-<p>For detailed information on how to debug an application with the MIPS
-LLDB Debugger and Visual Studio Code IDE, see the following page:
-<a href="https://foss-for-mips-arc-processors.github.io/arc-v-getting-started/synopsys-tools/mwdt.html">The MetaWare Development Toolkit</a>.</p>
 
 
 
