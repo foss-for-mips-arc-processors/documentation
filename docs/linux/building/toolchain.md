@@ -74,7 +74,7 @@ Here is a table of kernel versions for different toolchain releases:
 Additional options for the toolchain:
 
 ```text
-Toolchain -> External toolchain gcc version -> 15.x
+Toolchain -> External toolchain gcc version -> 16.x
              External toolchain kernel headers series -> 5.16.x
              External toolchain C library -> glibc
              [*] Toolchain has SSP support?
@@ -86,7 +86,7 @@ Toolchain -> External toolchain gcc version -> 15.x
 Configuration file lines:
 
 ```text
-BR2_TOOLCHAIN_EXTERNAL_GCC_15=y
+BR2_TOOLCHAIN_EXTERNAL_GCC_16=y
 BR2_TOOLCHAIN_EXTERNAL_HEADERS_5_16=y
 BR2_TOOLCHAIN_EXTERNAL_CUSTOM_GLIBC=y
 BR2_TOOLCHAIN_EXTERNAL_HAS_SSP=y
@@ -100,7 +100,7 @@ BR2_TOOLCHAIN_EXTERNAL_FORTRAN=y
 Additional options for the toolchain:
 
 ```text
-Toolchain -> External toolchain gcc version -> 15.x
+Toolchain -> External toolchain gcc version -> 16.x
              External toolchain kernel headers series -> 5.16.x
              External toolchain C library -> uClibc/uClibc-ng
              [*] Toolchain has WCHAR support?
@@ -112,7 +112,7 @@ Toolchain -> External toolchain gcc version -> 15.x
 Configuration file lines:
 
 ```text
-BR2_TOOLCHAIN_EXTERNAL_GCC_15=y
+BR2_TOOLCHAIN_EXTERNAL_GCC_16=y
 BR2_TOOLCHAIN_EXTERNAL_HEADERS_5_16=y
 BR2_TOOLCHAIN_EXTERNAL_CUSTOM_UCLIBC=y
 BR2_TOOLCHAIN_EXTERNAL_WCHAR=y
@@ -126,7 +126,7 @@ BR2_TOOLCHAIN_EXTERNAL_CXX=y
 Additional options for the toolchain:
 
 ```text
-Toolchain -> External toolchain gcc version -> 15.x
+Toolchain -> External toolchain gcc version -> 16.x
              External toolchain kernel headers series -> 5.16.x
              External toolchain C library -> glibc
              [*] Toolchain has SSP support?
@@ -138,7 +138,7 @@ Toolchain -> External toolchain gcc version -> 15.x
 Configuration file lines:
 
 ```text
-BR2_TOOLCHAIN_EXTERNAL_GCC_15=y
+BR2_TOOLCHAIN_EXTERNAL_GCC_16=y
 BR2_TOOLCHAIN_EXTERNAL_HEADERS_5_16=y
 BR2_TOOLCHAIN_EXTERNAL_CUSTOM_GLIBC=y
 BR2_TOOLCHAIN_EXTERNAL_HAS_SSP=y
@@ -152,7 +152,7 @@ BR2_TOOLCHAIN_EXTERNAL_FORTRAN=y
 Additional options for uClibc-based toolchain:
 
 ```text
-Toolchain -> External toolchain gcc version -> 15.x
+Toolchain -> External toolchain gcc version -> 16.x
              External toolchain kernel headers series -> 5.16.x
              External toolchain C library -> uClibc/uClibc-ng
              [*] Toolchain has WCHAR support?
@@ -165,7 +165,7 @@ Toolchain -> External toolchain gcc version -> 15.x
 Configuration file lines:
 
 ```text
-BR2_TOOLCHAIN_EXTERNAL_GCC_15=y
+BR2_TOOLCHAIN_EXTERNAL_GCC_16=y
 BR2_TOOLCHAIN_EXTERNAL_HEADERS_5_16=y
 BR2_TOOLCHAIN_EXTERNAL_CUSTOM_UCLIBC=y
 BR2_TOOLCHAIN_EXTERNAL_WCHAR=y
@@ -180,7 +180,7 @@ BR2_TOOLCHAIN_EXTERNAL_FORTRAN=y
 Additional options for uClibc-based toolchain:
 
 ```text
-Toolchain -> External toolchain gcc version -> 15.x
+Toolchain -> External toolchain gcc version -> 16.x
              External toolchain kernel headers series -> 5.16.x
              External toolchain C library -> uClibc/uClibc-ng
              [*] Toolchain has WCHAR support?
@@ -192,7 +192,7 @@ Toolchain -> External toolchain gcc version -> 15.x
 Configuration file lines:
 
 ```text
-BR2_TOOLCHAIN_EXTERNAL_GCC_15=y
+BR2_TOOLCHAIN_EXTERNAL_GCC_16=y
 BR2_TOOLCHAIN_EXTERNAL_HEADERS_5_16=y
 BR2_TOOLCHAIN_EXTERNAL_CUSTOM_UCLIBC=y
 BR2_TOOLCHAIN_EXTERNAL_WCHAR=y

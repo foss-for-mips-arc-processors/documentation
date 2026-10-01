@@ -96,12 +96,12 @@ This option corresponds to `BR2_arceb=y` configuration line.
 
 By default, Buildroot selects the latest available version of the upstream Linux kernel. However, if you
 want to use a development branch with the latest patches and support of ARCv3 processor families, then
-consider using `arc64` branch of the development repository:
+consider using `arc-2026.09` branch of the development repository:
 
 ```text
 Kernel -> Kernel version -> Custom Git repository
        -> URL of custom repository -> https://github.com/foss-for-mips-arc-processors/linux
-       -> Custom repository version -> arc64
+       -> Custom repository version -> arc-2026.09
 ```
 
 This set of options corresponds to these configuration lines:
@@ -109,7 +109,7 @@ This set of options corresponds to these configuration lines:
 ```text
 BR2_LINUX_KERNEL_CUSTOM_GIT=y
 BR2_LINUX_KERNEL_CUSTOM_REPO_URL="https://github.com/foss-for-mips-arc-processors/linux"
-BR2_LINUX_KERNEL_CUSTOM_REPO_VERSION="arc64"
+BR2_LINUX_KERNEL_CUSTOM_REPO_VERSION="arc-2026.09"
 ```
 
 ## Selecting a Linux Kernel Configuration File

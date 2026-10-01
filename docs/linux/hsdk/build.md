@@ -116,7 +116,7 @@ mdb -multifiles=core0,core1 -run -cl
 
 ### Loading Using MDB and Digilent HS1/HS2 probe
 
-Make sure that USB cable is attached to the board and [Digilent Adept runtime and utilitied](https://digilent.com/shop/software/digilent-adept/download) are installed. Then use these commands for MetaWare Debugger:
+Make sure that USB cable is attached to the board and [Digilent Adept runtime and utilities](https://digilent.com/shop/software/digilent-adept/download) are installed. Then use these commands for MetaWare Debugger:
 
 ```shell
 mdb -pset=1 -psetname=core0 -digilent output/images/vmlinux
