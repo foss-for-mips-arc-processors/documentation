@@ -1,4 +1,4 @@
-# Understanding ARC-V Configurations
+# Understanding Multilib Configurations
 
 GNU toolchain for ARC-V is shipped with a set of prebuilt libraries for each
 available configuration (so called __multilib__). A configuration is a combination of
