@@ -177,12 +177,14 @@ So far, Picolibc supports 2 system libraries, and it's chosen through `--oslib=`
 GCC instruction scheduling may be tuned for different ARC-V
 targets using `-mtune=` option:
 
-| Feature                  | Option                        |
-|--------------------------|-------------------------------|
-| Tune for RMX-100 targets | `-mtune=arc-v-rmx-100-series` |
-| Tune for RMX-500 targets | `-mtune=arc-v-rmx-500-series` |
-| Tune for RHX-100 targets | `-mtune=arc-v-rhx-100-series` |
-| Tune for RPX-100 targets | `-mtune=arc-v-rpx-100-series` |
+| Feature                      | Option                        |
+|------------------------------|-------------------------------|
+| Tune for RMX-100 targets     | `-mtune=arc-v-rmx-100-series` |
+| Tune for RMX-500 targets     | `-mtune=arc-v-rmx-500-series` |
+| Tune for RMX-700 targets     | `-mtune=arc-v-rmx-700-series` |
+| Tune for RHX-100 targets     | `-mtune=arc-v-rhx-100-series` |
+| Tune for RPX-100 targets     | `-mtune=arc-v-rpx-100-series` |
+| Tune for Atlas M8500 targets | `-mtune=mips-m8500`           |
 
 For RMX-100 targets it's also possible to choose a version of MPY unit using `-param=arcv-mpy-option=` option:
 

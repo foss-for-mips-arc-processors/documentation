@@ -173,6 +173,60 @@ $ qemu-system-riscv32 \
 3: three
 ```
 
+## Build and Run for Base RMX-700
+
+Build with Picolibc-based toolchain:
+
+```
+$ riscv64-gf-elf-gcc \
+        -march=rv32imac_zcb_zba_zbb_zbs \
+        -mabi=ilp32 \
+        -mtune=arc-v-rmx-700-series \
+        -Wl,-defsym=__flash=0x80000000 \
+        -Wl,-defsym=__flash_size=1M \
+        -Wl,-defsym=__ram=0x80200000 \
+        -Wl,-defsym=__ram_size=1M \
+        -specs=picolibc.specs \
+        --oslib=semihost \
+        --crt0=semihost \
+        args.c -o args.elf
+```
+
+Build with Newlib-based toolchain:
+
+```
+$ riscv64-gf-elf-gcc \
+        -march=rv32imac_zcb_zba_zbb_zbs \
+        -mabi=ilp32 \
+        -mtune=arc-v-rmx-700-series \
+        -Wl,-defsym=txtmem_addr=0x80000000 \
+        -Wl,-defsym=txtmem_len=1M \
+        -Wl,-defsym=datamem_addr=0x80200000 \
+        -Wl,-defsym=datamem_len=1M \
+        -specs=semihost.specs \
+        -specs=arcv.specs \
+        --crt0=no-csr \
+        -T arcv.ld \
+        args.c -o args.elf
+```
+
+Run on QEMU:
+
+```
+$ qemu-system-riscv32 \
+        -semihosting \
+        -nographic \
+        -machine virt \
+        -cpu rv32,f=off,zfa=off,d=off,zce=on,zba=on,zbb=on,zbs=on \
+        -bios none \
+        -kernel args.elf \
+        -append "one two three"
+0: args.elf
+1: one
+2: two
+3: three
+```
+
 ## Build and Run for Base RHX-100
 
 Build with Picolibc-based toolchain:

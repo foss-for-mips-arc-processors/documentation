@@ -98,6 +98,48 @@ $ nsimdrv -p nsim_isa_family=rv32 \
 3: three
 ```
 
+## Build and Run for Base RMX-700
+
+Build with Picolibc-based toolchain:
+
+```
+$ riscv64-gf-elf-gcc \
+        -march=rv32imac_zcb_zba_zbb_zbs \
+        -mabi=ilp32 \
+        -mtune=arc-v-rmx-700-series \
+        -specs=picolibc.specs \
+        --oslib=semihost \
+        --crt0=arcv-semihost \
+        args.c -o args.elf
+```
+
+Build with Newlib-based toolchain:
+
+```
+$ riscv64-gf-elf-gcc \
+        -march=rv32imac_zcb_zba_zbb_zbs \
+        -mabi=ilp32 \
+        -mtune=arc-v-rmx-700-series \
+        -specs=semihost.specs \
+        -specs=arcv.specs \
+        -T arcv.ld \
+        args.c -o args.elf
+```
+
+Run on nSIM:
+
+```
+$ nsimdrv -p nsim_isa_family=rv32 \
+          -p nsim_isa_ext=-all.i.m.a.c.zcb.zba.zbb.zbs.zicsr \
+          -p nsim_semihosting=1 \
+          -p enable_exceptions=0 \
+          -- args.elf one two three
+0: args.elf
+1: one
+2: two
+3: three
+```
+
 ## Build and Run for Base RHX-100
 
 Build with Picolibc-based toolchain:
