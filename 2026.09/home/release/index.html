@@ -4576,6 +4576,13 @@ on the <a href="https://mips.com/processor-solutions/arc-v-processors/">MIPS ARC
 <li>
 <p>Eclipse IDE for ARCompact does not support selecting <code>-specs=</code> options in project's configuration menu. Consider passing this options (e.g., <code>-specs=nsim.specs</code> for nSIM) in "ARC GNU Linker" field of projects configuration dialog (C/C++ Build -&gt; Settings -&gt; Top Settings -&gt; ARC GNU Linker).</p>
 </li>
+<li>
+<p>Using of <code>archs</code> target (when <code>CUR_CORE=archs</code> is used in project's configuration) in
+   <a href="https://github.com/foss-for-mips-arc-processors/embarc_osp">embARC OSP</a> repository may lead
+   to build errors. <code>archs</code> target for nSIM does not support caches but platform's code cannot
+   detect it and tries to call <code>arc_cache_init</code> even if it's not declared. Using of
+   <code>CUR_CORE=archs38_smp</code> resolves the issue.</p>
+</li>
 </ol>
 <h3 id="arc-v">ARC-V<a class="headerlink" href="#arc-v" title="Permanent link">&para;</a></h3>
 <ol>
