@@ -72,6 +72,12 @@ Here is a list of GitHub issues addressed in this release: [GitHub issues for 20
 
 4. Eclipse IDE for ARCompact does not support selecting `-specs=` options in project's configuration menu. Consider passing this options (e.g., `-specs=nsim.specs` for nSIM) in "ARC GNU Linker" field of projects configuration dialog (C/C++ Build -> Settings -> Top Settings -> ARC GNU Linker).
 
+5. Using of `archs` target (when `CUR_CORE=archs` is used in project's configuration) in
+   [embARC OSP](https://github.com/foss-for-mips-arc-processors/embarc_osp) repository may lead
+   to build errors. `archs` target for nSIM does not support caches but platform's code cannot
+   detect it and tries to call `arc_cache_init` even if it's not declared. Using of
+   `CUR_CORE=archs38_smp` resolves the issue.
+
 ### ARC-V
 
 1. Some complex combinations of `-march=` and `-mabi=` options may lead to unpredictable errors during compilation. Such issues are related to general support of RISC-V extensions in GCC. Refer [#610](https://github.com/foss-for-mips-arc-processors/toolchain/issues/610) for details.
