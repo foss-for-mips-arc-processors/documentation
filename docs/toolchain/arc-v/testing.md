@@ -9,15 +9,15 @@ Copy the FFT example, build it using Picolibc-based toolchain and run
 it using nSIM:
 
 ```
-$ cp -f ${METAWARE_HOME}/examples/arcv_micro_dsp/micro_fft/test.c ./test.c
+$ cp -f ${METAWARE_ROOT}/arc/examples/arcv_micro_dsp/micro_fft/test.c ./test.c
 $ riscv64-gf-elf-gcc \
     -march=rv32e_zicsr_zifencei_zihintpause_zca_zcb_zcmp_zcmt_zba_zbb_zbs_zicond_zicbom_zicbop_xarcvudsp \
-    -mno-strict-align -mabi=ilp32e -mtune=arc-v-rmx-100-series --param arcv-mpy-option=1c \
+    -mno-strict-align -mabi=ilp32e -mtune=arc-v-rmx-100-series -mmpy-option=1c \
     -specs=picolibc.specs --crt0=arcv-semihost --oslib=semihost -DTYPE=short -DTYPE_W=int \
     -DSCALE_DOWN=16 -DPASS_DOWNSCALE=1 -DFFT_LOG2_LEN=9 -DEL_SIZE=16 -DPREGENERATED_REFERENCE \
     -DNEED_BITREV_REORDER -DBITREV_INSTRUCTION_ -DGENERATE_REFERENCE_ \
     test.c -o test.elf
-$ nsimdrv -tcf=${METAWARE_HOME}/tcf/rmx100_udsp.tcf -on nsim_semihosting -on nsim_ncam_experimental_option test.elf
+$ nsimdrv -tcf=${METAWARE_ROOT}/arc/tcf/rmx100_udsp.tcf -on nsim_semihosting -on nsim_ncam_experimental_option test.elf
 Preparation: 54
 Cycles: 621213
 SNR:  55.1531 dB

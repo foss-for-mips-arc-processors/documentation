@@ -190,11 +190,11 @@ targets using `-mtune=` option:
 | Tune for RPX-100 targets     | `-mtune=arc-v-rpx-100-series` |
 | Tune for Atlas M8500 targets | `-mtune=mips-m8500`           |
 
-For RMX-100 targets it's also possible to choose a version of MPY unit using `-param=arcv-mpy-option=` option:
+For RMX-100 targets it's also possible to choose a version of MPY unit using `-mmpy-option=` option:
 
-* `-param=arcv-mpy-option=1c`
-* `-param=arcv-mpy-option=2c` (default)
-* `-param=arcv-mpy-option=10c`
+* `-mmpy-option=1c`
+* `-mmpy-option=2c` (default)
+* `-mmpy-option=10c`
 
 You can choose a number of cycles that a word-size integer load operation takes
 (from 1 to 3, 3 is default) using `--param=arcv-ld-cycles=<1,3>` option.
