@@ -10,12 +10,12 @@ Binary distributions may be found on the [GitHub Release Page](https://github.co
 
 ## Toolchain and IDE Components Versions
 
-* GCC 15.2 with ARC patches
+* GCC 16.2 with ARC patches
 * Binutils 2.45.1 with ARC patches
 * GDB 17.1 with ARC patches
-* Newlib 4.5.0 with ARC patches
+* Newlib 4.6.0 with ARC patches
 * Picolibc 1.8.11 with ARC patches
-* uClibc-ng v1.0.55 with ARC patches
+* uClibc-ng v1.0.57 with ARC patches
 * glibc 2.42 with ARC patches
 
 This release of GNU toolchain is supported by CGEN IPlib (TCF generator) version 1.0.53 and later.
@@ -33,30 +33,29 @@ For this release binary distributions of ARC GNU tools for all supported process
 
 Here is a list of GitHub issues addressed in this release: [GitHub issues for 2026.09](https://github.com/foss-for-mips-arc-processors/toolchain/issues?q=is%3Aissue%20milestone%3A2026.09%20is%3Aclosed). Note, though, this list only contains issues filed against ARC GNU toolchain. Bugs and enhancements made in upstream open-source projects of each toolchain component could be found in the corresponding bug-tracking system.
 
-* GCC 15.2 with ARC patches
+* GCC 16.2 with ARC patches
   * Sources used for the release: <https://github.com/foss-for-mips-arc-processors/gcc/releases/tag/arc-2026.09-release>
-  * Uses upstream 15.2 release, see release announcement ([15.1](https://lists.gnu.org/archive/html/info-gnu/2025-04/msg00015.html) and [15.2](https://lists.gnu.org/archive/html/info-gnu/2025-08/msg00002.html)) and [complete list of changes](https://gcc.gnu.org/gcc-15/changes.html).
-  * Performance tuning for ARC-V targets with `-mtune=arc-v-rmx-500-series` and `-mtune=arc-v-rpx-100-series`
-  * Implemented experimental loop optimization improvements
-  * Added support of LTO for APEX intrinsics
-  * Added support of RVA23 profile
-  * Updated support of XARCV to v1.8.1 specification
+  * Uses upstream 16.2 release, see release announcement ([16.1](https://lists.gnu.org/archive/html/info-gnu/2026-04/msg00013.html) and [16.2](https://lists.gnu.org/archive/html/info-gnu/2026-08/msg00000.html)) and [complete list of changes](https://gcc.gnu.org/gcc-16/changes.html).
+  * Performance tuning for ARC-V RPX-100 and ARC-V RMX-500
+  * Improved floating-point performance for ARC-V targets
+  * Added initial ARC-V RMX-700 support
+  * Added experimental Zicfilp & Zicfiss (CFI) support
+  * Added preliminary MIPS M8500 support
 * Binutils 2.45.1 with ARC patches
   * Sources used for the release: <https://github.com/foss-for-mips-arc-processors/binutils-gdb/releases/tag/arc-2026.09-release>
   * Uses upstream 2.45.1 release, see [release notes](https://sourceware.org/pipermail/binutils/2025-July/142967.html).
 * GDB 17.1 with ARC patches
   * Sources used for the release: <https://github.com/foss-for-mips-arc-processors/binutils-gdb/releases/tag/arc-2026.09-release-gdb>
   * Uses upstream 17.1 release, see [release announcement](https://sourceware.org/pipermail/gdb-announce/2024/000141.html) and [complete list of changes](https://lists.gnu.org/archive/html/info-gnu/2025-12/msg00007.html) for major changes.
-* Newlib 4.5.0 with ARC patches
+* Newlib 4.6.0 with ARC patches
   * Sources used for the release: <https://github.com/foss-for-mips-arc-processors/newlib/releases/tag/arc-2026.09-release>
-  * Uses upstream 4.5.0 release.
+  * Uses upstream 4.6.0 release.
 * Picolibc 1.8.11 with ARC patches
   * Sources used for the release: <https://github.com/foss-for-mips-arc-processors/picolibc/releases/tag/arc-2026.09-release>
   * Uses upstream 1.8.11 release, see [release announcement](https://github.com/picolibc/picolibc/releases/tag/1.8.11).
-  * Added experimental support of Picolibc for ARC Classic targets 
-* uClibc-ng 1.0.55 with ARC patches
+* uClibc-ng 1.0.57 with ARC patches
   * Sources used for the release: <https://github.com/foss-for-mips-arc-processors/uClibc/releases/tag/arc-2026.09-release>
-  * Uses upstream 1.0.55 release, see [release announcement](https://cgit.uclibc-ng.org/cgi/cgit/uclibc-ng.git/tag/?h=v1.0.55).
+  * Uses upstream 1.0.57 release, see [release announcement](https://mailman.openadk.org/mailman3/hyperkitty/list/devel@uclibc-ng.org/thread/JMEZYWV7VVHKB67QNLOVLPGKAFMDYS7B/).
 * glibc 2.42 with ARC patches
   * Sources used for the release: <https://github.com/foss-for-mips-arc-processors/glibc/releases/tag/arc-2026.09-release>
   * Uses upstream 2.42 release, see [release announcement](https://lists.gnu.org/archive/html/info-gnu/2025-07/msg00011.html) and [complete list of changes](https://sourceware.org/glibc/wiki/Release/2.42).
@@ -79,4 +78,4 @@ Here is a list of GitHub issues addressed in this release: [GitHub issues for 20
 
 2. The size-optimized Newlib Nano configuration (used when `-specs=nano.specs` is passed to GCC) does not support `printf()` for `float` and `double` by default. Nano `printf()` is size-optimized and does not include support of `float` and `double`. If you need that feature, pass `-u _printf_float` to GCC when you compile your applications. This option picks up support of `float` and `double` for size optimized `printf()` on demand.
 
-4. Using selective scheduler with a specific set of options may lead to incorrect code generation. Refer [Bug 118153](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=118153) for details.
+3. Using selective scheduler with a specific set of options may lead to incorrect code generation. Refer [Bug 118153](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=118153) for details.
