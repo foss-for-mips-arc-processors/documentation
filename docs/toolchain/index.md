@@ -56,6 +56,7 @@ This table depicts which GCC driver should be used depending on ISA:
 | ISA       | Driver/Triplet    | Driver/Triplet (alias) | Families           | Endianness |
 |-----------|-------------------|------------------------|--------------------|------------|
 | ARC-V     | `riscv64-gf-elf`  | -                      | RMX, RHX, RPX      | Little     |
+| Atlas     | `riscv64-gf-elf`  | -                      | M8500              | Little     |
 | ARCv3     | `arc64-elf-gcc`   | `arc64-gf-elf-gcc`     | ARC HS6x, ARC HS5x | Little[^1] |
 | ARCv2     | `arc-elf32-gcc`   | `arc-gf-elf-gcc`       | ARC HS, ARC EM     | Little     |
 | ARCv2     | `arceb-elf32-gcc` | `arceb-gf-elf-gcc`     | ARC HS, ARC EM     | Big        |

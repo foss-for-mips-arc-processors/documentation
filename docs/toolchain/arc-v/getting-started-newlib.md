@@ -18,7 +18,7 @@ To compile an application you need to set target options:
 
 1. `-march` - stands for RISC-V ISA.
 2. `-mabi` - stands for ABI.
-3. `-mtune` - stands for a particular GCC instruction scheduling optimization, 
+3. `-mtune` - stands for a particular GCC instruction scheduling optimization,
    refer [Tuning Instruction Scheduling](#tuning-instruction-scheduling)
    for ARC-V specific values .
 4. `-mcmodel` - `medlow` for `rv32` targets and `medany` for `rv64` targets.

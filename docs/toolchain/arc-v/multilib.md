@@ -48,9 +48,11 @@ rv32ema/ilp32e;@march=rv32ema@mabi=ilp32e
 rv32emac_zcb_zba_zbb_zbs_zfinx_zdinx/ilp32e;@march=rv32emac_zcb_zba_zbb_zbs_zfinx_zdinx@mabi=ilp32e
 rv32i/ilp32;@march=rv32i@mabi=ilp32
 rv32i/ilp32/rmx500;@march=rv32i@mabi=ilp32@mtune=arc-v-rmx-500-series
+rv32i/ilp32/rmx700;@march=rv32i@mabi=ilp32@mtune=arc-v-rmx-700-series
 rv32i/ilp32/rhx100;@march=rv32i@mabi=ilp32@mtune=arc-v-rhx-100-series
 rv32ic/ilp32;@march=rv32ic@mabi=ilp32
 rv32ic/ilp32/rmx500;@march=rv32ic@mabi=ilp32@mtune=arc-v-rmx-500-series
+rv32ic/ilp32/rmx700;@march=rv32ic@mabi=ilp32@mtune=arc-v-rmx-700-series
 rv32ic/ilp32/rhx100;@march=rv32ic@mabi=ilp32@mtune=arc-v-rhx-100-series
 rv32im/ilp32;@march=rv32im@mabi=ilp32
 ...
@@ -74,7 +76,6 @@ rv32im/ilp32;@march=rv32im@mabi=ilp32
 | Generic RISC-V                                    | `rv32i`                                | `ilp32` | `arc-v-rmx-100-series` | `medlow`   |
 | Generic RISC-V                                    | `rv32ic`                               | `ilp32` | `arc-v-rmx-100-series` | `medlow`   |
 | Generic RISC-V                                    | `rv32im`                               | `ilp32` | `arc-v-rmx-100-series` | `medlow`   |
-| Generic RISC-V                                    | `rv32imc`                              | `ilp32` | `arc-v-rmx-100-series` | `medlow`   |
 | Generic RISC-V                                    | `rv32ia`                               | `ilp32` | `arc-v-rmx-100-series` | `medlow`   |
 | Generic RISC-V                                    | `rv32ima`                              | `ilp32` | `arc-v-rmx-100-series` | `medlow`   |
 | Generic RISC-V                                    | `rv32iac`                              | `ilp32` | `arc-v-rmx-100-series` | `medlow`   |
@@ -92,23 +93,37 @@ rv32im/ilp32;@march=rv32im@mabi=ilp32
 
 ## Configurations for RMX-500 Targets
 
-| ARC-V profile                         | `-march`                               | `-mabi`  | `-mtune`               | `-mcmodel` |
-|---------------------------------------|----------------------------------------|----------|------------------------|------------|
-| Generic RISC-V                        | `rv32i`                                | `ilp32`  | `arc-v-rmx-500-series` | `medlow`   |
-| Generic RISC-V                        | `rv32ic`                               | `ilp32`  | `arc-v-rmx-500-series` | `medlow`   |
-| Generic RISC-V                        | `rv32im`                               | `ilp32`  | `arc-v-rmx-500-series` | `medlow`   |
-| Generic RISC-V                        | `rv32imc`                              | `ilp32`  | `arc-v-rmx-500-series` | `medlow`   |
-| Generic RISC-V                        | `rv32ia`                               | `ilp32`  | `arc-v-rmx-500-series` | `medlow`   |
-| Generic RISC-V                        | `rv32ima`                              | `ilp32`  | `arc-v-rmx-500-series` | `medlow`   |
-| Generic RISC-V                        | `rv32iac`                              | `ilp32`  | `arc-v-rmx-500-series` | `medlow`   |
-| Generic RISC-V                        | `rv32imac`                             | `ilp32`  | `arc-v-rmx-500-series` | `medlow`   |
-| Base RMX-500                          | `rv32ic_zcb_zba_zbb_zbs`               | `ilp32`  | `arc-v-rmx-500-series` | `medlow`   |
-| Base RMX-500 + `M`                    | `rv32imc_zcb_zba_zbb_zbs`              | `ilp32`  | `arc-v-rmx-500-series` | `medlow`   |
-| Base RMX-500 + `MA`                   | `rv32imac_zcb_zba_zbb_zbs`             | `ilp32`  | `arc-v-rmx-500-series` | `medlow`   |
-| Base RMX-500 + `MA`, `Zfinx`          | `rv32imac_zcb_zba_zbb_zbs_zfinx`       | `ilp32`  | `arc-v-rmx-500-series` | `medlow`   |
-| Base RMX-500 + `MA`, `Zfinx`, `Zdinx` | `rv32imac_zcb_zba_zbb_zbs_zfinx_zdinx` | `ilp32`  | `arc-v-rmx-500-series` | `medlow`   |
-| Base RMX-500 + `MA`, `F    `          | `rv32imafc_zcb_zba_zbb_zbs`            | `ilp32f` | `arc-v-rmx-500-series` | `medlow`   |
-| Base RMX-500 + `MA`, `FD`             | `rv32imafd_zca_zcb_zba_zbb_zbs`        | `ilp32d` | `arc-v-rmx-500-series` | `medlow`   |
+| ARC-V profile                         | `-march`                               | `-mabi` | `-mtune`               | `-mcmodel` |
+|---------------------------------------|----------------------------------------|---------|------------------------|------------|
+| Generic RISC-V                        | `rv32i`                                | `ilp32` | `arc-v-rmx-500-series` | `medlow`   |
+| Generic RISC-V                        | `rv32ic`                               | `ilp32` | `arc-v-rmx-500-series` | `medlow`   |
+| Generic RISC-V                        | `rv32im`                               | `ilp32` | `arc-v-rmx-500-series` | `medlow`   |
+| Generic RISC-V                        | `rv32ia`                               | `ilp32` | `arc-v-rmx-500-series` | `medlow`   |
+| Generic RISC-V                        | `rv32ima`                              | `ilp32` | `arc-v-rmx-500-series` | `medlow`   |
+| Generic RISC-V                        | `rv32iac`                              | `ilp32` | `arc-v-rmx-500-series` | `medlow`   |
+| Generic RISC-V                        | `rv32imac`                             | `ilp32` | `arc-v-rmx-500-series` | `medlow`   |
+| Base RMX-500                          | `rv32ic_zcb_zba_zbb_zbs`               | `ilp32` | `arc-v-rmx-500-series` | `medlow`   |
+| Base RMX-500 + `M`                    | `rv32imc_zcb_zba_zbb_zbs`              | `ilp32` | `arc-v-rmx-500-series` | `medlow`   |
+| Base RMX-500 + `MA`                   | `rv32imac_zcb_zba_zbb_zbs`             | `ilp32` | `arc-v-rmx-500-series` | `medlow`   |
+| Base RMX-500 + `MA`, `Zfinx`          | `rv32imac_zcb_zba_zbb_zbs_zfinx`       | `ilp32` | `arc-v-rmx-500-series` | `medlow`   |
+| Base RMX-500 + `MA`, `Zfinx`, `Zdinx` | `rv32imac_zcb_zba_zbb_zbs_zfinx_zdinx` | `ilp32` | `arc-v-rmx-500-series` | `medlow`   |
+
+## Configurations for RMX-700 Targets
+
+| ARC-V profile             | `-march`                        | `-mabi`  | `-mtune`               | `-mcmodel` |
+|---------------------------|---------------------------------|----------|------------------------|------------|
+| Generic RISC-V            | `rv32i`                         | `ilp32`  | `arc-v-rmx-700-series` | `medlow`   |
+| Generic RISC-V            | `rv32ic`                        | `ilp32`  | `arc-v-rmx-700-series` | `medlow`   |
+| Generic RISC-V            | `rv32im`                        | `ilp32`  | `arc-v-rmx-700-series` | `medlow`   |
+| Generic RISC-V            | `rv32ia`                        | `ilp32`  | `arc-v-rmx-700-series` | `medlow`   |
+| Generic RISC-V            | `rv32ima`                       | `ilp32`  | `arc-v-rmx-700-series` | `medlow`   |
+| Generic RISC-V            | `rv32iac`                       | `ilp32`  | `arc-v-rmx-700-series` | `medlow`   |
+| Generic RISC-V            | `rv32imac`                      | `ilp32`  | `arc-v-rmx-700-series` | `medlow`   |
+| Base RMX-700              | `rv32ic_zcb_zba_zbb_zbs`        | `ilp32`  | `arc-v-rmx-700-series` | `medlow`   |
+| Base RMX-700 + `M`        | `rv32imc_zcb_zba_zbb_zbs`       | `ilp32`  | `arc-v-rmx-700-series` | `medlow`   |
+| Base RMX-700 + `MA`       | `rv32imac_zcb_zba_zbb_zbs`      | `ilp32`  | `arc-v-rmx-700-series` | `medlow`   |
+| Base RMX-700 + `MA`, `F`  | `rv32imafc_zcb_zba_zbb_zbs`     | `ilp32f` | `arc-v-rmx-700-series` | `medlow`   |
+| Base RMX-700 + `MA`, `FD` | `rv32imafd_zca_zcb_zba_zbb_zbs` | `ilp32d` | `arc-v-rmx-700-series` | `medlow`   |
 
 ## Configurations for RHX-100 Targets
 
@@ -117,7 +132,6 @@ rv32im/ilp32;@march=rv32im@mabi=ilp32
 | Generic RISC-V      | `rv32i`                             | `ilp32`  | `arc-v-rhx-100-series` | `medlow`   |
 | Generic RISC-V      | `rv32ic`                            | `ilp32`  | `arc-v-rhx-100-series` | `medlow`   |
 | Generic RISC-V      | `rv32im`                            | `ilp32`  | `arc-v-rhx-100-series` | `medlow`   |
-| Generic RISC-V      | `rv32imc`                           | `ilp32`  | `arc-v-rhx-100-series` | `medlow`   |
 | Generic RISC-V      | `rv32ia`                            | `ilp32`  | `arc-v-rhx-100-series` | `medlow`   |
 | Generic RISC-V      | `rv32ima`                           | `ilp32`  | `arc-v-rhx-100-series` | `medlow`   |
 | Generic RISC-V      | `rv32iac`                           | `ilp32`  | `arc-v-rhx-100-series` | `medlow`   |
@@ -143,6 +157,15 @@ rv32im/ilp32;@march=rv32im@mabi=ilp32
 | Generic RISC-V | `rv64imafdc`                   | `lp64d` | `arc-v-rpx-100-series` | `medany`     |
 | Base RPX-100   | `rv64imac_zcb_zba_zbb_zbs`[^1] | `lp64`  | `arc-v-rpx-100-series` | `medany`     |
 | Base RPX-100   | `rv64imafdc_zcb_zba_zbb_zbs`   | `lp64d` | `arc-v-rpx-100-series` | `medany`     |
+
+## Configurations for M8500 Targets
+
+| Profile                       | `-march`                                                                                      | `-mabi`  | `-mtune`     | `-mcmodel` |
+|-------------------------------|-----------------------------------------------------------------------------------------------|----------|--------------|------------|
+| Base M8500 without `C`        | `rv32ima_zba_zbb_zbs_zabha_zicond_zihintpause_zicbop_zimop`                                   | `ilp32`  | `mips-m8500` | `medlow`   |
+| Base M8500                    | `rv32imac_zcb_zba_zbb_zbs_zabha_zcmp_zcmt_zicond_zihintpause_zicbop_zimop_zcmop`              | `ilp32`  | `mips-m8500` | `medlow`   |
+| Base M8500 + `FD` without `C` | `rv32imafd_zba_zbb_zbs_zabha_zicond_zihintpause_zicbop_zimop_zfa`                             | `ilp32d` | `mips-m8500` | `medlow`   |
+| Base M8500 + `FD`             | `rv32imafd_zba_zbb_zbs_zabha_zca_zcb_zcmp_zcmt_zcf_zicond_zihintpause_zicbop_zimop_zcmop_zfa` | `ilp32d` | `mips-m8500` | `medlow`   |
 
 ## Using Buildlib for Building Libraries
 
