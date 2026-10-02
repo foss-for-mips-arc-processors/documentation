@@ -183,3 +183,32 @@ $ nsimdrv -p nsim_isa_family=rv64 \
 2: two
 3: three
 ```
+
+## Build and Run for Atlas M8500
+
+Build with Picolibc-based toolchain:
+
+```
+$ riscv64-gf-elf-gcc \
+        -march=rv32imafd_zba_zbb_zbs_zabha_zca_zcb_zcmp_zcmt_zcf_zicond_zihintpause_zicbop_zimop_zcmop_zfa \
+        -mabi=ilp32d \
+        -mtune=mips-m8500 \
+        -specs=picolibc.specs \
+        --oslib=semihost \
+        --crt0=semihost \
+        args.c -o args.elf
+```
+
+Run on nSIM:
+
+```
+$ nsimdrv -p nsim_isa_family=rv32 \
+          -p nsim_isa_ext=-all.i.m.a.f.d.zba.zbb.zbs.zabha.zca.zcb.zcmp.zcmt.zcf.zicond.zihintpause.zicbop.zimop.zcmop.zfa.zicsr \
+          -p nsim_semihosting=1 \
+          -p enable_exceptions=0 \
+          -- args.elf one two three
+0: args.elf
+1: one
+2: two
+3: three
+```
