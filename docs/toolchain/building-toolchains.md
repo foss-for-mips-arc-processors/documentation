@@ -169,34 +169,36 @@ via <https://github.com/foss-for-mips-arc-processors/toolchain/releases>).
 
 The following pre-defined configurations are available at the moment:
 
-1. `gf-arc-multilib-elf32` - Bare-metal cross-toolchain for wide range of ARCompact & ARCv2 processors (ARC600, ARC700, AEC EM & HS) with Newlib standard library for 64-bit Linux hosts
-1. `gf-arc-multilib-elf32-picolibc` - Bare-metal cross-toolchain for wide range of ARCompact & ARCv2 processors (ARC600, ARC700, AEC EM & HS) with Picolibc standard library for 64-bit Linux hosts
-1. `gf-arc-elf32-win` - Bare-metal cross-toolchain for wide range of ARCompact & ARCv2 processors (ARC600, ARC700, AEC EM & HS) with Newlib standard library for 64
--bit Windows hosts
-1. `gf-arc-elf32-win-picolibc` - Bare-metal cross-toolchain for wide range of ARCompact & ARCv2 processors (ARC600, ARC700, AEC EM & HS) with Picolibc standard library for 64
--bit Windows hosts
-1. `gf-arc-elf32-aarch64` - Bare-metal cross-toolchain for wide range of ARCompact & ARCv2 processors (ARC600, ARC700, AEC EM & HS) with Newlib standard library for for Aarch64 hosts
-1. `gf-arc-elf32-aarch64-picolibc` - Bare-metal cross-toolchain for wide range of ARCompact & ARCv2 processors (ARC600, ARC700, AEC EM & HS) with Picolibc standard library for Aarch64 hosts
 1. `gf-arc-arc700-linux-uclibc` - Linux uClibc cross-toolchain for ARC700 processors for 64-bit Linux hosts
 1. `gf-arc-archs-linux-gnu` - Linux glibc cross-toolchain for ARC HS3x & HS4x processors for 64-bit Linux hosts
 1. `gf-arc-archs-linux-uclibc` - Linux uClibc cross-toolchain for ARC HS3x & HS4x processors for 64-bit Linux hosts
 1. `gf-arc-archs-native-gnu` - Linux glibc "native" toolchain from ARC HS3x & ARC HS4x processors
-1. `gf-arceb-multilib-elf32` - Bare-metal cross-toolchain for wide range of ARCompact & ARCv2 processors (ARC600, ARC700, AEC EM & HS - big endian) for 64-bit Linux hosts
-1. `gf-arceb-arc700-linux-uclibc` - Linux uClibc cross-toolchain for ARC700 processors (big endian) for 64-bit Linux hosts
-1. `gf-arceb-archs-linux-uclibc` - Linux uClibc cross-toolchain for ARC HS3x & HS4x processors (big endian) for 64-bit Linux hosts
-1. `gf-arceb-elf32-win` - Bare-metal cross-toolchain for wide range of ARCompact & ARCv2 processors (ARC600, ARC700, AEC EM & HS - big endian) for 64
+1. `gf-arc-elf32-aarch64-picolibc` - Bare-metal cross-toolchain for wide range of ARCompact & ARCv2 processors (ARC600, ARC700, AEC EM & HS) with Picolibc standard library for Aarch64 hosts
+1. `gf-arc-elf32-aarch64` - Bare-metal cross-toolchain for wide range of ARCompact & ARCv2 processors (ARC600, ARC700, AEC EM & HS) with Newlib standard library for for Aarch64 hosts
+1. `gf-arc-elf32-win-picolibc` - Bare-metal cross-toolchain for wide range of ARCompact & ARCv2 processors (ARC600, ARC700, AEC EM & HS) with Picolibc standard library for 64
 -bit Windows hosts
+1. `gf-arc-elf32-win` - Bare-metal cross-toolchain for wide range of ARCompact & ARCv2 processors (ARC600, ARC700, AEC EM & HS) with Newlib standard library for 64
+-bit Windows hosts
+1. `gf-arc-multilib-elf32-picolibc` - Bare-metal cross-toolchain for wide range of ARCompact & ARCv2 processors (ARC600, ARC700, AEC EM & HS) with Picolibc standard library for 64-bit Linux hosts
+1. `gf-arc-multilib-elf32` - Bare-metal cross-toolchain for wide range of ARCompact & ARCv2 processors (ARC600, ARC700, AEC EM & HS) with Newlib standard library for 64-bit Linux hosts
+1. `gf-arc32-linux-gnu` - Linux glibc cross-toolchain for ARC HS5x processors for 64-bit Linux hosts
 1. `gf-arc32-linux-uclibc` - Linux uClibc cross-toolchain for ARC HS5x processors for 64-bit Linux hosts
 1. `gf-arc32-native-uclibc` - Linux uClibc "native" toolchain from ARC HS5x processors
 1. `gf-arc64-gf-linux-gnu` - Linux glibc cross-toolchain for for ARC HS6x processors for 64-bit Linux hosts
 1. `gf-arc64-gf-native-gnu` -  Linux glibc "native" toolchain from ARC HS6x processors
-1. `gf-arc64-unknown-elf` - Bare-metal cross-toolchain for ARC HS6x processors for 64-bit Linux hosts
-1. `gf-riscv64-unknown-elf` - Bare-metal cross-toolchain for ARC-V processors with Newlib standard library for 64-bit Linux hosts
-1. `gf-riscv64-elf-win` - Bare-metal cross-toolchain for ARC-V processors with Newlib standard library for 64-bit Windows hosts
-1. `gf-riscv64-elf-aarch64` - Bare-metal cross-toolchain for ARC-V processors with Newlib standard library for Aarch64 hosts
-1. `gf-riscv64-gf-elf-picolibc` - Bare-metal cross-toolchain for ARC-V processors with Picolibc standard library for 64-bit Linux hosts
-1. `gf-riscv64-elf-win-picolibc` - Bare-metal cross-toolchain for ARC-V processors with Picolibc standard library for 64-bit Windows hosts
+1. `gf-arc64-unknown-elf-picolibc` - Bare-metal cross-toolchain for ARC HS5x and HS6x processors with Picolibc standard library for 64-bit Linux hosts
+1. `gf-arc64-unknown-elf` - Bare-metal cross-toolchain for ARC HS5x and HS6x processors with Newlib standard library for 64-bit Linux hosts
+1. `gf-arceb-arc700-linux-uclibc` - Linux uClibc cross-toolchain for ARC700 processors (big endian) for 64-bit Linux hosts
+1. `gf-arceb-archs-linux-uclibc` - Linux uClibc cross-toolchain for ARC HS3x & HS4x processors (big endian) for 64-bit Linux hosts
+1. `gf-arceb-elf32-win` - Bare-metal cross-toolchain for wide range of ARCompact & ARCv2 processors (ARC600, ARC700, AEC EM & HS - big endian) for 64
+-bit Windows hosts
+1. `gf-arceb-multilib-elf32` - Bare-metal cross-toolchain for wide range of ARCompact & ARCv2 processors (ARC600, ARC700, AEC EM & HS - big endian) for 64-bit Linux hosts
 1. `gf-riscv64-elf-aarch64-picolibc` - Bare-metal cross-toolchain for ARC-V processors with Picolibc standard library for Aarch64 hosts
+1. `gf-riscv64-elf-aarch64` - Bare-metal cross-toolchain for ARC-V processors with Newlib standard library for Aarch64 hosts
+1. `gf-riscv64-elf-win-picolibc` - Bare-metal cross-toolchain for ARC-V processors with Picolibc standard library for 64-bit Windows hosts
+1. `gf-riscv64-elf-win` - Bare-metal cross-toolchain for ARC-V processors with Newlib standard library for 64-bit Windows hosts
+1. `gf-riscv64-gf-elf-picolibc` - Bare-metal cross-toolchain for ARC-V processors with Picolibc standard library for 64-bit Linux hosts
+1. `gf-riscv64-unknown-elf` - Bare-metal cross-toolchain for ARC-V processors with Newlib standard library for 64-bit Linux hosts
 
 For example, configure and build `gf-arc-multilib-elf32` sample:
 
