@@ -1,21 +1,6 @@
-# Getting OpenOCD
+# Building OpenOCD
 
-!!! warning
-
-    If you are going to use OpenOCD on Windows, then also follow
-    [Installing WinUSB on Windows](./winusb.md) guide to install WinUSB driver.
-
-## Downloading a Prebuilt OpenOCD
-
-The easiest way to obtain OpenOCD is to download Eclipse IDE bundle from
-[the releases page](https://github.com/foss-for-mips-arc-processors/toolchain/releases):
-
-* For Windows download and install Eclipse IDE bundle with toolchains and OpenOCD.
-  OpenOCD itself resides in the default installation directory `C:\arc_gnu\bin`.
-* For Linux download and extract Eclipse IDE bundle anywhere. OpenOCD resides in
-  `bin` subdirectory.
-
-## Building for Linux
+## Building from Sources for Linux
 
 Install prerequisites for RHEL/AlmaLinux 8:
 
@@ -64,44 +49,7 @@ Configure your environment (use your own installation path):
 $ export PATH=/tools/openocd/bin:$PATH
 ```
 
-## Installing udev Rules for Linux
-
-You should configure udev rules in such way that OpenOCD would be able
-to claim your JTAG debug cable. In common case for ARC this is an FTDI-based
-device.
-
-For RHEL/AlmaLinux 8 create `/etc/udev/rules.d/99-ftdi.rules`
-configuration file with the following contents:
-
-```text
-# Digilent HS1 and similar products
-SUBSYSTEM=="usb", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6010", MODE="0666"
-# Digilent HS2
-SUBSYSTEM=="usb", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6014", MODE="0666"
-```
-
-For Ubuntu 22.04 create `/etc/udev/rules.d/99-ftdi.rules`
-configuration file with the following contents:
-
-```text
-# Digilent HS1 and similar products
-SUBSYSTEM=="usb", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6010", MODE="0664", GROUP="plugdev"
-# Digilent HS2
-SUBSYSTEM=="usb", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6014", MODE="0664", GROUP="plugdev"
-```
-
-Then either reboot your system or reload `udev` configuration and reconnect debug
-cable to the host computer:
-
-```shell
-$ sudo udevadm control --reload-rules
-```
-
-You can also use `contrib/99-openocd.udev` file supplied with OpenOCD sources,
-however this file doesn't work with Digilent HS2, though on the other hand it
-mentions many other FTDI-based devices.
-
-## Building for Windows
+## Building from Sources for Windows
 
 It is possible to use OpenOCD on Windows with FTDI-based debug cables using a
 `ftdi` interface and `libusb` driver (further down called `ftdi`/`libusb`). Note,
@@ -134,7 +82,7 @@ $ make install
 Download OpenOCD sources:
 
 ```shell
-$ git clone -b arc-2021.09 https://github.com/foss-for-mips-arc-processors/openocd
+$ git clone -b arc-2026.09 https://github.com/foss-for-mips-arc-processors/openocd
 $ cd openocd
 ```
 
@@ -163,7 +111,7 @@ If your application uses libusb and is being linked dynamically (this is by
 default), copy `/tools/libusb-mingw/bin/libusb-1.0.dll` to the OpenOCD bin
 directory. Copy OpenOCD installation to Window host.
 
-## Building for macOS
+## Building from Sources for macOS
 
 !!! warning
 
@@ -177,7 +125,7 @@ to install OpenOCD for macOS. Additionally, you have to install `libftdi`
 for Apple M1 targets:
 
 ```shell
-$ git clone -b arc-2021.09 https://github.com/foss-for-mips-arc-processors/openocd
+$ git clone -b arc-2026.09 https://github.com/foss-for-mips-arc-processors/openocd
 $ cd openocd
 $ ./bootstrap
 $ CCACHE=none ./configure --enable-ftdi --disable-werror --disable-doxygen-html --prefix=/opt/openocd
@@ -185,9 +133,3 @@ $ make
 $ make install
 ```
 
-## Running Internal Testsuite
-
-There is a set of internal test for ARC and OpenOCD. This testsuite aim is to
-catch some issues with OpenOCD, JTAG or hardware. To run test suite: source
-`tcl/test/arc.cfg` then run `arc_test_run_all` procedure, or run tests
-individually.

@@ -115,7 +115,7 @@ Err:   serial0@f0004000
 emsdp#
 ```
 
-## Building and Running Baremetal Applications
+## Building Baremetal Applications
 
 EM SDP board is shipped with with FPGA chip. There is a number of ARC EM images
 available for writing to it. Here is a list of those images and corresponding
@@ -146,31 +146,53 @@ int main()
 }
 ```
 
-Build the application:
+Build the application using a toolchain with Newlib standard library:
 
 ```shell
-arc-elf32-gcc -mcpu=em4_fpuda -mmpy-option=6 -mfpu=fpuda_all \
-              -specs=emsdp1.1.specs main.c -o main.elf
+arc-elf32-gcc \
+    -mcpu=em4_fpuda \
+    -mmpy-option=6 \
+    -mfpu=fpuda_all \
+    -specs=emsdp1.1.specs \
+    main.c -o main.elf
 ```
 
-`-specs=emsdp1.1.specs` sets a proper memory map and links the
-application with additional startup code and UART library for input/output
-operations.
+Build the application using a toolchain with Picolibc standard library:
 
-Here is a list of all available `specs` files:
+```shell
+arc-gf-elf-gcc \
+    -mcpu=em4_fpuda \
+    -mmpy-option=6 \
+    -mfpu=fpuda_all \
+    -specs=picolibc.specs \
+    -specs=emsdp1.1.specs \
+    --crt0=hosted \
+    --oslib=emsdp \
+    main.c -o main.elf
+```
 
-| Specs file           | EM SDP firmware | Description                               |
-|----------------------|-----------------|-------------------------------------------|
-| `emsdp1.1.specs`     | 1.0, 1.1        | Code and data are placed in ICCM and DCCM |
-| `emsdp1.1_ram.specs` | 1.0, 1.1        | Code and data are placed in RAM           |
-| `emsdp1.2.specs`[^1] | 1.2             | Code and data are placed in ICCM and DCCM |
-| `emsdp1.2_ram.specs` | 1.2             | Code and data are placed in RAM           |
+Here is a list of all available EM SDP `specs` files:
+
+| Specs file           | EM SDP firmware | Description                                                               |
+|----------------------|-----------------|---------------------------------------------------------------------------|
+| `emsdp1.1.specs`     | 1.0, 1.1        | Code and data are placed in ICCM and DCCM                                 |
+| `emsdp1.1_ram.specs` | 1.0, 1.1        | Code and data are placed in RAM (not available in the Picolibc toolchain) |
+| `emsdp1.2.specs`[^1] | 1.2             | Code and data are placed in ICCM and DCCM                                 |
+| `emsdp1.2_ram.specs` | 1.2             | Code and data are placed in RAM (not available in the Picolibc toolchain) |
 
 [^1]:
     The memory map for EM SDP 1.2 firmware differs from the memory map for
     EM SDP 1.0 and 1.1. That is why there are different specs files.
 
-Follow [Using OpenOCD](./use-openocd.md) guide and start OpenOCD
+## Running Baremetal Applications with OpenOCD and GDB
+
+!!! warning
+
+    * If you are going to use OpenOCD on Windows, then also follow
+      [Installing WinUSB on Windows](./winusb.md) guide to install WinUSB driver.
+    * For Linux you should [install `udev` rules](./openocd-use.md#installing-udev-rules-for-linux).
+
+Follow [Using OpenOCD](./openocd-use.md) guide and start OpenOCD
 with `arc_em_sk_v2.3.cfg` configuration file. Here is a possible output:
 
 ```text

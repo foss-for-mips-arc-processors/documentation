@@ -128,10 +128,9 @@ mdb -multifiles=core0,core1,core2,core3 -OK
 
 ### Loading Using OpenOCD and Digilent HS1/HS2 probe
 
-It's possible to use OpenOCD and Digilent HS1/HS2 probe for loading and debugging
-the Linux kernel on HSDK. You can find detailed instructions in
-[Using OpenOCD](../../platforms/use-openocd.md) guide. You need to start OpenOCD
-with `arc_hsdk.cfg` (for HSDK) of `arc_hsdk_4xd.cfg` (for HSDK 4xD) configuration
+It's possible to use [OpenOCD](../../platforms/openocd-use.md) and Digilent HS1/HS2 probe for loading and debugging
+the Linux kernel on HSDK. You need to start OpenOCD with `arc_hsdk.cfg` (for HSDK) of `arc_hsdk_4xd.cfg`
+(for HSDK 4xD) configuration
 file.
 
 Then GDB servers for all 4 cores are started: 3333 — for the 4th core, 3336 — for

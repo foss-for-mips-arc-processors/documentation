@@ -31,8 +31,7 @@ There are two fields available:
 ## Custom OpenOCD GDB Server
 
 A custom OpenOCD GDB server may be created the same way. Follow
-[Getting OpenOCD](../../platforms/get-openocd.md) and
-[Using OpenOCD](../../platforms/use-openocd.md) guides to find out how to
+[Using OpenOCD](../../platforms/openocd-use.md) guide to find out how to
 get and run OpenOCD.
 
 For example, if the full path of OpenOCD binary is `/home/user/tools/openocd/bin/openocd`,

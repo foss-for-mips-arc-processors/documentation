@@ -1,6 +1,9 @@
 # Using OpenOCD
 
-## Preface
+!!! warning
+
+    If you are going to use OpenOCD on Windows, then also follow
+    [Installing WinUSB on Windows](./winusb.md) guide to install WinUSB driver.
 
 OpenOCD is used for connecting to a board and running a GDB server for
 debugging.
@@ -13,7 +16,50 @@ Note, that all MIPS ARC boards a have built-in debug cable. It means that
 a separate Digilent HS cable is not required for connecting to the board,
 but only a simple USB cable.
 
-## Running on Linux
+## Downloading a Prebuilt OpenOCD
+
+The easiest way to obtain OpenOCD is to download Eclipse IDE bundle from
+[the releases page](https://github.com/foss-for-mips-arc-processors/toolchain/releases):
+
+* For Windows download and install Eclipse IDE bundle with toolchains and OpenOCD.
+  OpenOCD itself resides in the default installation directory `C:\arc_gnu\bin`.
+* For Linux download and extract Eclipse IDE bundle anywhere. OpenOCD resides in
+  `bin` subdirectory.
+
+## Installing udev Rules for Linux
+
+You should configure udev rules in such way that OpenOCD would be able
+to claim your JTAG debug cable. In common case for ARC this is an FTDI-based
+device.
+
+Create `/etc/udev/rules.d/99-ftdi.rules` configuration file with the following contents:
+
+```text
+# Digilent HS1 and similar products
+SUBSYSTEM=="usb", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6010", MODE="0666"
+# Digilent HS2
+SUBSYSTEM=="usb", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6014", MODE="0666"
+```
+
+Then either reboot your system or reload `udev` configuration and reconnect debug
+cable to the host computer:
+
+```shell
+$ sudo udevadm control --reload-rules
+```
+
+You can also use `contrib/99-openocd.udev` file supplied with OpenOCD sources,
+however this file doesn't work with Digilent HS2, though on the other hand it
+mentions many other FTDI-based devices.
+
+## Running Internal Testsuite
+
+There is a set of internal test for ARC and OpenOCD. This testsuite aim is to
+catch some issues with OpenOCD, JTAG or hardware. To run test suite: source
+`tcl/test/arc.cfg` then run `arc_test_run_all` procedure, or run tests
+individually.
+
+# Running on Linux
 
 Run `lsusb` to ensure that FTDI device is connected to the host. Here is an
 example for EM Starter Kit 2.2:

@@ -105,7 +105,7 @@ eth0: ethernet@f0008000
 hsdk-4xd# 
 ```
 
-## Building and Running Baremetal Applications
+## Building Baremetal Applications
 
 Consider a simple application with name `main.c`:
 
@@ -119,17 +119,36 @@ int main()
 }
 ```
 
-Build the application:
+Build the application using a toolchain with Newlib standard library:
 
 ```shell
-arc-elf32-gcc -mcpu=hs38_linux -specs=hsdk.specs main.c -o main.elf
+arc-elf32-gcc \
+    -mcpu=hs38_linux \
+    -specs=hsdk.specs \
+    main.c -o main.elf
 ```
 
-`-specs=hsdk.specs` sets a proper memory map and links the
-application with additional startup code and UART library for input/output
-operations.
+Build the application using a toolchain with Picolibc standard library:
 
-Follow [Using OpenOCD](./use-openocd.md) guide and start OpenOCD
+```shell
+arc-elf32-gcc \
+    -mcpu=hs38_linux \
+    -specs=picolibc.specs \
+    -specs=hsdk.specs \
+    --crt0=hosted \
+    --oslib=hsdk \
+    main.c -o main.elf
+```
+
+## Running Baremetal Applications with OpenOCD and GDB
+
+!!! warning
+
+    * If you are going to use OpenOCD on Windows, then also follow
+      [Installing WinUSB on Windows](./winusb.md) guide to install WinUSB driver.
+    * For Linux you should [install `udev` rules](./openocd-use.md#installing-udev-rules-for-linux).
+
+Follow [Using OpenOCD](./openocd-use.md) guide and start OpenOCD
 with `arc_hsdk.cfg` (for HSDK) or `arc_hsdk_4xd.cfg` (for HSDK 4xD)
 configuration file. Here is a possible output for HSDK 4xD:
 

@@ -132,8 +132,8 @@ nav:
       - platforms/board-hsdk.md
       - platforms/board-emsdp.md
     - OpenOCD:
-      - platforms/get-openocd.md
-      - platforms/use-openocd.md
+      - platforms/openocd-use.md
+      - platforms/openocd-build.md
     - Other guides:
       - platforms/mdb.md
       - platforms/winusb.md

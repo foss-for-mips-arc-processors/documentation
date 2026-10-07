@@ -44,5 +44,5 @@ $ sudo usermod -a -G dialout `whoami`
 
 ## Configuring OpenOCD
 
-Follow [Getting OpenOCD](../../platforms/get-openocd.md) guide to configure
+Follow [Getting OpenOCD](../../platforms/openocd-use.md) guide to configure
 OpenOCD.
