@@ -3583,14 +3583,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../platforms/get-openocd/" class="md-nav__link">
+      <a href="../../platforms/openocd-use/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Getting OpenOCD
+    Using OpenOCD
   
 
     
@@ -3611,14 +3611,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../platforms/use-openocd/" class="md-nav__link">
+      <a href="../../platforms/openocd-build/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Using OpenOCD
+    Building OpenOCD
   
 
     
@@ -4751,34 +4751,36 @@ Windows hosts or <a href="https://github.com/tpoechtrager/osxcross">OSXCross</a>
 </div>
 <p>The following pre-defined configurations are available at the moment:</p>
 <ol>
-<li><code>gf-arc-multilib-elf32</code> - Bare-metal cross-toolchain for wide range of ARCompact &amp; ARCv2 processors (ARC600, ARC700, AEC EM &amp; HS) with Newlib standard library for 64-bit Linux hosts</li>
-<li><code>gf-arc-multilib-elf32-picolibc</code> - Bare-metal cross-toolchain for wide range of ARCompact &amp; ARCv2 processors (ARC600, ARC700, AEC EM &amp; HS) with Picolibc standard library for 64-bit Linux hosts</li>
-<li><code>gf-arc-elf32-win</code> - Bare-metal cross-toolchain for wide range of ARCompact &amp; ARCv2 processors (ARC600, ARC700, AEC EM &amp; HS) with Newlib standard library for 64
--bit Windows hosts</li>
-<li><code>gf-arc-elf32-win-picolibc</code> - Bare-metal cross-toolchain for wide range of ARCompact &amp; ARCv2 processors (ARC600, ARC700, AEC EM &amp; HS) with Picolibc standard library for 64
--bit Windows hosts</li>
-<li><code>gf-arc-elf32-aarch64</code> - Bare-metal cross-toolchain for wide range of ARCompact &amp; ARCv2 processors (ARC600, ARC700, AEC EM &amp; HS) with Newlib standard library for for Aarch64 hosts</li>
-<li><code>gf-arc-elf32-aarch64-picolibc</code> - Bare-metal cross-toolchain for wide range of ARCompact &amp; ARCv2 processors (ARC600, ARC700, AEC EM &amp; HS) with Picolibc standard library for Aarch64 hosts</li>
 <li><code>gf-arc-arc700-linux-uclibc</code> - Linux uClibc cross-toolchain for ARC700 processors for 64-bit Linux hosts</li>
 <li><code>gf-arc-archs-linux-gnu</code> - Linux glibc cross-toolchain for ARC HS3x &amp; HS4x processors for 64-bit Linux hosts</li>
 <li><code>gf-arc-archs-linux-uclibc</code> - Linux uClibc cross-toolchain for ARC HS3x &amp; HS4x processors for 64-bit Linux hosts</li>
 <li><code>gf-arc-archs-native-gnu</code> - Linux glibc "native" toolchain from ARC HS3x &amp; ARC HS4x processors</li>
-<li><code>gf-arceb-multilib-elf32</code> - Bare-metal cross-toolchain for wide range of ARCompact &amp; ARCv2 processors (ARC600, ARC700, AEC EM &amp; HS - big endian) for 64-bit Linux hosts</li>
-<li><code>gf-arceb-arc700-linux-uclibc</code> - Linux uClibc cross-toolchain for ARC700 processors (big endian) for 64-bit Linux hosts</li>
-<li><code>gf-arceb-archs-linux-uclibc</code> - Linux uClibc cross-toolchain for ARC HS3x &amp; HS4x processors (big endian) for 64-bit Linux hosts</li>
-<li><code>gf-arceb-elf32-win</code> - Bare-metal cross-toolchain for wide range of ARCompact &amp; ARCv2 processors (ARC600, ARC700, AEC EM &amp; HS - big endian) for 64
+<li><code>gf-arc-elf32-aarch64-picolibc</code> - Bare-metal cross-toolchain for wide range of ARCompact &amp; ARCv2 processors (ARC600, ARC700, AEC EM &amp; HS) with Picolibc standard library for Aarch64 hosts</li>
+<li><code>gf-arc-elf32-aarch64</code> - Bare-metal cross-toolchain for wide range of ARCompact &amp; ARCv2 processors (ARC600, ARC700, AEC EM &amp; HS) with Newlib standard library for for Aarch64 hosts</li>
+<li><code>gf-arc-elf32-win-picolibc</code> - Bare-metal cross-toolchain for wide range of ARCompact &amp; ARCv2 processors (ARC600, ARC700, AEC EM &amp; HS) with Picolibc standard library for 64
 -bit Windows hosts</li>
+<li><code>gf-arc-elf32-win</code> - Bare-metal cross-toolchain for wide range of ARCompact &amp; ARCv2 processors (ARC600, ARC700, AEC EM &amp; HS) with Newlib standard library for 64
+-bit Windows hosts</li>
+<li><code>gf-arc-multilib-elf32-picolibc</code> - Bare-metal cross-toolchain for wide range of ARCompact &amp; ARCv2 processors (ARC600, ARC700, AEC EM &amp; HS) with Picolibc standard library for 64-bit Linux hosts</li>
+<li><code>gf-arc-multilib-elf32</code> - Bare-metal cross-toolchain for wide range of ARCompact &amp; ARCv2 processors (ARC600, ARC700, AEC EM &amp; HS) with Newlib standard library for 64-bit Linux hosts</li>
+<li><code>gf-arc32-linux-gnu</code> - Linux glibc cross-toolchain for ARC HS5x processors for 64-bit Linux hosts</li>
 <li><code>gf-arc32-linux-uclibc</code> - Linux uClibc cross-toolchain for ARC HS5x processors for 64-bit Linux hosts</li>
 <li><code>gf-arc32-native-uclibc</code> - Linux uClibc "native" toolchain from ARC HS5x processors</li>
 <li><code>gf-arc64-gf-linux-gnu</code> - Linux glibc cross-toolchain for for ARC HS6x processors for 64-bit Linux hosts</li>
 <li><code>gf-arc64-gf-native-gnu</code> -  Linux glibc "native" toolchain from ARC HS6x processors</li>
-<li><code>gf-arc64-unknown-elf</code> - Bare-metal cross-toolchain for ARC HS6x processors for 64-bit Linux hosts</li>
-<li><code>gf-riscv64-unknown-elf</code> - Bare-metal cross-toolchain for ARC-V processors with Newlib standard library for 64-bit Linux hosts</li>
-<li><code>gf-riscv64-elf-win</code> - Bare-metal cross-toolchain for ARC-V processors with Newlib standard library for 64-bit Windows hosts</li>
-<li><code>gf-riscv64-elf-aarch64</code> - Bare-metal cross-toolchain for ARC-V processors with Newlib standard library for Aarch64 hosts</li>
-<li><code>gf-riscv64-gf-elf-picolibc</code> - Bare-metal cross-toolchain for ARC-V processors with Picolibc standard library for 64-bit Linux hosts</li>
-<li><code>gf-riscv64-elf-win-picolibc</code> - Bare-metal cross-toolchain for ARC-V processors with Picolibc standard library for 64-bit Windows hosts</li>
+<li><code>gf-arc64-unknown-elf-picolibc</code> - Bare-metal cross-toolchain for ARC HS5x and HS6x processors with Picolibc standard library for 64-bit Linux hosts</li>
+<li><code>gf-arc64-unknown-elf</code> - Bare-metal cross-toolchain for ARC HS5x and HS6x processors with Newlib standard library for 64-bit Linux hosts</li>
+<li><code>gf-arceb-arc700-linux-uclibc</code> - Linux uClibc cross-toolchain for ARC700 processors (big endian) for 64-bit Linux hosts</li>
+<li><code>gf-arceb-archs-linux-uclibc</code> - Linux uClibc cross-toolchain for ARC HS3x &amp; HS4x processors (big endian) for 64-bit Linux hosts</li>
+<li><code>gf-arceb-elf32-win</code> - Bare-metal cross-toolchain for wide range of ARCompact &amp; ARCv2 processors (ARC600, ARC700, AEC EM &amp; HS - big endian) for 64
+-bit Windows hosts</li>
+<li><code>gf-arceb-multilib-elf32</code> - Bare-metal cross-toolchain for wide range of ARCompact &amp; ARCv2 processors (ARC600, ARC700, AEC EM &amp; HS - big endian) for 64-bit Linux hosts</li>
 <li><code>gf-riscv64-elf-aarch64-picolibc</code> - Bare-metal cross-toolchain for ARC-V processors with Picolibc standard library for Aarch64 hosts</li>
+<li><code>gf-riscv64-elf-aarch64</code> - Bare-metal cross-toolchain for ARC-V processors with Newlib standard library for Aarch64 hosts</li>
+<li><code>gf-riscv64-elf-win-picolibc</code> - Bare-metal cross-toolchain for ARC-V processors with Picolibc standard library for 64-bit Windows hosts</li>
+<li><code>gf-riscv64-elf-win</code> - Bare-metal cross-toolchain for ARC-V processors with Newlib standard library for 64-bit Windows hosts</li>
+<li><code>gf-riscv64-gf-elf-picolibc</code> - Bare-metal cross-toolchain for ARC-V processors with Picolibc standard library for 64-bit Linux hosts</li>
+<li><code>gf-riscv64-unknown-elf</code> - Bare-metal cross-toolchain for ARC-V processors with Newlib standard library for 64-bit Linux hosts</li>
 </ol>
 <p>For example, configure and build <code>gf-arc-multilib-elf32</code> sample:</p>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>./ct-ng<span class="w"> </span>gf-arc-multilib-elf32

@@ -3574,14 +3574,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../platforms/get-openocd/" class="md-nav__link">
+      <a href="../../../platforms/openocd-use/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Getting OpenOCD
+    Using OpenOCD
   
 
     
@@ -3602,14 +3602,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../platforms/use-openocd/" class="md-nav__link">
+      <a href="../../../platforms/openocd-build/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Using OpenOCD
+    Building OpenOCD
   
 
     
@@ -4724,10 +4724,9 @@ go to the configuration menu:</p>
 </span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>mdb<span class="w"> </span>-multifiles<span class="o">=</span>core0,core1,core2,core3<span class="w"> </span>-OK
 </span></code></pre></div>
 <h3 id="loading-using-openocd-and-digilent-hs1hs2-probe">Loading Using OpenOCD and Digilent HS1/HS2 probe<a class="headerlink" href="#loading-using-openocd-and-digilent-hs1hs2-probe" title="Permanent link">&para;</a></h3>
-<p>It's possible to use OpenOCD and Digilent HS1/HS2 probe for loading and debugging
-the Linux kernel on HSDK. You can find detailed instructions in
-<a href="../../../platforms/use-openocd/">Using OpenOCD</a> guide. You need to start OpenOCD
-with <code>arc_hsdk.cfg</code> (for HSDK) of <code>arc_hsdk_4xd.cfg</code> (for HSDK 4xD) configuration
+<p>It's possible to use <a href="../../../platforms/openocd-use/">OpenOCD</a> and Digilent HS1/HS2 probe for loading and debugging
+the Linux kernel on HSDK. You need to start OpenOCD with <code>arc_hsdk.cfg</code> (for HSDK) of <code>arc_hsdk_4xd.cfg</code>
+(for HSDK 4xD) configuration
 file.</p>
 <p>Then GDB servers for all 4 cores are started: 3333 — for the 4th core, 3336 — for
 the 1st core. You can debug Linux in a single core mode by connecting to

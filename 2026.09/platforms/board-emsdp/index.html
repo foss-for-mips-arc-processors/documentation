@@ -12,7 +12,7 @@
         <link rel="prev" href="../board-hsdk/">
       
       
-        <link rel="next" href="../get-openocd/">
+        <link rel="next" href="../openocd-use/">
       
       
         
@@ -3390,10 +3390,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#building-and-running-baremetal-applications" class="md-nav__link">
+  <a href="#building-baremetal-applications" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Building and Running Baremetal Applications
+        Building Baremetal Applications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-baremetal-applications-with-openocd-and-gdb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running Baremetal Applications with OpenOCD and GDB
       
     </span>
   </a>
@@ -3518,14 +3529,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../get-openocd/" class="md-nav__link">
+      <a href="../openocd-use/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Getting OpenOCD
+    Using OpenOCD
   
 
     
@@ -3546,14 +3557,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../use-openocd/" class="md-nav__link">
+      <a href="../openocd-build/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Using OpenOCD
+    Building OpenOCD
   
 
     
@@ -4423,10 +4434,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#building-and-running-baremetal-applications" class="md-nav__link">
+  <a href="#building-baremetal-applications" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Building and Running Baremetal Applications
+        Building Baremetal Applications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-baremetal-applications-with-openocd-and-gdb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running Baremetal Applications with OpenOCD and GDB
       
     </span>
   </a>
@@ -4641,7 +4663,7 @@ of command line for <code>minicom</code>:</p>
 </span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>Err:   serial0@f0004000
 </span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>emsdp#
 </span></code></pre></div>
-<h2 id="building-and-running-baremetal-applications">Building and Running Baremetal Applications<a class="headerlink" href="#building-and-running-baremetal-applications" title="Permanent link">&para;</a></h2>
+<h2 id="building-baremetal-applications">Building Baremetal Applications<a class="headerlink" href="#building-baremetal-applications" title="Permanent link">&para;</a></h2>
 <p>EM SDP board is shipped with with FPGA chip. There is a number of ARC EM images
 available for writing to it. Here is a list of those images and corresponding
 target options for GCC:</p>
@@ -4694,14 +4716,26 @@ firmware is considered to be 1.0 or 1.1.</p>
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Build the application:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>arc-elf32-gcc<span class="w"> </span>-mcpu<span class="o">=</span>em4_fpuda<span class="w"> </span>-mmpy-option<span class="o">=</span><span class="m">6</span><span class="w"> </span>-mfpu<span class="o">=</span>fpuda_all<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">              </span>-specs<span class="o">=</span>emsdp1.1.specs<span class="w"> </span>main.c<span class="w"> </span>-o<span class="w"> </span>main.elf
+<p>Build the application using a toolchain with Newlib standard library:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>arc-elf32-gcc<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span>-mcpu<span class="o">=</span>em4_fpuda<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span>-mmpy-option<span class="o">=</span><span class="m">6</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span>-mfpu<span class="o">=</span>fpuda_all<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span>-specs<span class="o">=</span>emsdp1.1.specs<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span>main.c<span class="w"> </span>-o<span class="w"> </span>main.elf
 </span></code></pre></div>
-<p><code>-specs=emsdp1.1.specs</code> sets a proper memory map and links the
-application with additional startup code and UART library for input/output
-operations.</p>
-<p>Here is a list of all available <code>specs</code> files:</p>
+<p>Build the application using a toolchain with Picolibc standard library:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>arc-gf-elf-gcc<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span>-mcpu<span class="o">=</span>em4_fpuda<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span>-mmpy-option<span class="o">=</span><span class="m">6</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span>-mfpu<span class="o">=</span>fpuda_all<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span>-specs<span class="o">=</span>picolibc.specs<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span>-specs<span class="o">=</span>emsdp1.1.specs<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span>--crt0<span class="o">=</span>hosted<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span>--oslib<span class="o">=</span>emsdp<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span>main.c<span class="w"> </span>-o<span class="w"> </span>main.elf
+</span></code></pre></div>
+<p>Here is a list of all available EM SDP <code>specs</code> files:</p>
 <table>
 <thead>
 <tr>
@@ -4719,7 +4753,7 @@ operations.</p>
 <tr>
 <td><code>emsdp1.1_ram.specs</code></td>
 <td>1.0, 1.1</td>
-<td>Code and data are placed in RAM</td>
+<td>Code and data are placed in RAM (not available in the Picolibc toolchain)</td>
 </tr>
 <tr>
 <td><code>emsdp1.2.specs</code><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></td>
@@ -4729,75 +4763,84 @@ operations.</p>
 <tr>
 <td><code>emsdp1.2_ram.specs</code></td>
 <td>1.2</td>
-<td>Code and data are placed in RAM</td>
+<td>Code and data are placed in RAM (not available in the Picolibc toolchain)</td>
 </tr>
 </tbody>
 </table>
-<p>Follow <a href="../use-openocd/">Using OpenOCD</a> guide and start OpenOCD
+<h2 id="running-baremetal-applications-with-openocd-and-gdb">Running Baremetal Applications with OpenOCD and GDB<a class="headerlink" href="#running-baremetal-applications-with-openocd-and-gdb" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul>
+<li>If you are going to use OpenOCD on Windows, then also follow
+  <a href="../winusb/">Installing WinUSB on Windows</a> guide to install WinUSB driver.</li>
+<li>For Linux you should <a href="../openocd-use/#installing-udev-rules-for-linux">install <code>udev</code> rules</a>.</li>
+</ul>
+</div>
+<p>Follow <a href="../openocd-use/">Using OpenOCD</a> guide and start OpenOCD
 with <code>arc_em_sk_v2.3.cfg</code> configuration file. Here is a possible output:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$ openocd  -f board/arc_em_sk_v2.3.cfg
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Open On-Chip Debugger 0.12.0+dev-gffa52f0e0 (2023-08-02-10:41)
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Licensed under GNU GPL v2
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>For bug reports, read
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>        http://openocd.org/doc/doxygen/bugs.html
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>Info : Listening on port 6666 for tcl connections
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>Info : Listening on port 4444 for telnet connections
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>Info : ftdi: if you experience problems at higher adapter clocks, try the command "ftdi tdo_sample_edge falling"
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>Info : clock speed 10000 kHz
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>Info : JTAG tap: arc-em.cpu tap/device found: 0x200044b1 (mfg: 0x258 (ARC International), part: 0x0004, ver: 0x2)
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>Info : starting gdb server for arc-em.cpu on 3333
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>Info : Listening on port 3333 for gdb connections
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$ openocd  -f board/arc_em_sk_v2.3.cfg
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Open On-Chip Debugger 0.12.0+dev-gffa52f0e0 (2023-08-02-10:41)
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Licensed under GNU GPL v2
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>For bug reports, read
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>        http://openocd.org/doc/doxygen/bugs.html
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>Info : Listening on port 6666 for tcl connections
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>Info : Listening on port 4444 for telnet connections
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>Info : ftdi: if you experience problems at higher adapter clocks, try the command "ftdi tdo_sample_edge falling"
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>Info : clock speed 10000 kHz
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>Info : JTAG tap: arc-em.cpu tap/device found: 0x200044b1 (mfg: 0x258 (ARC International), part: 0x0004, ver: 0x2)
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>Info : starting gdb server for arc-em.cpu on 3333
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>Info : Listening on port 3333 for gdb connections
 </span></code></pre></div>
 <p>Then connect to the server using GDB:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$ arc-elf32-gdb -quiet main.elf
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>(gdb) target remote :3333
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a># Increase timeout, because OpenOCD sometimes can be slow
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>(gdb) set remotetimeout 15
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a># Load application into target
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>(gdb) load
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a># Go to start of main function
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>(gdb) tbreak main
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>(gdb) continue
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a># Resume with usual GDB commands
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>(gdb) step
-</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>(gdb) next
-</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>
-</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a># Go to end of the application
-</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>(gdb) tbreak exit
-</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>(gdb) continue
-</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>
-</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a># For example, check exit code of application
-</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>(gdb) info reg r0
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$ arc-elf32-gdb -quiet main.elf
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>(gdb) target remote :3333
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a># Increase timeout, because OpenOCD sometimes can be slow
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>(gdb) set remotetimeout 15
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a># Load application into target
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>(gdb) load
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a># Go to start of main function
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>(gdb) tbreak main
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>(gdb) continue
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a># Resume with usual GDB commands
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>(gdb) step
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>(gdb) next
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a># Go to end of the application
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>(gdb) tbreak exit
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>(gdb) continue
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a># For example, check exit code of application
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>(gdb) info reg r0
 </span></code></pre></div>
 <h2 id="how-to-manually-flash-a-firmware">How to Manually Flash a Firmware<a class="headerlink" href="#how-to-manually-flash-a-firmware" title="Permanent link">&para;</a></h2>
 <p>You can flash a firmware of ARC CPU manually using <a href="../digilent/">Digilent Adept utilities</a>.
 Firstly, ensure that EM SDP in connected to the host:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$ djtgcfg enum
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Found 1 device(s)
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>Device: JtagSmt1
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    Device Transport Type: 00020001 (USB)
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    Product Name:          Digilent JTAG-SMT1
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    User Name:             JtagSmt1
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    Serial Number:         210203826102
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$ djtgcfg enum
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Found 1 device(s)
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>Device: JtagSmt1
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    Device Transport Type: 00020001 (USB)
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    Product Name:          Digilent JTAG-SMT1
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    User Name:             JtagSmt1
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    Serial Number:         210203826102
 </span></code></pre></div>
 <p>Device name for EM SDP is <code>JtagSmt1</code>. Then get a firmware from EM SDP bundle
 (for example, <code>emsdp_em11d_dfss.bit</code> for EM11D), init the board using
 <code>init</code> command and program board's FPGA:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$ djtgcfg -d JtagSmt1 init
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Initializing scan chain...
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Found Device ID: 43651093
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>Found 1 device(s):
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    Device 0: XC7K325T
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>$ djtgcfg -d JtagSmt1 prog -i 0 -f emsdp_em11d_dfss.bit
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>Programming device. Do not touch your board. This may take a few minutes...
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>Programming succeeded.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$ djtgcfg -d JtagSmt1 init
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Initializing scan chain...
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>Found Device ID: 43651093
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>Found 1 device(s):
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    Device 0: XC7K325T
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>$ djtgcfg -d JtagSmt1 prog -i 0 -f emsdp_em11d_dfss.bit
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>Programming device. Do not touch your board. This may take a few minutes...
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>Programming succeeded.
 </span></code></pre></div>
 <h2 id="useful-links">Useful Links<a class="headerlink" href="#useful-links" title="Permanent link">&para;</a></h2>
 <ul>

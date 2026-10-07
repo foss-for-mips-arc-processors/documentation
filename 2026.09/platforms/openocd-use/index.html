@@ -12,7 +12,7 @@
         <link rel="prev" href="../board-emsdp/">
       
       
-        <link rel="next" href="../use-openocd/">
+        <link rel="next" href="../openocd-build/">
       
       
         
@@ -23,7 +23,7 @@
     
     
       
-        <title>Getting OpenOCD - embARC Documentation Site for ARC Classic and ARC-V</title>
+        <title>Using OpenOCD - embARC Documentation Site for ARC Classic and ARC-V</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#getting-openocd" class="md-skip">
+        <a href="#using-openocd" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Getting OpenOCD
+              Using OpenOCD
             
           </span>
         </div>
@@ -3410,7 +3410,7 @@
   <span class="md-ellipsis">
     
   
-    Getting OpenOCD
+    Using OpenOCD
   
 
     
@@ -3428,7 +3428,7 @@
   <span class="md-ellipsis">
     
   
-    Getting OpenOCD
+    Using OpenOCD
   
 
     
@@ -3465,43 +3465,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#building-for-linux" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Building for Linux
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#installing-udev-rules-for-linux" class="md-nav__link">
     <span class="md-ellipsis">
       
         Installing udev Rules for Linux
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#building-for-windows" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Building for Windows
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#building-for-macos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Building for macOS
       
     </span>
   </a>
@@ -3535,14 +3502,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../use-openocd/" class="md-nav__link">
+      <a href="../openocd-build/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Using OpenOCD
+    Building OpenOCD
   
 
     
@@ -4390,43 +4357,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#building-for-linux" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Building for Linux
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#installing-udev-rules-for-linux" class="md-nav__link">
     <span class="md-ellipsis">
       
         Installing udev Rules for Linux
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#building-for-windows" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Building for Windows
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#building-for-macos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Building for macOS
       
     </span>
   </a>
@@ -4513,12 +4447,20 @@
   
 
 
-<h1 id="getting-openocd">Getting OpenOCD<a class="headerlink" href="#getting-openocd" title="Permanent link">&para;</a></h1>
+<h1 id="using-openocd">Using OpenOCD<a class="headerlink" href="#using-openocd" title="Permanent link">&para;</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If you are going to use OpenOCD on Windows, then also follow
 <a href="../winusb/">Installing WinUSB on Windows</a> guide to install WinUSB driver.</p>
 </div>
+<p>OpenOCD is used for connecting to a board and running a GDB server for
+debugging.</p>
+<p>Connection host is a host that is connected to the debug target via USB cable
+and runs OpenOCD. Debug host is a host that runs GDB, which connects to the
+OpenOCD with TCP connection. Typically it is the same host.</p>
+<p>Note, that all MIPS ARC boards a have built-in debug cable. It means that
+a separate Digilent HS cable is not required for connecting to the board,
+but only a simple USB cable.</p>
 <h2 id="downloading-a-prebuilt-openocd">Downloading a Prebuilt OpenOCD<a class="headerlink" href="#downloading-a-prebuilt-openocd" title="Permanent link">&para;</a></h2>
 <p>The easiest way to obtain OpenOCD is to download Eclipse IDE bundle from
 <a href="https://github.com/foss-for-mips-arc-processors/toolchain/releases">the releases page</a>:</p>
@@ -4528,126 +4470,306 @@
 <li>For Linux download and extract Eclipse IDE bundle anywhere. OpenOCD resides in
   <code>bin</code> subdirectory.</li>
 </ul>
-<h2 id="building-for-linux">Building for Linux<a class="headerlink" href="#building-for-linux" title="Permanent link">&para;</a></h2>
-<p>Install prerequisites for RHEL/AlmaLinux 8:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">      </span>libtool<span class="w"> </span>gcc<span class="w"> </span>autoconf<span class="w"> </span>automake<span class="w"> </span>texinfo<span class="w"> </span>libusb1<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">      </span>libusb1-devel<span class="w"> </span>git<span class="w"> </span>make<span class="w"> </span>which
-</span></code></pre></div>
-<p>Install prerequisites for Ubuntu 22.04:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">      </span>libtool<span class="w"> </span>git<span class="w"> </span>build-essential<span class="w"> </span>autoconf<span class="w"> </span>automake<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">      </span>texinfo<span class="w"> </span>libusb-1.0-0<span class="w"> </span>libusb-1.0-0-dev<span class="w"> </span>pkg-config
-</span></code></pre></div>
-<p>Download OpenOCD sources and checkout the latest release:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>arc-2026.09<span class="w"> </span>https://github.com/foss-for-mips-arc-processors/openocd
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>openocd
-</span></code></pre></div>
-<p>Configure OpenOCD (use your own <code>--prefix</code> path):</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>./bootstrap
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>$<span class="w"> </span>./configure<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">      </span>--enable-ftdi<span class="w"> </span>--disable-werror<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">      </span>--disable-doxygen-html<span class="w"> </span>--prefix<span class="o">=</span>/tools/openocd
-</span></code></pre></div>
-<p>Also, you can pass <code>--enable-verbose</code> and <code>--enable-verbose-jtag-io</code> options for development activities.</p>
-<p>Build and install:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>make
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>$<span class="w"> </span>make<span class="w"> </span>install
-</span></code></pre></div>
-<p>Configure your environment (use your own installation path):</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/tools/openocd/bin:<span class="nv">$PATH</span>
-</span></code></pre></div>
 <h2 id="installing-udev-rules-for-linux">Installing udev Rules for Linux<a class="headerlink" href="#installing-udev-rules-for-linux" title="Permanent link">&para;</a></h2>
 <p>You should configure udev rules in such way that OpenOCD would be able
 to claim your JTAG debug cable. In common case for ARC this is an FTDI-based
 device.</p>
-<p>For RHEL/AlmaLinux 8 create <code>/etc/udev/rules.d/99-ftdi.rules</code>
-configuration file with the following contents:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a># Digilent HS1 and similar products
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>SUBSYSTEM=="usb", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6010", MODE="0666"
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a># Digilent HS2
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>SUBSYSTEM=="usb", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6014", MODE="0666"
-</span></code></pre></div>
-<p>For Ubuntu 22.04 create <code>/etc/udev/rules.d/99-ftdi.rules</code>
-configuration file with the following contents:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a># Digilent HS1 and similar products
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>SUBSYSTEM=="usb", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6010", MODE="0664", GROUP="plugdev"
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a># Digilent HS2
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>SUBSYSTEM=="usb", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6014", MODE="0664", GROUP="plugdev"
+<p>Create <code>/etc/udev/rules.d/99-ftdi.rules</code> configuration file with the following contents:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a># Digilent HS1 and similar products
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>SUBSYSTEM=="usb", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6010", MODE="0666"
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a># Digilent HS2
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>SUBSYSTEM=="usb", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6014", MODE="0666"
 </span></code></pre></div>
 <p>Then either reboot your system or reload <code>udev</code> configuration and reconnect debug
 cable to the host computer:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>udevadm<span class="w"> </span>control<span class="w"> </span>--reload-rules
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>udevadm<span class="w"> </span>control<span class="w"> </span>--reload-rules
 </span></code></pre></div>
 <p>You can also use <code>contrib/99-openocd.udev</code> file supplied with OpenOCD sources,
 however this file doesn't work with Digilent HS2, though on the other hand it
 mentions many other FTDI-based devices.</p>
-<h2 id="building-for-windows">Building for Windows<a class="headerlink" href="#building-for-windows" title="Permanent link">&para;</a></h2>
-<p>It is possible to use OpenOCD on Windows with FTDI-based debug cables using a
-<code>ftdi</code> interface and <code>libusb</code> driver (further down called <code>ftdi</code>/<code>libusb</code>). Note,
-however that this requires <a href="../winusb/">replacing the original FTDI proprietary drivers</a> with
-open source ones. This will render Digilent cable unusable by Digilent tools,
-like Adept.</p>
-<p>Install the same prerequisites like for Linux build (except for <code>libusb-dev</code>) and
-MinGW cross-compiler:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libtool<span class="w"> </span>git-core<span class="w"> </span>build-essential<span class="w"> </span>autoconf<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">      </span>automake<span class="w"> </span>texinfo<span class="w"> </span>pkg-config<span class="w"> </span>wget<span class="w"> </span>gcc-mingw-w64
-</span></code></pre></div>
-<p>Download <a href="http://libusb.info">libusb sources</a> sources. Configure and build them
-with MinGW compiler. It is recommended to build only static <code>libusb</code>, so that
-OpenOCD will not need this library's <code>.dll</code> file to be copied around:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>$<span class="w"> </span>wget<span class="w"> </span>https://github.com/libusb/libusb/releases/download/v1.0.26/libusb-1.0.26.tar.bz2
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>$<span class="w"> </span>tar<span class="w"> </span>-xaf<span class="w"> </span>libusb-1.0.26.tar.bz2
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>libusb-1.0.26
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>$<span class="w"> </span>./configure<span class="w"> </span>--host<span class="o">=</span>i686-w64-mingw32<span class="w"> </span>--build<span class="o">=</span>x86_64-linux-gnu<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">      </span>--prefix<span class="o">=</span>/tools/libusb-mingw<span class="w"> </span>--disable-shared<span class="w"> </span>--enable-static
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>$<span class="w"> </span>make
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>$<span class="w"> </span>make<span class="w"> </span>install
-</span></code></pre></div>
-<p>Download OpenOCD sources:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>arc-2021.09<span class="w"> </span>https://github.com/foss-for-mips-arc-processors/openocd
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>openocd
-</span></code></pre></div>
-<p>Configure OpenOCD. Consult <code>configure --help</code> and generic OpenOCD documentation
-for details. This command line is recommended for ARC with <code>libusb</code>/<code>ftdi</code>:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>$<span class="w"> </span>./bootstrap
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>$<span class="w"> </span><span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span>/tools/libusb-mingw/lib/pkgconfig<span class="w"> </span>./configure<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">      </span>--enable-ftdi<span class="w"> </span>--host<span class="o">=</span>i686-w64-mingw32<span class="w"> </span>--build<span class="o">=</span>x86_64-linux-gnu<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">      </span>--disable-werror<span class="w"> </span>--prefix<span class="o">=</span>/tools/openocd-mingw
-</span></code></pre></div>
-<p>Note that it is required to set <code>PKG_CONFIG_PATH</code>, otherwise configure script
-will detect host's <code>libusb</code> installation, instead of the one cross-compiled for
-Windows.</p>
-<p>Build and install:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>$<span class="w"> </span>make
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>$<span class="w"> </span>make<span class="w"> </span>install
-</span></code></pre></div>
-<p>If your application uses libusb and is being linked dynamically (this is by
-default), copy <code>/tools/libusb-mingw/bin/libusb-1.0.dll</code> to the OpenOCD bin
-directory. Copy OpenOCD installation to Window host.</p>
-<h2 id="building-for-macos">Building for macOS<a class="headerlink" href="#building-for-macos" title="Permanent link">&para;</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Ensure that your <code>PATH</code> does not contain GNU binutils binaries, otherwise
-linkage will fail.</p>
-</div>
-<p>Follow <a href="https://github.com/openocd-org/openocd/blob/master/README.macOS">README.macOS</a>
-guide and then <a href="https://github.com/openocd-org/openocd/blob/master/README">README</a>
-to install OpenOCD for macOS. Additionally, you have to install <code>libftdi</code>
-(for Homebrew) or <code>libftdi1</code> (for MacPorts) package. Here is a building process
-for Apple M1 targets:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>arc-2021.09<span class="w"> </span>https://github.com/foss-for-mips-arc-processors/openocd
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>openocd
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>$<span class="w"> </span>./bootstrap
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>$<span class="w"> </span><span class="nv">CCACHE</span><span class="o">=</span>none<span class="w"> </span>./configure<span class="w"> </span>--enable-ftdi<span class="w"> </span>--disable-werror<span class="w"> </span>--disable-doxygen-html<span class="w"> </span>--prefix<span class="o">=</span>/opt/openocd
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>$<span class="w"> </span>make
-</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>$<span class="w"> </span>make<span class="w"> </span>install
-</span></code></pre></div>
 <h2 id="running-internal-testsuite">Running Internal Testsuite<a class="headerlink" href="#running-internal-testsuite" title="Permanent link">&para;</a></h2>
 <p>There is a set of internal test for ARC and OpenOCD. This testsuite aim is to
 catch some issues with OpenOCD, JTAG or hardware. To run test suite: source
 <code>tcl/test/arc.cfg</code> then run <code>arc_test_run_all</code> procedure, or run tests
 individually.</p>
+<h1 id="running-on-linux">Running on Linux<a class="headerlink" href="#running-on-linux" title="Permanent link">&para;</a></h1>
+<p>Run <code>lsusb</code> to ensure that FTDI device is connected to the host. Here is an
+example for EM Starter Kit 2.2:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ lsusb
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Bus 001 Device 002: ID 0403:6010 Future Technology Devices International, Ltd FT2232C/D/H Dual UART/FIFO IC
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Bus 002 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+</span></code></pre></div>
+<p>If you built and installed OpenOCD manually, then you can run it this way:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ openocd -f board/arc_em_sk_v2.2.cfg
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Open On-Chip Debugger 0.9.0-dev (2023-08-08-15:19)
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Licensed under GNU GPL v2
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>For bug reports, read
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    http://openocd.sourceforge.net/doc/doxygen/bugs.html
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>adapter speed: 5000 kHz
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>Info : clock speed 5000 kHz
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>Info : JTAG tap: arc-em.cpu tap/device found: 0x200044b1 (mfg: 0x258, part: 0x0004, ver: 0x2)
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>Info : JTAG tap: arc-em.cpu tap/device found: 0x200044b1 (mfg: 0x258, part: 0x0004, ver: 0x2)
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>target state: halted
+</span></code></pre></div>
+<p>If you downloaded IDE bundle with OpenOCD for Linux, then you have to set
+a path to OpenOCD scripts. You can do it this way (replace <code>&lt;ide&gt;</code> by a path to
+the directory of IDE bundle):</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>&lt;ide&gt;/bin/openocd<span class="w"> </span>-s<span class="w"> </span>&lt;ide&gt;/share/openocd/scripts<span class="w"> </span>-f<span class="w"> </span>board/arc_em_sk_v2.2.cfg
+</span></code></pre></div>
+<p>You can find all available configuration files in <code>&lt;openocd&gt;/scripts/board</code>
+directory (where <code>&lt;openocd&gt;</code> stands for OpenOCD installation directory):</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$ ls /tools/openocd/share/openocd/scripts/board/arc_* -1
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>/tools/openocd/share/openocd/scripts/board/arc_axs101.cfg
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>/tools/openocd/share/openocd/scripts/board/arc_axs102.cfg
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>/tools/openocd/share/openocd/scripts/board/arc_axs103_hs36.cfg
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>/tools/openocd/share/openocd/scripts/board/arc_axs103_hs38.cfg
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>/tools/openocd/share/openocd/scripts/board/arc_axs103_hs47D.cfg
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>/tools/openocd/share/openocd/scripts/board/arc_axs103_hs48.cfg
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>/tools/openocd/share/openocd/scripts/board/arc_em_sk.cfg
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>/tools/openocd/share/openocd/scripts/board/arc_em_sk_v1.cfg
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>/tools/openocd/share/openocd/scripts/board/arc_em_sk_v2.1.cfg
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>/tools/openocd/share/openocd/scripts/board/arc_em_sk_v2.2.cfg
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>/tools/openocd/share/openocd/scripts/board/arc_em_sk_v2.2_cjtag.cfg
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>/tools/openocd/share/openocd/scripts/board/arc_em_sk_v2.3.cfg
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>/tools/openocd/share/openocd/scripts/board/arc_em_sk_v2.3_cjtag.cfg
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>/tools/openocd/share/openocd/scripts/board/arc_hsdk.cfg
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>/tools/openocd/share/openocd/scripts/board/arc_iotdk.cfg
+</span></code></pre></div>
+<p>Refer to <a href="#configurations-files">the corresponding section</a> for details.</p>
+<p>Start a debugger on debug host:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$<span class="w"> </span>arc-elf32-gdb<span class="w"> </span>application.elf
+</span></code></pre></div>
+<p>Connect to OpenOCD server:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>(gdb) target remote &lt;connection host ip address&gt;:3333
+</span></code></pre></div>
+<p>If OpenOCD and GDB are running on the same host:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>(gdb) target remote :3333
+</span></code></pre></div>
+<p>Load image to be debugged (<code>application.elf</code>) into the target memory:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>(gdb) load
+</span></code></pre></div>
+<p>Set breakpoints at functions main and exit:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>(gdb) break main
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>(gdb) break exit
+</span></code></pre></div>
+<p>Start the execution on target of the image to debug, to reach function main:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>(gdb) continue
+</span></code></pre></div>
+<p>Resume execution to reach function exit:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>(gdb) continue
+</span></code></pre></div>
+<h2 id="running-on-windows">Running on Windows<a class="headerlink" href="#running-on-windows" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you are going to use OpenOCD on Windows, firstly follow
+<a href="../winusb/">Installing WinUSB on Windows</a> guide to install WinUSB driver.</p>
+</div>
+<p>OpenOCD may be used on Windows the same way it's used on Linux.
+If you downloaded and installed IDE bundle for Windows, then you can run
+OpenOCD this way:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>$ C:\arc_gnu\bin\openocd -s C:\arc_gnu\share\openocd\scripts -f board\arc_em_sk_v2.2.cfg
+</span></code></pre></div>
+<h2 id="running-on-macos">Running on macOS<a class="headerlink" href="#running-on-macos" title="Permanent link">&para;</a></h2>
+<p>Run <code>ioreg</code> application to ensure that FTDI device is there:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>$<span class="w"> </span>ioreg<span class="w"> </span>-p<span class="w"> </span>IOUSB<span class="w"> </span>-l<span class="w"> </span>-w<span class="w"> </span><span class="m">0</span>
+</span></code></pre></div>
+<p>There should be output like this:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Digilent USB Device@14100000  &lt;class AppleUSBDevice, id 0x1000015f7, registered, matched, active, busy 0 (5 ms), retain 21&gt;
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>{
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    ...
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>}
+</span></code></pre></div>
+<p>OpenOCD may be used on macOS the same way it's used on Linux. However,
+consider using <code>sudo</code> to get access to USB devices:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>openocd<span class="w"> </span>-f<span class="w"> </span>board/arc_em_sk_v2.2.cfg
+</span></code></pre></div>
+<p>Note that exact output could differ from host to host.</p>
+<p>If you're using a USB adapter and have a driver kext matched to it,
+you will need to unload it prior to running OpenOCD. E.g. with Apple
+driver (OS X 10.9 or later) for FTDI run:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>kextunload<span class="w"> </span>-b<span class="w"> </span>com.apple.driver.AppleUSBFTDI
+</span></code></pre></div>
+<p>For FTDI vendor driver use:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>sudo<span class="w"> </span>kextunload<span class="w"> </span>FTDIUSBSerialDriver.kext
+</span></code></pre></div>
+<h2 id="debugging-multi-core-targets">Debugging Multi-Core Targets<a class="headerlink" href="#debugging-multi-core-targets" title="Permanent link">&para;</a></h2>
+<p>OpenOCD starts a distinct GDB server for each core of multi-core target. Here is
+an example for HS Development Kit 4xD:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>$ openocd -f board/arc_hsdk_4xd.cfg
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>Open On-Chip Debugger 0.12.0+dev-gffa52f0e0 (2023-08-02-10:41)
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>Licensed under GNU GPL v2
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>For bug reports, read
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>    http://openocd.org/doc/doxygen/bugs.html
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>Info : target has l2 cache enabled is enabled
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>Info : target has l2 cache enabled is enabled
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>Info : target has l2 cache enabled is enabled
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>Info : target has l2 cache enabled is enabled
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>32768
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>Info : Listening on port 6666 for tcl connections
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>Info : Listening on port 4444 for telnet connections
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>Info : ftdi: if you experience problems at higher adapter clocks, try the command "ftdi tdo_sample_edge falling"
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>Info : clock speed 10000 kHz
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>Info : JTAG tap: arc-em.cpu4 tap/device found: 0x100c54b1 (mfg: 0x258 (ARC International), part: 0x00c5, ver: 0x1)
+</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>Info : JTAG tap: arc-em.cpu3 tap/device found: 0x100854b1 (mfg: 0x258 (ARC International), part: 0x0085, ver: 0x1)
+</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a>Info : JTAG tap: arc-em.cpu2 tap/device found: 0x100454b1 (mfg: 0x258 (ARC International), part: 0x0045, ver: 0x1)
+</span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a>Info : JTAG tap: arc-em.cpu1 tap/device found: 0x100054b1 (mfg: 0x258 (ARC International), part: 0x0005, ver: 0x1)
+</span><span id="__span-19-19"><a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a>Info : starting gdb server for arc-em.cpu4 on 3333
+</span><span id="__span-19-20"><a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a>Info : Listening on port 3333 for gdb connections
+</span><span id="__span-19-21"><a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a>Info : starting gdb server for arc-em.cpu3 on 3334
+</span><span id="__span-19-22"><a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a>Info : Listening on port 3334 for gdb connections
+</span><span id="__span-19-23"><a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a>Info : starting gdb server for arc-em.cpu2 on 3335
+</span><span id="__span-19-24"><a id="__codelineno-19-24" name="__codelineno-19-24" href="#__codelineno-19-24"></a>Info : Listening on port 3335 for gdb connections
+</span><span id="__span-19-25"><a id="__codelineno-19-25" name="__codelineno-19-25" href="#__codelineno-19-25"></a>Info : starting gdb server for arc-em.cpu1 on 3336
+</span><span id="__span-19-26"><a id="__codelineno-19-26" name="__codelineno-19-26" href="#__codelineno-19-26"></a>Info : Listening on port 3336 for gdb connections
+</span></code></pre></div>
+<p>All cores are numbered in reverse order:</p>
+<ul>
+<li>Port 3333 corresponds to Core 4.</li>
+<li>Port 3334 corresponds to Core 3.</li>
+<li>Port 3335 corresponds to Core 2.</li>
+<li>Port 3336 corresponds to Core 1.</li>
+</ul>
+<p>If you want to debug the Linux kernel or other application with support of SMP
+then consider running separated GDB servers starting from the last core:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># Load and run core #1</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>arc-elf32-gdb<span class="w"> </span>-ex<span class="w"> </span><span class="s2">"target remote :3335"</span><span class="w"> </span>-ex<span class="w"> </span><span class="s2">"load"</span><span class="w"> </span>-ex<span class="w"> </span><span class="s2">"c"</span><span class="w"> </span>vmlinux
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="c1"># Load and run core #2</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>arc-elf32-gdb<span class="w"> </span>-ex<span class="w"> </span><span class="s2">"target remote :3334"</span><span class="w"> </span>-ex<span class="w"> </span><span class="s2">"load"</span><span class="w"> </span>-ex<span class="w"> </span><span class="s2">"c"</span><span class="w"> </span>vmlinux
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="c1"># Load and run core #3</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>arc-elf32-gdb<span class="w"> </span>-ex<span class="w"> </span><span class="s2">"target remote :3333"</span><span class="w"> </span>-ex<span class="w"> </span><span class="s2">"load"</span><span class="w"> </span>-ex<span class="w"> </span><span class="s2">"c"</span><span class="w"> </span>vmlinux
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="c1"># Load and run core #0 (main one)</span>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>arc-elf32-gdb<span class="w"> </span>-ex<span class="w"> </span><span class="s2">"target remote :3336"</span><span class="w"> </span>-ex<span class="w"> </span><span class="s2">"load"</span><span class="w"> </span>-ex<span class="w"> </span><span class="s2">"c"</span><span class="w"> </span>vmlinux
+</span></code></pre></div>
+<h2 id="advanced-debug-commands">Advanced Debug Commands<a class="headerlink" href="#advanced-debug-commands" title="Permanent link">&para;</a></h2>
+<p>With the GDB <code>monitor</code> command, you have an access to the core without
+any interference from GDB. With other words, GDB has no notion of
+changes in core state when using the so called <code>monitor</code> commands (but it is
+very powerful). In GDB, connect to the OpenOCD target and type following
+command to get a list of available monitor commands:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>(gdb) monitor help
+</span></code></pre></div>
+<p>To get a list of some ARC-specific commands, run:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>(gdb) monitor help arc
+</span></code></pre></div>
+<p>Those are actually internal OpenOCD commands which are also available in
+configuration scripts and can be passed in OpeOCD command line with <code>-c ...</code>
+options. Those command allow to enabled some extra features of OpenOCD
+(disabled by default for one or another reason) or perform some low-level
+actions bypassing GDB or even OpenOCD. For example it is possible to write/read
+core and aux registers. However some command for register access will be
+removed in future, when ARC OpenOCD will fully support flexible register
+configurations.</p>
+<h2 id="using-another-gdb-port">Using Another GDB port<a class="headerlink" href="#using-another-gdb-port" title="Permanent link">&para;</a></h2>
+<p>You can use an OpenOCD command to change the GDB port this way:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>openocd -c "gdb_port 12345" ...
+</span></code></pre></div>
+<h2 id="connecting-to-a-board-with-a-particular-serial-number">Connecting to a Board with a Particular Serial Number<a class="headerlink" href="#connecting-to-a-board-with-a-particular-serial-number" title="Permanent link">&para;</a></h2>
+<p>If several boards are connected to the host, then OpenOCD will choose
+the first detected one. To choose a board with a particular serial number
+it's necessary to create a custom board configuration file and specify
+a serial number explicitly.</p>
+<p>Here is an example for HSDK (a serial number is set through <code>ftdi_serial</code> variable):</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>$ cat arc_hsdk.cfg
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>source [find interface/ftdi/arc_sdp.cfg]
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>ftdi_serial "251642000213"
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>adapter_khz 10000
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>transport select jtag
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>source [find target/arc_hsdk.cfg]
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>init
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>reset halt
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>$ openocd -f ./arc_hsdk.cfg
+</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>...
+</span></code></pre></div>
+<p>Here is an example for EM SDP:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>$ cat arc_em_sk_v2.3.cfg
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>source [find interface/ftdi/digilent-hs1.cfg]
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>ftdi_serial "210203826102"
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>adapter_khz 5000
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>transport select jtag
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>source [find target/arc_em_sk_fpga.cfg]
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>init
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>reset halt
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>
+</span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>$ openocd -f ./arc_em_sk_v2.3.cfg
+</span><span id="__span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>...
+</span></code></pre></div>
+<h2 id="configurations-files">Configurations Files<a class="headerlink" href="#configurations-files" title="Permanent link">&para;</a></h2>
+<p>Here is a table of configuration files for OpenOCD 0.9:</p>
+<table>
+<thead>
+<tr>
+<th>Board</th>
+<th>OpenOCD configuration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HS Development Kit 4x/4xD</td>
+<td><code>arc_hsdk_4xd.cfg</code></td>
+</tr>
+<tr>
+<td>HS Development Kit</td>
+<td><code>arc_hsdk.cfg</code></td>
+</tr>
+<tr>
+<td>IoT Development Kit</td>
+<td><code>arc_iotdk.cfg</code></td>
+</tr>
+<tr>
+<td>EM Software Development Platform</td>
+<td><code>arc_em_sk_v2.3.cfg</code></td>
+</tr>
+<tr>
+<td>EM Starter Kit 2.3</td>
+<td><code>arc_em_sk_v2.3.cfg</code></td>
+</tr>
+<tr>
+<td>EM Starter Kit 2.2</td>
+<td><code>arc_em_sk_v2.2.cfg</code></td>
+</tr>
+<tr>
+<td>EM Starter Kit 2.1</td>
+<td><code>arc_em_sk_v2.1.cfg</code></td>
+</tr>
+<tr>
+<td>EM Starter Kit 2.0</td>
+<td><code>arc_em_sk_v2.1.cfg</code></td>
+</tr>
+<tr>
+<td>EM Starter Kit 1</td>
+<td><code>arc_em_sk_v1.cfg</code></td>
+</tr>
+<tr>
+<td>AXS Software Development Platform 101</td>
+<td><code>arc_axs101.cfg</code></td>
+</tr>
+<tr>
+<td>AXS Software Development Platform 102</td>
+<td><code>arc_axs102.cfg</code></td>
+</tr>
+<tr>
+<td>AXS Software Development Platform 103 with HS36</td>
+<td><code>arc_axs103_hs36.cfg</code></td>
+</tr>
+<tr>
+<td>AXS Software Development Platform 103 with HS38</td>
+<td><code>arc_axs103_hs38.cfg</code></td>
+</tr>
+<tr>
+<td>AXS Software Development Platform 103 with HS47D</td>
+<td><code>arc_axs103_hs47D.cfg</code></td>
+</tr>
+<tr>
+<td>AXS Software Development Platform 103 with HS48</td>
+<td><code>arc_axs103_hs48.cfg</code></td>
+</tr>
+</tbody>
+</table>
 
 
 
