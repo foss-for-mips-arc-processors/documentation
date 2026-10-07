@@ -22,6 +22,12 @@ This release of GNU toolchain is supported by CGEN IPlib (TCF generator) version
 
 ## New Features and Enhancements
 
+* Performance tuning for ARC-V RPX-100 and ARC-V RMX-500
+* Improved floating-point performance for ARC-V targets
+* Added initial ARC-V RMX-700 support
+* Added experimental Zicfilp & Zicfiss (CFI) support for ARC-V targets
+* Added preliminary MIPS M8500 support
+
 ## Binary distribution
 
 * Supported host operating systems: Windows 11 64-bit, Ubuntu 22.04, RHEL/AlmaLinux 8.x
@@ -36,11 +42,6 @@ Here is a list of GitHub issues addressed in this release: [GitHub issues for 20
 * GCC 16.2 with ARC patches
     * Sources used for the release: <https://github.com/foss-for-mips-arc-processors/gcc/releases/tag/arc-2026.09-release>
     * Uses upstream 16.2 release, see release announcement ([16.1](https://lists.gnu.org/archive/html/info-gnu/2026-04/msg00013.html) and [16.2](https://lists.gnu.org/archive/html/info-gnu/2026-08/msg00000.html)) and [complete list of changes](https://gcc.gnu.org/gcc-16/changes.html).
-    * Performance tuning for ARC-V RPX-100 and ARC-V RMX-500
-    * Improved floating-point performance for ARC-V targets
-    * Added initial ARC-V RMX-700 support
-    * Added experimental Zicfilp & Zicfiss (CFI) support
-    * Added preliminary MIPS M8500 support
 * Binutils 2.45.1 with ARC patches
     * Sources used for the release: <https://github.com/foss-for-mips-arc-processors/binutils-gdb/releases/tag/arc-2026.09-release>
     * Uses upstream 2.45.1 release, see [release notes](https://sourceware.org/pipermail/binutils/2025-July/142967.html).
