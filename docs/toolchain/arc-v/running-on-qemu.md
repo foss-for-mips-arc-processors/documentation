@@ -337,6 +337,58 @@ $ qemu-system-riscv64 \
 3: three
 ```
 
+## Build and Run for Atlas M8500
+
+Build with Picolibc-based toolchain:
+
+```
+$ riscv64-gf-elf-gcc \
+        -mabi=ilp32d \
+        -mcpu=mips-m8500 \
+        -Wl,-defsym=__flash=0x80000000 \
+        -Wl,-defsym=__flash_size=1M \
+        -Wl,-defsym=__ram=0x80200000 \
+        -Wl,-defsym=__ram_size=1M \
+        -specs=picolibc.specs \
+        --oslib=semihost \
+        --crt0=semihost \
+        args.c -o args.elf
+```
+
+Build with Newlib-based toolchain:
+
+```
+$ riscv64-gf-elf-gcc \
+        -mabi=ilp32d \
+        -mcpu=mips-m8500 \
+        -Wl,-defsym=txtmem_addr=0x80000000 \
+        -Wl,-defsym=txtmem_len=1M \
+        -Wl,-defsym=datamem_addr=0x80200000 \
+        -Wl,-defsym=datamem_len=1M \
+        -specs=semihost.specs \
+        -specs=arcv.specs \
+        --crt0=no-csr \
+        -T arcv.ld \
+        args.c -o args.elf
+```
+
+Run on QEMU:
+
+```
+$ qemu-system-riscv32 \
+        -semihosting \
+        -nographic \
+        -machine virt \
+        -cpu max,c=off,zcmp=on,zcd=off,xmipstrig=on,xmipslsp=on,xmipscmov=on \
+        -bios none \
+        -kernel args.elf \
+        -append "one two three"
+0: args.elf
+1: one
+2: two
+3: three
+```
+
 ## Debugging Using GDB
 
 You can debug an application that is being run on QEMU with help of the built-in GDB server of

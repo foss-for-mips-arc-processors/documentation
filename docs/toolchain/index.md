@@ -50,6 +50,7 @@ GNU toolchain for ARC-V targets supports all ARC-V families:
 * Tuning GCC instruction scheduling for RMX-100, RMX-500, RHX-100 and RPX-100.
 * Includes optimized sets of libraries for basic profiles for RMX-100, RMX-500, RHX-100 and RPX-100.
 * Enabling ARC-V caches on startup.
+* [M8500 trigonometric intrinsics](./arc-v/xmipstrig-testing.md) (`xmipstrig`). Not supported on nSIM yet.
 
 This table depicts which GCC driver should be used depending on ISA:
 

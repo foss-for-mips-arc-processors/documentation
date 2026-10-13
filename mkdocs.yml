@@ -62,6 +62,7 @@ nav:
       - toolchain/arc-v/running-on-qemu.md
       - toolchain/arc-v/multilib.md
       - toolchain/arc-v/testing.md
+      - toolchain/arc-v/xmipstrig-testing.md
     - ARC Classic:
       - toolchain/arc-classic/getting-started-nsim.md
       - toolchain/arc-classic/getting-started-qemu.md

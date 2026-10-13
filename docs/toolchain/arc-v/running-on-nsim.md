@@ -232,9 +232,8 @@ Build with Picolibc-based toolchain:
 
 ```
 $ riscv64-gf-elf-gcc \
-        -march=rv32imafd_zba_zbb_zbs_zabha_zca_zcb_zcmp_zcmt_zcf_zicond_zihintpause_zicbop_zimop_zcmop_zfa \
         -mabi=ilp32d \
-        -mtune=mips-m8500 \
+        -mcpu=mips-m8500 \
         -specs=picolibc.specs \
         --oslib=semihost \
         --crt0=semihost \
