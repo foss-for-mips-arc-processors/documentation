@@ -283,6 +283,60 @@ $ qemu-system-riscv64 \
 3: three
 ```
 
+## Build and Run for Atlas M8500
+
+Build with Picolibc-based toolchain:
+
+```
+$ riscv64-gf-elf-gcc \
+        -mabi=ilp32d \
+        -mcpu=mips-m8500 \
+        -Wl,-defsym=__flash=0x80000000 \
+        -Wl,-defsym=__flash_size=1M \
+        -Wl,-defsym=__ram=0x80200000 \
+        -Wl,-defsym=__ram_size=1M \
+        -specs=picolibc.specs \
+        --oslib=semihost \
+        --crt0=semihost \
+        args.c -o args.elf
+```
+
+Build with Newlib-based toolchain:
+
+```
+$ riscv64-gf-elf-gcc \
+        -mabi=ilp32d \
+        -mcpu=mips-m8500 \
+        -Wl,-defsym=txtmem_addr=0x80000000 \
+        -Wl,-defsym=txtmem_len=1M \
+        -Wl,-defsym=datamem_addr=0x80200000 \
+        -Wl,-defsym=datamem_len=1M \
+        -specs=semihost.specs \
+        -specs=arcv.specs \
+        --crt0=no-csr \
+        -T arcv.ld \
+        args.c -o args.elf
+```
+
+Use a MIPS-enabled QEMU build. These extensions are not supported on upstream QEMU yet. Reach out to customer support via the [Atlas Portal](https://mips.com/atlasportal/) if you need such a build ([login guide](https://mips.com/wp-content/uploads/2026/06/Atlas-Portal-New-Login-Guide-2.pdf)).
+
+Run on QEMU:
+
+```
+$ qemu-system-riscv32 \
+        -semihosting \
+        -nographic \
+        -machine virt \
+        -cpu rv32,c=off,zce=on,zicond=on,zabha=on,zbkb=on,zbkx=on,zilsd=on,xmipscmov=on,xmipslsp=on,xmipstrig=on \
+        -bios none \
+        -kernel args.elf \
+        -append "one two three"
+0: args.elf
+1: one
+2: two
+3: three
+```
+
 ## Debugging Using GDB
 
 You can debug an application that is being run on QEMU with help of the built-in GDB server of
