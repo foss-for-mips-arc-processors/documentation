@@ -372,6 +372,8 @@ $ riscv64-gf-elf-gcc \
         args.c -o args.elf
 ```
 
+Use a MIPS-enabled QEMU build. These extensions are not supported on upstream QEMU yet.
+
 Run on QEMU:
 
 ```
