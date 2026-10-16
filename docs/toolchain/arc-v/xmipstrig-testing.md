@@ -96,8 +96,8 @@ $ riscv64-gf-elf-gcc \
 $ qemu-system-riscv32 \
     -semihosting-config enable=on,target=native \
     -monitor none -serial none -nographic \
-    -machine virt -cpu max,c=off,zcmp=on,zcd=off,xmipstrig=on,xmipslsp=on,xmipscmov=on -bios none \
-    -kernel check_trig_test.elf
+    -cpu rv32,c=off,zce=on,zicond=on,zabha=on,zbkb=on,zbkx=on,zilsd=on,xmipscmov=on,xmipslsp=on,xmipstrig=on \
+    -machine virt -bios none -kernel check_trig_test.elf
 ```
 
 It's expected that the sample prints:

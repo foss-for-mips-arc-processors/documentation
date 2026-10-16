@@ -379,7 +379,7 @@ $ qemu-system-riscv32 \
         -semihosting \
         -nographic \
         -machine virt \
-        -cpu max,c=off,zcmp=on,zcd=off,xmipstrig=on,xmipslsp=on,xmipscmov=on \
+        -cpu rv32,c=off,zce=on,zicond=on,zabha=on,zbkb=on,zbkx=on,zilsd=on,xmipscmov=on,xmipslsp=on,xmipstrig=on \
         -bios none \
         -kernel args.elf \
         -append "one two three"
