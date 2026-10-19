@@ -24,13 +24,12 @@ This release of GNU toolchain is supported by CGEN IPlib (TCF generator) version
 
 * Performance tuning for ARC-V RPX-100 and ARC-V RMX-500
 * Improved floating-point performance for ARC-V targets
-* Added initial ARC-V RMX-700 support
 * Added experimental Zicfilp & Zicfiss (CFI) support for ARC-V targets
 * Added preliminary MIPS M8500 support
 
 ## Binary distribution
 
-* Supported host operating systems: Windows 11 64-bit, Ubuntu 22.04, RHEL/AlmaLinux 8.x
+* Supported host operating systems: Windows 11 64-bit, Ubuntu 22.04, Ubuntu 24.04, RHEL/AlmaLinux 8.x
 * Prebuilt bare-metal toolchains for 64-bit Windows & Linux hosts, see table with references and list of artifacts below.
 
 ## Toolchain Components

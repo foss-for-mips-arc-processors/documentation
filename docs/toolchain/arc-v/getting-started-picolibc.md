@@ -181,7 +181,6 @@ targets using `-mtune=` option:
 |------------------------------|-------------------------------|
 | Tune for RMX-100 targets     | `-mtune=arc-v-rmx-100-series` |
 | Tune for RMX-500 targets     | `-mtune=arc-v-rmx-500-series` |
-| Tune for RMX-700 targets     | `-mtune=arc-v-rmx-700-series` |
 | Tune for RHX-100 targets     | `-mtune=arc-v-rhx-100-series` |
 | Tune for RPX-100 targets     | `-mtune=arc-v-rpx-100-series` |
 | Tune for Atlas M8500 targets | `-mtune=mips-m8500`           |
@@ -191,9 +190,6 @@ For RMX-100 targets it's also possible to choose a version of MPY unit using `-m
 * `-mmpy-option=1c`
 * `-mmpy-option=2c` (default)
 * `-mmpy-option=10c`
-
-You can choose a number of cycles that a word-size integer load operation takes
-(from 1 to 3, 3 is default) using `--param=arcv-ld-cycles=<1,3>` option.
 
 Note that all `-mtune` values for ARC-V assume that fast unaligned access is supported
 (`__riscv_misaligned_fast == 1`) by targets. This assumption may be overwritten by

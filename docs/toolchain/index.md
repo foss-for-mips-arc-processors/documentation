@@ -9,8 +9,9 @@ Prebuilt toolchain on [the release page](https://github.com/foss-for-mips-arc-pr
 are supported on these systems for x86-64 targets:
 
 1. Ubuntu 22.04
-2. RedHat Enterprise Linux (RHEL) 8.x and compatible alternatives
-3. Windows 11
+2. Ubuntu 24.04
+3. RedHat Enterprise Linux (RHEL) 8.x and compatible alternatives
+4. Windows 11
 
 Note that [the TCF wrapper](./arc-v/getting-started-picolibc.md#using-the-tcf-wrapper) and
 [the Buildlib tool](./arc-v/multilib.md#using-buildlib-for-building-libraries) are not supported for
