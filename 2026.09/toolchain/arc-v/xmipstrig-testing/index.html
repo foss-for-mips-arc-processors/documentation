@@ -4447,14 +4447,15 @@
 <p>Compile it and run it on QEMU:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ riscv64-gf-elf-gcc \
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    --specs=picolibc.specs --oslib=semihost --crt0=semihost \
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    -mabi=ilp32d -O2 -mcpu=mips-m8500 \
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    -Wl,--defsym=__flash=0x80000000 -Wl,--defsym=__ram=0x82000000 \
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    check_trig_test.c -o check_trig_test.elf
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>$ qemu-system-riscv32 \
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    -semihosting-config enable=on,target=native \
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    -monitor none -serial none -nographic \
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    -cpu rv32,c=off,zce=on,zicond=on,zabha=on,zbkb=on,zbkx=on,zilsd=on,xmipscmov=on,xmipslsp=on,xmipstrig=on \
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    -machine virt -bios none -kernel check_trig_test.elf
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    -march=rv32imafd_zba_zbb_zbs_zabha_zca_zcb_zcmp_zcmt_zcf_zicond_zihintpause_zicbop_zimop_zcmop_zfa_xmipscmov_xmipslsp_xmipstrig \
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    -mabi=ilp32d -O2 -mtune=mips-m8500 \
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    -Wl,--defsym=__flash=0x80000000 -Wl,--defsym=__ram=0x82000000 \
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    check_trig_test.c -o check_trig_test.elf
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>$ qemu-system-riscv32 \
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    -semihosting-config enable=on,target=native \
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    -monitor none -serial none -nographic \
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    -cpu rv32,c=off,zce=on,zicond=on,zabha=on,zbkb=on,zbkx=on,zilsd=on,xmipscmov=on,xmipslsp=on,xmipstrig=on \
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    -machine virt -bios none -kernel check_trig_test.elf
 </span></code></pre></div>
 <p>It's expected that the sample prints:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Total tests: 172
@@ -4463,34 +4464,34 @@
 </span></code></pre></div>
 <p>Also, verify that the binary contains trigonometric instructions:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ riscv64-gf-elf-objdump -d check_trig_test.elf | grep "mips\."
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>80000118:       5017c80b                mips.lwp  a6,a0,0(a5)
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>8000011c:       6097c58b                mips.lwp  a1,a2,8(a5)
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>80000122:       5107508b                mips.swp  a6,a0,0(a4)
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>80000126:       60b7548b                mips.swp  a1,a2,8(a4)
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>8000016e:       e194078b                mips.ffexp2.s  fa5,fs0
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>800001e2:       e1c4070b                mips.ffsqrt.s  fa4,fs0
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>80000206:       e1d4040b                mips.ffrsqrt.s  fs0,fs0
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>8000025a:       e004878b                mips.fsinhz.s  fa5,fs1
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>8000029c:       e1b40a8b                mips.ffrecip.s  fs5,fs0
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>800002b0:       e1c7868b                mips.ffsqrt.s  fa3,fa5
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>800002b4:       e1d7878b                mips.ffrsqrt.s  fa5,fa5
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>800002c0:       e066868b                mips.fatanhz.s  fa3,fa3
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>800002c4:       e067878b                mips.fatanhz.s  fa5,fa5
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>80000302:       e014878b                mips.fcoshz.s  fa5,fs1
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>80000340:       e024870b                mips.ftanhz.s  fa4,fs1
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>8000034c:       e027878b                mips.ftanhz.s  fa5,fa5
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>80000350:       e1b7878b                mips.ffrecip.s  fa5,fa5
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>80000386:       e06a868b                mips.fatanhz.s  fa3,fs5
-</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>8000038e:       e064078b                mips.fatanhz.s  fa5,fs0
-</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>800003da:       e034848b                mips.fversinhz.s  fs1,fs1
-</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>8000041c:       e184078b                mips.fflog2.s  fa5,fs0
-</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>80000462:       e194078b                mips.ffexp2.s  fa5,fs0
-</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>80000528:       e1d4040b                mips.ffrsqrt.s  fs0,fs0
-</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>800005ca:       e1c4078b                mips.ffsqrt.s  fa5,fs0
-</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>800005e8:       e1d4040b                mips.ffrsqrt.s  fs0,fs0
-</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>8000063a:       e1c4070b                mips.ffsqrt.s  fa4,fs0
-</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>80000680:       e014878b                mips.fcoshz.s  fa5,fs1
-</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>800006d2:       e1d4040b                mips.ffrsqrt.s  fs0,fs0
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>8000011a:       5017c80b                mips.lwp  a6,a0,0(a5)
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>8000011e:       6097c58b                mips.lwp  a1,a2,8(a5)
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>80000124:       5107508b                mips.swp  a6,a0,0(a4)
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>80000128:       60b7548b                mips.swp  a1,a2,8(a4)
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>80000174:       e194078b                mips.ffexp2.s  fa5,fs0
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>800001e8:       e1c4070b                mips.ffsqrt.s  fa4,fs0
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>8000020c:       e1d4040b                mips.ffrsqrt.s  fs0,fs0
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>80000260:       e004878b                mips.fsinhz.s  fa5,fs1
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>800002a2:       e1b40b0b                mips.ffrecip.s  fs6,fs0
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>800002b6:       e1c7868b                mips.ffsqrt.s  fa3,fa5
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>800002ba:       e1d7878b                mips.ffrsqrt.s  fa5,fa5
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>800002c6:       e066868b                mips.fatanhz.s  fa3,fa3
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>800002ca:       e067878b                mips.fatanhz.s  fa5,fa5
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>80000308:       e014878b                mips.fcoshz.s  fa5,fs1
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>80000346:       e024870b                mips.ftanhz.s  fa4,fs1
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>80000352:       e027878b                mips.ftanhz.s  fa5,fa5
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>80000356:       e1b7878b                mips.ffrecip.s  fa5,fa5
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>8000038c:       e06b068b                mips.fatanhz.s  fa3,fs6
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>80000394:       e064078b                mips.fatanhz.s  fa5,fs0
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>800003e0:       e034848b                mips.fversinhz.s  fs1,fs1
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>8000041e:       e184078b                mips.fflog2.s  fa5,fs0
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>80000464:       e194078b                mips.ffexp2.s  fa5,fs0
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>8000052c:       e1d4040b                mips.ffrsqrt.s  fs0,fs0
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>800005ce:       e1c4078b                mips.ffsqrt.s  fa5,fs0
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>800005ec:       e1d4040b                mips.ffrsqrt.s  fs0,fs0
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>8000063e:       e1c4070b                mips.ffsqrt.s  fa4,fs0
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>80000684:       e014878b                mips.fcoshz.s  fa5,fs1
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>800006da:       e1d4040b                mips.ffrsqrt.s  fs0,fs0
 </span></code></pre></div>
 
 
