@@ -289,8 +289,9 @@ Build with Picolibc-based toolchain:
 
 ```
 $ riscv64-gf-elf-gcc \
+        -march=rv32imafd_zba_zbb_zbs_zabha_zca_zcb_zcmp_zcmt_zcf_zicond_zihintpause_zicbop_zimop_zcmop_zfa_xmipscmov_xmipslsp_xmipstrig \
         -mabi=ilp32d \
-        -mcpu=mips-m8500 \
+        -mtune=mips-m8500 \
         -Wl,-defsym=__flash=0x80000000 \
         -Wl,-defsym=__flash_size=1M \
         -Wl,-defsym=__ram=0x80200000 \
@@ -305,8 +306,9 @@ Build with Newlib-based toolchain:
 
 ```
 $ riscv64-gf-elf-gcc \
+        -march=rv32imafd_zba_zbb_zbs_zabha_zca_zcb_zcmp_zcmt_zcf_zicond_zihintpause_zicbop_zimop_zcmop_zfa_xmipscmov_xmipslsp_xmipstrig \
         -mabi=ilp32d \
-        -mcpu=mips-m8500 \
+        -mtune=mips-m8500 \
         -Wl,-defsym=txtmem_addr=0x80000000 \
         -Wl,-defsym=txtmem_len=1M \
         -Wl,-defsym=datamem_addr=0x80200000 \

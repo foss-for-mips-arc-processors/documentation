@@ -90,7 +90,8 @@ Compile it and run it on QEMU:
 ```
 $ riscv64-gf-elf-gcc \
     --specs=picolibc.specs --oslib=semihost --crt0=semihost \
-    -mabi=ilp32d -O2 -mcpu=mips-m8500 \
+    -march=rv32imafd_zba_zbb_zbs_zabha_zca_zcb_zcmp_zcmt_zcf_zicond_zihintpause_zicbop_zimop_zcmop_zfa_xmipscmov_xmipslsp_xmipstrig \
+    -mabi=ilp32d -O2 -mtune=mips-m8500 \
     -Wl,--defsym=__flash=0x80000000 -Wl,--defsym=__ram=0x82000000 \
     check_trig_test.c -o check_trig_test.elf
 $ qemu-system-riscv32 \
@@ -112,32 +113,32 @@ Also, verify that the binary contains trigonometric instructions:
 
 ```
 $ riscv64-gf-elf-objdump -d check_trig_test.elf | grep "mips\."
-80000118:       5017c80b                mips.lwp  a6,a0,0(a5)
-8000011c:       6097c58b                mips.lwp  a1,a2,8(a5)
-80000122:       5107508b                mips.swp  a6,a0,0(a4)
-80000126:       60b7548b                mips.swp  a1,a2,8(a4)
-8000016e:       e194078b                mips.ffexp2.s  fa5,fs0
-800001e2:       e1c4070b                mips.ffsqrt.s  fa4,fs0
-80000206:       e1d4040b                mips.ffrsqrt.s  fs0,fs0
-8000025a:       e004878b                mips.fsinhz.s  fa5,fs1
-8000029c:       e1b40a8b                mips.ffrecip.s  fs5,fs0
-800002b0:       e1c7868b                mips.ffsqrt.s  fa3,fa5
-800002b4:       e1d7878b                mips.ffrsqrt.s  fa5,fa5
-800002c0:       e066868b                mips.fatanhz.s  fa3,fa3
-800002c4:       e067878b                mips.fatanhz.s  fa5,fa5
-80000302:       e014878b                mips.fcoshz.s  fa5,fs1
-80000340:       e024870b                mips.ftanhz.s  fa4,fs1
-8000034c:       e027878b                mips.ftanhz.s  fa5,fa5
-80000350:       e1b7878b                mips.ffrecip.s  fa5,fa5
-80000386:       e06a868b                mips.fatanhz.s  fa3,fs5
-8000038e:       e064078b                mips.fatanhz.s  fa5,fs0
-800003da:       e034848b                mips.fversinhz.s  fs1,fs1
-8000041c:       e184078b                mips.fflog2.s  fa5,fs0
-80000462:       e194078b                mips.ffexp2.s  fa5,fs0
-80000528:       e1d4040b                mips.ffrsqrt.s  fs0,fs0
-800005ca:       e1c4078b                mips.ffsqrt.s  fa5,fs0
-800005e8:       e1d4040b                mips.ffrsqrt.s  fs0,fs0
-8000063a:       e1c4070b                mips.ffsqrt.s  fa4,fs0
-80000680:       e014878b                mips.fcoshz.s  fa5,fs1
-800006d2:       e1d4040b                mips.ffrsqrt.s  fs0,fs0
+8000011a:       5017c80b                mips.lwp  a6,a0,0(a5)
+8000011e:       6097c58b                mips.lwp  a1,a2,8(a5)
+80000124:       5107508b                mips.swp  a6,a0,0(a4)
+80000128:       60b7548b                mips.swp  a1,a2,8(a4)
+80000174:       e194078b                mips.ffexp2.s  fa5,fs0
+800001e8:       e1c4070b                mips.ffsqrt.s  fa4,fs0
+8000020c:       e1d4040b                mips.ffrsqrt.s  fs0,fs0
+80000260:       e004878b                mips.fsinhz.s  fa5,fs1
+800002a2:       e1b40b0b                mips.ffrecip.s  fs6,fs0
+800002b6:       e1c7868b                mips.ffsqrt.s  fa3,fa5
+800002ba:       e1d7878b                mips.ffrsqrt.s  fa5,fa5
+800002c6:       e066868b                mips.fatanhz.s  fa3,fa3
+800002ca:       e067878b                mips.fatanhz.s  fa5,fa5
+80000308:       e014878b                mips.fcoshz.s  fa5,fs1
+80000346:       e024870b                mips.ftanhz.s  fa4,fs1
+80000352:       e027878b                mips.ftanhz.s  fa5,fa5
+80000356:       e1b7878b                mips.ffrecip.s  fa5,fa5
+8000038c:       e06b068b                mips.fatanhz.s  fa3,fs6
+80000394:       e064078b                mips.fatanhz.s  fa5,fs0
+800003e0:       e034848b                mips.fversinhz.s  fs1,fs1
+8000041e:       e184078b                mips.fflog2.s  fa5,fs0
+80000464:       e194078b                mips.ffexp2.s  fa5,fs0
+8000052c:       e1d4040b                mips.ffrsqrt.s  fs0,fs0
+800005ce:       e1c4078b                mips.ffsqrt.s  fa5,fs0
+800005ec:       e1d4040b                mips.ffrsqrt.s  fs0,fs0
+8000063e:       e1c4070b                mips.ffsqrt.s  fa4,fs0
+80000684:       e014878b                mips.fcoshz.s  fa5,fs1
+800006da:       e1d4040b                mips.ffrsqrt.s  fs0,fs0
 ```
