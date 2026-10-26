@@ -24,13 +24,6 @@ cd buildroot
 
 ## Building Images Without a Preinstalled Toolchain
 
-!!! info
-
-    By default, `gf_archs38_haps_defconfig` uses `haps_hs_smp`
-    kernel configuration file. If you are going to run an image on nSIM with
-    a single core then change it to `haps_hs` through `make menuconfig`
-    (`Kernel` -> `Defconfig name` -> `haps_hs`).
-
 You can configure Buildroot using these commands:
 
 ```shell
@@ -39,6 +32,13 @@ make gf_archs38_haps_defconfig # ARCv2 HS4x, nSIM and QEMU
 make gf_arc32_defconfig # ARCv3 HS5x, nSIM and QEMU
 make gf_arc64_defconfig # ARCv3 HS6x, nSIM and QEMU
 ```
+
+!!! info
+
+    By default, `gf_archs38_haps_defconfig` uses `haps_hs_smp`
+    kernel configuration file. If you are going to run an image on nSIM with
+    a single core then change it to `haps_hs` through `make menuconfig`
+    (`Kernel` -> `Defconfig name` -> `haps_hs`).
 
 Then run `make` to build images.
 
