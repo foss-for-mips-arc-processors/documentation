@@ -4766,6 +4766,12 @@ instead of <code>-prop=nsim_mem-dev=&lt;...&gt;</code> property presented in the
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>buildroot
 </span></code></pre></div>
 <h2 id="building-images-without-a-preinstalled-toolchain">Building Images Without a Preinstalled Toolchain<a class="headerlink" href="#building-images-without-a-preinstalled-toolchain" title="Permanent link">&para;</a></h2>
+<p>You can configure Buildroot using these commands:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>make<span class="w"> </span>gf_arc700_nsim_defconfig<span class="w">  </span><span class="c1"># ARCompact ARC700, nSIM</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>make<span class="w"> </span>gf_archs38_haps_defconfig<span class="w"> </span><span class="c1"># ARCv2 HS4x, nSIM and QEMU</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>make<span class="w"> </span>gf_arc32_defconfig<span class="w"> </span><span class="c1"># ARCv3 HS5x, nSIM and QEMU</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>make<span class="w"> </span>gf_arc64_defconfig<span class="w"> </span><span class="c1"># ARCv3 HS6x, nSIM and QEMU</span>
+</span></code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>By default, <code>gf_archs38_haps_defconfig</code> uses <code>haps_hs_smp</code>
@@ -4773,12 +4779,6 @@ kernel configuration file. If you are going to run an image on nSIM with
 a single core then change it to <code>haps_hs</code> through <code>make menuconfig</code>
 (<code>Kernel</code> -&gt; <code>Defconfig name</code> -&gt; <code>haps_hs</code>).</p>
 </div>
-<p>You can configure Buildroot using these commands:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>make<span class="w"> </span>gf_arc700_nsim_defconfig<span class="w">  </span><span class="c1"># ARCompact ARC700, nSIM</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>make<span class="w"> </span>gf_archs38_haps_defconfig<span class="w"> </span><span class="c1"># ARCv2 HS4x, nSIM and QEMU</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>make<span class="w"> </span>gf_arc32_defconfig<span class="w"> </span><span class="c1"># ARCv3 HS5x, nSIM and QEMU</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>make<span class="w"> </span>gf_arc64_defconfig<span class="w"> </span><span class="c1"># ARCv3 HS6x, nSIM and QEMU</span>
-</span></code></pre></div>
 <p>Then run <code>make</code> to build images.</p>
 <h2 id="running-images-using-nsim">Running Images Using nSIM<a class="headerlink" href="#running-images-using-nsim" title="Permanent link">&para;</a></h2>
 <h3 id="hs4x-targets">HS4x Targets<a class="headerlink" href="#hs4x-targets" title="Permanent link">&para;</a></h3>
