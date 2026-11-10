@@ -78,6 +78,8 @@ Here is a list of GitHub issues addressed in this release: [GitHub issues for 20
    detect it and tries to call `arc_cache_init` even if it's not declared. Using of
    `CUR_CORE=archs38_smp` resolves the issue.
 
+6. Windows, macOS toolchains & IDE don’t support ARCv3 processors​
+
 ### ARC-V
 
 1. Some complex combinations of `-march=` and `-mabi=` options may lead to unpredictable errors during compilation. Such issues are related to general support of RISC-V extensions in GCC. Refer [#610](https://github.com/foss-for-mips-arc-processors/toolchain/issues/610) for details.
