@@ -4313,6 +4313,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#arc-v-specific-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ARC-V Specific Extensions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#m8500-specific-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        M8500 Specific Extensions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#toolchains-for-linux-targets-for-arc-classic" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4438,7 +4460,11 @@ GNU toolchain for ARC-V targets supports all ARC-V families:</p>
 <li>Tuning GCC instruction scheduling for RMX-100, RMX-500, RHX-100 and RPX-100.</li>
 <li>Includes optimized sets of libraries for basic profiles for RMX-100, RMX-500, RHX-100 and RPX-100.</li>
 <li>Enabling ARC-V caches on startup.</li>
-<li><a href="arc-v/xmipstrig-testing/">M8500 trigonometric intrinsics</a> (<code>xmipstrig</code>). Not supported on nSIM yet.</li>
+<li>Refer <a href="#arc-v-specific-extensions">ARC-V Specific Extensions</a> for a full list of supported ARC-V
+  specific extensions. Follow <a href="arc-v/testing/">ARC-V micro-DSP Extension guide</a> for an example.</li>
+<li>Refer <a href="#m8500-specific-extensions">M8500 Specific Extensions</a> for a full list of supported M8500 specific
+  extensions. Follow <a href="arc-v/xmipstrig-testing/">M8500 trigonometric intrinsics guide</a> (<code>xmipstrig</code>)
+  for an example. Not supported on nSIM yet.</li>
 </ul>
 <p>This table depicts which GCC driver should be used depending on ISA:</p>
 <table>
@@ -4511,6 +4537,116 @@ are configured with <code>arc64-elf-</code> prefix only and work both with HS5x 
 families. However, you can configure the toolchain for HS5x with <code>arc32-elf-</code> prefix using
 <a href="https://github.com/foss-for-mips-arc-processors/toolchain#crosstool-ng-configuration-manual-tuning">Crosstool-NG</a>
 configuration menu.</p>
+<h2 id="arc-v-specific-extensions">ARC-V Specific Extensions<a class="headerlink" href="#arc-v-specific-extensions" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>xarcvudsp</code></td>
+<td>ARC-V micro-DSP extension</td>
+</tr>
+<tr>
+<td><code>xarcvbitrev</code></td>
+<td>ARC-V bit-reverse addressing extension</td>
+</tr>
+<tr>
+<td><code>xarcvbitstream</code></td>
+<td>ARC-V bit-stream extension</td>
+</tr>
+<tr>
+<td><code>xarcvvdsp</code></td>
+<td>ARC-V fixed-point DSP extension</td>
+</tr>
+<tr>
+<td><code>xarcvvcplx</code></td>
+<td>ARC-V complex numbers extension</td>
+</tr>
+<tr>
+<td><code>xarcvvsad</code></td>
+<td>ARC-V sum of absolute difference extension</td>
+</tr>
+<tr>
+<td><code>xarcvmxmb</code></td>
+<td>ARC-V 4x4 matrix multiplication extension</td>
+</tr>
+<tr>
+<td><code>xarcvmxmc</code></td>
+<td>ARC-V 8x8 matrix multiplication extension</td>
+</tr>
+<tr>
+<td><code>xarcvmxmd</code></td>
+<td>ARC-V 16x16 matrix multiplication extension</td>
+</tr>
+</tbody>
+</table>
+<h2 id="m8500-specific-extensions">M8500 Specific Extensions<a class="headerlink" href="#m8500-specific-extensions" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>xmipscmov</code></td>
+<td>Mips conditional mov extension</td>
+</tr>
+<tr>
+<td><code>xmipstrig</code></td>
+<td>Mips trigonometry extension</td>
+</tr>
+<tr>
+<td><code>xmipslsp</code></td>
+<td>Mips load/store pairs extension</td>
+</tr>
+<tr>
+<td><code>xmipsuarchdis</code></td>
+<td>Mips micro-architecture specific disable bits extension</td>
+</tr>
+<tr>
+<td><code>xmipsfeatdis</code></td>
+<td>Mips control cross-implementation disable bits extension</td>
+</tr>
+<tr>
+<td><code>xmipsdebugbase</code></td>
+<td>Mips point to the base of the per-hart debug memory extension</td>
+</tr>
+<tr>
+<td><code>xmipswfe</code></td>
+<td>Mips wait for event extension</td>
+</tr>
+<tr>
+<td><code>xmipsrtmt</code></td>
+<td>Mips rtmt extension</td>
+</tr>
+<tr>
+<td><code>xmipssecarch</code></td>
+<td>Mips security architecture extension</td>
+</tr>
+<tr>
+<td><code>xmipsclicvirt</code></td>
+<td>Mips virtualized interrupt identification extension</td>
+</tr>
+<tr>
+<td><code>xmipscache</code></td>
+<td>Mips Cache presence reporting and geometry information extension</td>
+</tr>
+<tr>
+<td><code>xmipssecdebug</code></td>
+<td>Mips security debug extension</td>
+</tr>
+<tr>
+<td><code>xmipsexectl</code></td>
+<td>Mips execution barriers and pause extension</td>
+</tr>
+</tbody>
+</table>
 <h2 id="toolchains-for-linux-targets-for-arc-classic">Toolchains for Linux Targets for ARC Classic<a class="headerlink" href="#toolchains-for-linux-targets-for-arc-classic" title="Permanent link">&para;</a></h2>
 <p>There is a set of GNU toolchains for ARC Classic processors which allow to build and debug
 applications for Linux. The Linux kernel itself for ARC Classic processors may be built using
