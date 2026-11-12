@@ -51,7 +51,11 @@ GNU toolchain for ARC-V targets supports all ARC-V families:
 * Tuning GCC instruction scheduling for RMX-100, RMX-500, RHX-100 and RPX-100.
 * Includes optimized sets of libraries for basic profiles for RMX-100, RMX-500, RHX-100 and RPX-100.
 * Enabling ARC-V caches on startup.
-* [M8500 trigonometric intrinsics](./arc-v/xmipstrig-testing.md) (`xmipstrig`). Not supported on nSIM yet.
+* Refer [ARC-V Specific Extensions](#arc-v-specific-extensions) for a full list of supported ARC-V
+  specific extensions. Follow [ARC-V micro-DSP Extension guide](./arc-v/testing.md) for an example.
+* Refer [M8500 Specific Extensions](#m8500-specific-extensions) for a full list of supported M8500 specific
+  extensions. Follow [M8500 trigonometric intrinsics guide](./arc-v/xmipstrig-testing.md) (`xmipstrig`)
+  for an example. Not supported on nSIM yet.
 
 This table depicts which GCC driver should be used depending on ISA:
 
@@ -76,6 +80,38 @@ are configured with `arc64-elf-` prefix only and work both with HS5x and HS6x
 families. However, you can configure the toolchain for HS5x with `arc32-elf-` prefix using
 [Crosstool-NG](https://github.com/foss-for-mips-arc-processors/toolchain#crosstool-ng-configuration-manual-tuning)
 configuration menu.
+
+## ARC-V Specific Extensions
+
+| Extension        | Description                                 |
+|------------------|---------------------------------------------|
+| `xarcvudsp`      | ARC-V micro-DSP extension                   |
+| `xarcvbitrev`    | ARC-V bit-reverse addressing extension      |
+| `xarcvbitstream` | ARC-V bit-stream extension                  |
+| `xarcvvdsp`      | ARC-V fixed-point DSP extension             |
+| `xarcvvcplx`     | ARC-V complex numbers extension             |
+| `xarcvvsad`      | ARC-V sum of absolute difference extension  |
+| `xarcvmxmb`      | ARC-V 4x4 matrix multiplication extension   |
+| `xarcvmxmc`      | ARC-V 8x8 matrix multiplication extension   |
+| `xarcvmxmd`      | ARC-V 16x16 matrix multiplication extension |
+
+## M8500 Specific Extensions
+
+| Extension        | Description                                                      |
+|------------------|------------------------------------------------------------------|
+| `xmipscmov`      | Mips conditional mov extension                                   |
+| `xmipstrig`      | Mips trigonometry extension                                      |
+| `xmipslsp`       | Mips load/store pairs extension                                  |
+| `xmipsuarchdis`  | Mips micro-architecture specific disable bits extension          |
+| `xmipsfeatdis`   | Mips control cross-implementation disable bits extension         |
+| `xmipsdebugbase` | Mips point to the base of the per-hart debug memory extension    |
+| `xmipswfe`       | Mips wait for event extension                                    |
+| `xmipsrtmt`      | Mips rtmt extension                                              |
+| `xmipssecarch`   | Mips security architecture extension                             |
+| `xmipsclicvirt`  | Mips virtualized interrupt identification extension              |
+| `xmipscache`     | Mips Cache presence reporting and geometry information extension |
+| `xmipssecdebug`  | Mips security debug extension                                    |
+| `xmipsexectl`    | Mips execution barriers and pause extension                      |
 
 ## Toolchains for Linux Targets for ARC Classic
 
